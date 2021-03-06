@@ -1,6 +1,3 @@
-# SEMI1-PRACTICA1-G37
-Práctica 1 del laboratorio del curso Seminario de Sistemas 1
-
 # MANUAL DE CONFIGURACIONES
 
 El siguiente manual, muestra los pasos a seguir para configurar los servicios de AWS que se utilizaron para resolver la práctica.
