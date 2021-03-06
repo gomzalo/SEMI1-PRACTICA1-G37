@@ -6,12 +6,12 @@ var corsOptions = {origin: true, optionsSuccessStatus: 200}
 
 app.use(cors(corsOptions))
 app.use(bodyParser.json())
-const port = 3000
+const port = 3333
 
 app.get('/', (req, res) =>{
     res.json({mensaje: 'Testing server'})
 })
 
 app.listen(port, () => {
-    console.log('Example app listening at http://localhost:${port}')
+    console.log('Listening on http://localhost:${port}/', port)
 })

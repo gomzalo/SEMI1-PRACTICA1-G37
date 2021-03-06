@@ -15,5 +15,20 @@ Hecho esto, se creará la instancia en donde se crearán los servidores, esto es
 En nuestro caso usamos una instancia Ubuntu Server 20.04, con almacenamiento de 8GB (que cubre la capa gratuita de AWS).
 Y en esta instancia, o máquina virtual, estaremos trabajando y levanddo nuestro servidor.
 
+Para permitir el trafico en el puerto que estara trabajando nuestro servidor, se debe de agregar una regla de seguridad.
+Desde la consola de EC2 en AWS, se selecciona *seguridad* de nuestra instancia.
+
+![Seguridad - EC2](Img/ec2sec.png "Seguridad - EC2")
+
+Luego, se presiona clic en el Grupo de seguridad y estando ahi seleccionamos *Editar seguridad*.
+
+![Editar seguridad - EC2](Img/ec2editsec.png "Editar seguridad - EC2")
+
+Agregamos una regla *TCP personalizado* con el puerto que usaremos y con origen 0.0.0.0/0 para permitir todo el trafico en dicho puerto. Luego clicamos en *Guardar*.
+
+![Seguridad 3333 - EC2](Img/ec2sec3333.png "Seguridad 3333 - EC2")
+
+Con esto ya se permite el acceso en el puerto que usara nuestro servidor.
+
 ### Servidor Node.js
 
