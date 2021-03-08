@@ -25,7 +25,7 @@ app.listen(port, () => {
 })
 
 
-const db_credentials = require('./db_credentials');
+// const db_credentials = require('./db_credentials');
 // var conn = mysql.createPool(db_credentials);
 
 // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -35,6 +35,7 @@ const db_credentials = require('./db_credentials');
 var AWS = require('aws-sdk');
 // Instanciando los servicios a utilizar y sus accesos.
 const s3 = new AWS.S3(aws_keys.s3);
+const ddb = new AWS.DynamoDB(aws_keys.dynamodb);
 
 // *****************    Almacenamiento - S3     *****************
 
@@ -86,8 +87,49 @@ app.post('/subirfoto', function (req, res) {
   
   // *****************      BD      *****************
   
-  //subir foto y guardar en dynamo
-  app.post('/saveImageInfoDDB', (req, res) => {
+  // Login
+
+  app.post('/login', (req, res) => {
+      var user = req.body.user;
+    //   var pass = req.body.pass;
+      
+    //   AWS.config.update({
+    //     // apiVersion: '2012-08-10',
+    //     region: 'us-east-2',
+    //     // endpoint: 'http://localhost:3333'
+    //     accessKeyId: "AKIASKVPP37UOWR226ON",
+    //     secretAccessKey: "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"
+    //   });
+
+    //   var ddb = new AWS.DynamoDB.DocumentClient();
+      //Consultar un registro
+    var params = {
+        TableName: 'Usuario',
+        FilterExpression: "#usr = :usrn",
+        ExpressionAttributeNames: {
+            "#usr": "user"
+            // 'contrasenia': {S: pass.toString()}
+        },
+        ExpressionAttributeValues: {
+            ":usrn": {"S": user}
+            // 'contrasenia': {S: pass.toString()}
+        },
+        ProjectionExpression: 'username'  //Este es solo para obtener un dato en especifico
+        // Limit: 10
+    };
+
+    ddb.scan(params, function(err, data) {
+        if (err) {
+            console.log("Error", err);
+            res.send({ 'message': 'ddb failed' });
+        } else {
+            console.log("Success", data.Items);
+            res.send({ 'message': 'ddb success' });
+        }
+    });
+  });
+//subir foto y guardar en dynamo
+app.post('/subirImagenDB', (req, res) => {
     let body = req.body;
   
     let name = body.name;
@@ -100,8 +142,8 @@ app.post('/subirfoto', function (req, res) {
     let filename = `${name}-${uuid()}.${extension}`; //uuid() genera un id unico para el archivo en s3
   
     //Parámetros para S3
-    let bucketname = 'bucket';
-    let folder = 'fotos/';
+    let bucketname = 'practica1-g37-imagenes';
+    let folder = 'fotos_publicadas/';
     let filepath = `${folder}${filename}`;
     var uploadParamsS3 = {
       Bucket: bucketname,
@@ -117,11 +159,13 @@ app.post('/subirfoto', function (req, res) {
       } else {
         console.log('Upload success at:', data.Location);
         ddb.putItem({
-          TableName: "dynamodbtable",
+          TableName: "Foto",
           Item: {
-            "id": { S: uuid() },
-            "name": { S: name },
-            "location": { S: data.Location }
+            "id_foto": { S: uuid() },
+            "nombre": { S: name },
+            "url": { S: data.Location },
+            "id_album": { S: 'prueba' },
+            "id_usuario": { S: 'hjkasdhfkjasdhfljk' }
           }
         }, function (err, data) {
           if (err) {
@@ -136,19 +180,3 @@ app.post('/subirfoto', function (req, res) {
     });
   })
   
-  //obtener datos de la BD
-  app.get("/getdata", async (req, res) => {
-    conn.query(`SELECT * FROM ejemplo`, function (err, result) {
-      if (err) throw err;
-      res.send(result);
-    });
-  });
-  
-  //insertar datos
-  app.post("/insertdata", async (req, res) => {
-    let body = req.body;
-    conn.query('INSERT INTO ejemplo VALUES(?,?)', [body.id, body.nombre], function (err, result) {
-      if (err) throw err;
-      res.send(result);
-    });
-  });
