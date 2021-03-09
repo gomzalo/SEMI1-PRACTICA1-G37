@@ -9,8 +9,10 @@ Gonzalo Antonio Garcia Solares - 201318652
 FrontEnd: Plantilla utilizando javascript y bootstrap
 ![Usuario IAM - EC2](Img/frontend.jpeg "Usuario IAM - EC2")
 
-BackEnd: Dos Servidores que se comunican con AWS, un servidor codificado en python y otro en Nodejs
+BackEnd: Dos Servidores que se comunican con AWS, un servidor codificado en python y otro en Nodejs, ambos montados en instancias EC2
+![Usuario IAM - EC2](Img/nodejs.png "Usuario IAM - EC2")
 
+![Usuario IAM - EC2](Img/python.png "Usuario IAM - EC2")
 
 
 ## INSTANCIAS EC2
@@ -42,5 +44,11 @@ Agregamos una regla *TCP personalizado* con el puerto que usaremos y con origen 
 
 Con esto ya se permite el acceso en el puerto que usara nuestro servidor.
 
-### Servidor Node.js
+## IAM
+
+## S3
+
+## EC2
+
+## DYNAMO
 
