@@ -1,9 +1,9 @@
-#Manual de Uso
-##Datos del Estudiante
-Ronald Geovany Ordoñez Xiloj - 201314564
+# MANUAL DE USUARIO
+## Datos del Estudiante
+Ronald Geovany Ordoñez Xiloj - 201314564                 
 Gonzalo Antonio Garcia Solares - 201318652
 
-##Descripcion de la arquitectura 
+## Descripcion de la arquitectura 
 FrontEnd: Plantilla utilizando javascript y bootstrap
 
 # MANUAL DE CONFIGURACIONES
