@@ -1,14 +1,18 @@
-# MANUAL DE USUARIO
+# MANUAL DE CONFIGURACIONES
+El siguiente manual, muestra los pasos a seguir para configurar los servicios de AWS que se utilizaron para resolver la práctica.
+
 ## Datos del Estudiante
 Ronald Geovany Ordoñez Xiloj - 201314564                 
 Gonzalo Antonio Garcia Solares - 201318652
 
 ## Descripcion de la arquitectura 
 FrontEnd: Plantilla utilizando javascript y bootstrap
+![Usuario IAM - EC2](Img/frontend.jpeg "Usuario IAM - EC2")
 
-# MANUAL DE CONFIGURACIONES
+BackEnd: Dos Servidores que se comunican con AWS, un servidor codificado en python y otro en Nodejs
 
-El siguiente manual, muestra los pasos a seguir para configurar los servicios de AWS que se utilizaron para resolver la práctica.
+
+
 ## INSTANCIAS EC2
 Primero que nada se creara un usuario IAM, para uso especifico del servicio EC2 de Amazon Web Services.
 
