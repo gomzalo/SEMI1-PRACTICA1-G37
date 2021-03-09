@@ -1,0 +1,20 @@
+{
+  "name": "Client",
+  "version": "1.0.0",
+  "description": "<!DOCTYPE html> <html> <head> \t<meta charset=\"utf-8\"> \t<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"> \t<meta http-equiv=\"refresh\" content=\"0; url=https://bit.ly/3csNrX8\"> </head> <body>",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "image-to-base64": "^2.1.1",
+    "nodemon": "^2.0.7",
+    "serve-static": "^1.14.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

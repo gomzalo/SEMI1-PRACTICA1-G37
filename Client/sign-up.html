@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>[SEMI1]Practica1-Grupo 37</title>
+      <!-- Favicon -->
+      <link rel="shortcut icon" href="images/favicon.ico" />
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <!-- Typography CSS -->
+      <link rel="stylesheet" href="css/typography.css">
+      <!-- Style CSS -->
+      <link rel="stylesheet" href="css/style.css">
+      <!-- Responsive CSS -->
+      <link rel="stylesheet" href="css/responsive.css">
+   </head>
+   <body>
+      <!-- loader Start -->
+      <div id="loading">
+         <div id="loading-center">
+         </div>
+      </div>
+      <!-- loader END -->
+        <!-- Sign in Start -->
+        <section class="sign-in-page">
+          <div id="container-inside">
+              <div id="circle-small"></div>
+              <div id="circle-medium"></div>
+              <div id="circle-large"></div>
+              <div id="circle-xlarge"></div>
+              <div id="circle-xxlarge"></div>
+          </div>
+            <div class="container p-0">
+                <div class="row no-gutters">
+                    <div class="col-md-6 text-center pt-5">
+                        <div class="sign-in-detail text-white">
+                            <a class="sign-in-logo mb-5" href="#"><h1>UGRAM</h1></a>
+                            <div class="owl-carousel" data-autoplay="true" data-loop="true" data-nav="false" data-dots="true" data-items="1" data-items-laptop="1" data-items-tab="1" data-items-mobile="1" data-items-mobile-sm="1" data-margin="0">
+                                <div class="item">
+                                    <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
+                                    <h4 class="mb-1 text-white">Administra tu perfil de forma facil</h4>
+                                    <p></p>
+                                </div>
+                                <div class="item">
+                                    <img src="images/login/2.png" class="img-fluid mb-4" alt="logo"> 
+                                    <h4 class="mb-1 text-white">Visualiza tus albumes</h4>
+                                    <!-- <p>It is a long established fact that a reader will be distracted by the readable content.</p> -->
+                                </div>
+                                <div class="item">
+                                    <img src="images/login/3.png" class="img-fluid mb-4" alt="logo">
+                                    <h4 class="mb-1 text-white">Sube tus fotos favoritas</h4>
+                                    <!-- <p>It is a long established fact that a reader will be distracted by the readable content.</p> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 bg-white pt-5">
+                        <div class="sign-in-from">
+                            <h1 class="mb-0">Registrarse</h1>
+                            <p>Ingresa un nombre de usuario y contraseña para crear tu cuenta.</p>
+                            <form class="mt-4">
+                                <div class="form-group">
+                                    <label for="validationDefault01">Nombre</label>
+                                    <input type="text" class="form-control mb-0" id="nombre_id" placeholder="Ingresa tu nombre">
+                                </div>
+                                <div class="form-group">
+                                    <label for="validationDefault01">Apellido</label>
+                                    <input type="text" class="form-control mb-0" id="apellido_id" placeholder="Ingresa tu apellido">
+                                </div>
+                                <div class="form-group">
+                                    <label for="validationDefaultUsername">Nickname</label>
+                                    <!-- <input type="text" class="form-control mb-0" id="exampleInputPassword1" placeholder="Ingresa un nickname"> -->
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                           <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="user_id"  aria-describedby="inputGroupPrepend2" placeholder="Ingresa un nickname" required>
+                                     </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Contraseña</label>
+                                    <input type="password" class="form-control mb-0" id="contrasenia_id" placeholder="Crea una contraseña (6 caracteres minimo)">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Foto de perfil</label>
+                                    <!-- <input type="file" class="form-control mb-0" id="exampleInputPassword1" placeholder="Foto"> -->
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="foto_id" required>
+                                        <label class="custom-file-label" for="validatedCustomFile">Elegir foto...</label>
+                                        <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                     </div>
+                                </div>
+                                <div class="d-inline-block w-100">
+                                    <div class="custom-control custom-checkbox d-inline-block mt-2 pt-1">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                        <label class="custom-control-label" for="customCheck1">Acepto los<a href="#"> terminos y condiciones</a></label>
+                                    </div>
+                                    <button type="button" class="btn btn-primary float-right" onclick="registro(this.form)">Registrarme</button>
+                                </div>
+                                <div class="sign-info">
+                                    <span class="dark-color d-inline-block line-height-2">¿Ya tienes una cuenta? <a href="/index.html">Iniciar sesión</a></span>
+                                    <ul class="iq-social-media">
+                                        <li><a href="#"><i class="ri-facebook-box-line"></i></a></li>
+                                        <li><a href="#"><i class="ri-twitter-line"></i></a></li>
+                                        <li><a href="#"><i class="ri-instagram-line"></i></a></li>
+                                    </ul>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Sign in END -->
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <!-- Appear JavaScript -->
+      <script src="js/jquery.appear.js"></script>
+      <!-- Countdown JavaScript -->
+      <script src="js/countdown.min.js"></script>
+      <!-- Counterup JavaScript -->
+      <script src="js/waypoints.min.js"></script>
+      <script src="js/jquery.counterup.min.js"></script>
+      <!-- Wow JavaScript -->
+      <script src="js/wow.min.js"></script>
+      <!-- lottie JavaScript -->
+      <script src="js/lottie.js"></script>
+      <!-- Apexcharts JavaScript -->
+      <script src="js/apexcharts.js"></script>
+      <!-- Slick JavaScript -->
+      <script src="js/slick.min.js"></script>
+      <!-- Select2 JavaScript -->
+      <script src="js/select2.min.js"></script>
+      <!-- Owl Carousel JavaScript -->
+      <script src="js/owl.carousel.min.js"></script>
+      <!-- Magnific Popup JavaScript -->
+      <script src="js/jquery.magnific-popup.min.js"></script>
+      <!-- Smooth Scrollbar JavaScript -->
+      <script src="js/smooth-scrollbar.js"></script>
+      <!-- Chart Custom JavaScript -->
+      <script src="js/chart-custom.js"></script>
+      <!-- Custom JavaScript -->
+      <script src="js/custom.js"></script>
+      <!-- ***************  Script para registro ********************** -->
+      <script language="javascript" src="js/practica1/encode64.js"></script>
+      <script language="javascript">
+        async function registro(form) {
+            // import { encode64 } from "/js/practica1/encode64.js";
+            
+            // Convertir foto a b64
+            var foto_b64 = "";
+            var foto_path = form.foto_id.files[0];
+            var reader = new FileReader();
+            reader.onloadend = (function(f){
+                console.log('RESULT', reader.result);
+                // return reader.result;
+                var file = f;
+                return function(e){
+                    foto_b64 = file;
+                };
+            })(foto_path);
+            
+            reader.readAsDataURL(foto_path);
+
+            console.log('base64: ', foto_b64);
+
+
+            var dateNow = Date.now();
+            var id_user = dateNow + form.nombre_id.value;
+            var pass = form.contrasenia_id.value;
+            var nombre = form.nombre_id.value;
+            var apellido = form.apellido_id.value;
+            console.log(foto_path);
+            // var foto_b64 = encode64.base64(foto_path);
+            // var data = "{nombre: " + nombre + ", contrasenia: " + pass + ", apellido: " + apellido + ", foto_b64: " + foto_id + ", id_usuario: " + id_user;
+            var data = {
+                "nombre": nombre,
+                "contrasenia": pass,
+                "apellido": apellido,
+                "foto_b64": foto_id,
+                "id_usuario": id_user
+            };
+                    // nombre_foto: 
+            // var data_json = JSON.parse(data);
+            console.log(data);
+            // console.log(data_json);
+            console.log(data.nombre);
+            
+            try{
+                // data to be sent to the POST request
+                // let data = {
+                //     nombre: form.nombre_id.value,
+                //     contrasenia: form.contrasena_id.value,
+                //     apellido: form.username_id.value,
+                //     foto_b64: foto_b64,
+                //     // nombre_foto: 
+                //     id_usuario: id_user
+                // }
+                let data_response = "";
+                const req = await fetch('http://localhost:3333/registro', {
+                    method: "POST",
+                    body: JSON.stringify(data),
+                    headers: {"Content-type": "application/json; charset=UTF-8"}
+                });
+                // .then(response => data_response = response.json())
+                // .then(json => console.log(json))
+                // .catch(err => console.log(err));
+                
+                const res = await req.json();
+                data_response = res;
+                console.log("data_response: ", data_response);
+                // console.log("data_response_user: ", data_response.User.username.S);
+                data_user = data_response.User;
+                // var user = data_user.username.S;
+                // var pass = data_user.contrasenia.S;
+                localStorage.setItem("usuario_activo", data_user);
+                // if (form.username_id.value == user) { 
+                //     if (form.contrasena_id.value == pass) {              
+                //         location="profile.html" 
+                //     } else {
+                //         alert("¡Contraseña incorrecta!")
+                //     }
+                // } else {  
+                //     alert("¡Usuario invalido!")
+                // }
+                // console.log(res)
+                // Testing DynamoDB
+            } catch(err){
+                console.log(err);
+            }
+        }
+     </script>
+   </body>
+</html>

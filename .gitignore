@@ -1,3 +1,4 @@
 Server/Node/credentials.js
 Server/Node/db_credentials.js
 Server/Node/node_modules
+Client/node_modules
