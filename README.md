@@ -45,10 +45,11 @@ Agregamos una regla *TCP personalizado* con el puerto que usaremos y con origen 
 Con esto ya se permite el acceso en el puerto que usara nuestro servidor.
 
 ## IAM
+![Seguridad 3333 - EC2](Img/politicas.png "Seguridad 3333 - EC2")
 
 ## S3
-
-## EC2
+![Seguridad 3333 - EC2](Img/s3.png "Seguridad 3333 - EC2")
 
 ## DYNAMO
+![Seguridad 3333 - EC2](Img/dynamo.png "Seguridad 3333 - EC2")
 
