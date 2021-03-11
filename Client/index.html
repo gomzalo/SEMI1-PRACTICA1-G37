@@ -132,15 +132,6 @@
       <!-- ***************  Script para login ********************** -->
       <script language="javascript">
             async function login(form) {
-            // function login() {
-                // var xhr = new XMLHttpRequest();
-                // xhr.open("POST", "http://localhost:3333/login", true);
-                // xhr.setRequestHeader('Content-Type', 'application/json');
-                // xhr.send(JSON.stringify({
-                //     user: form.username_id.value,
-                //     pass: form.contrasena_id.value
-                // }));
-                // alert(xhr.response.json());
                 try{
                     // data to be sent to the POST request
                     let _data = {
@@ -160,14 +151,16 @@
                     const res = await req.json();
                     data_response = res;
                     console.log("data_response: ", data_response);
-                    console.log("data_response_user: ", data_response.User.username.S);
+                    console.log("data_response_user: ", data_response.User);
                     data_user = data_response.User;
                     var user = data_user.username.S;
                     var pass = data_user.contrasenia.S;
-                    localStorage.setItem("usuario_activo", data_user);
+                    // alert(JSON.stringify(data_user));
+                    localStorage.setItem("usuario_activo", JSON.stringify(data_user));
+                    
                     if (form.username_id.value == user) { 
                         if (form.contrasena_id.value == pass) {              
-                            location="profile.html" 
+                            location="profile.html";
                         } else {
                             alert("¡Contraseña incorrecta!")
                         }
@@ -176,10 +169,9 @@
                     }
                     // console.log(res)
                     // Testing DynamoDB
-                    } catch(err){
-                        console.log("error:", err);
-                    }
-                
+                } catch(err){
+                    console.log("error:", err);
+                }
             }
       </script>
    </body>

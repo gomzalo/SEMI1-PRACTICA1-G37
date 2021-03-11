@@ -15,6 +15,13 @@
       <link rel="stylesheet" href="css/style.css">
       <!-- Responsive CSS -->
       <link rel="stylesheet" href="css/responsive.css">
+      <!-- SCRIPTS -->
+      <script>
+         function cargarPerfil(){
+
+         }
+      </script>
+      <!-- SCRIPTS -->
    </head>
    <body class="sidebar-main-active right-column-fixed">
       <!-- loader Start -->
@@ -30,22 +37,22 @@
             <div id="sidebar-scrollbar">
                <nav class="iq-sidebar-menu">
                   <ul id="iq-sidebar-toggle" class="iq-menu">
-                     <li>
+                     <!-- <li>
                         <a href="index.html" class="iq-waves-effect"><i class="las la-newspaper"></i><span>Newsfeed</span></a>
-                     </li>
+                     </li> -->
                      <li>
                         <a href="profile.html" class="iq-waves-effect"><i class="las la-user"></i><span>Profile</span></a>
                      </li>
-                     <li>
+                     <!-- <li>
                         <a href="friend-list.html" class="iq-waves-effect"><i class="las la-user-friends"></i><span>Friend Lists</span></a>
                      </li>
                      <li>
                         <a href="group.html" class="iq-waves-effect"><i class="las la-users"></i><span>Group</span></a>
-                     </li>
+                     </li> -->
                      <li>
                         <a href="profile-images.html" class="iq-waves-effect"><i class="las la-image"></i><span>Profile Image</span></a>
                      </li>
-                     <li>
+                     <!-- <li>
                         <a href="profile-video.html" class="iq-waves-effect"><i class="las la-video"></i><span>Profile Video</span></a>
                      </li>
                      <li>
@@ -77,8 +84,8 @@
                      </li>
                      <li>
                         <a href="music.html" class="iq-waves-effect"><i class="ri-play-circle-line"></i><span>Music</span></a>
-                     </li>
-                     <li>
+                     </li> -->
+                     <!-- <li>
                         <a href="#mailbox" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><i class="ri-mail-line"></i><span>Email</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                         <ul id="mailbox" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                            <li><a href="app/index.html"><i class="ri-inbox-line"></i>Inbox</a></li>
@@ -180,7 +187,7 @@
                               </ul>
                            </li>
                         </ul>
-                     </li>
+                     </li> -->
                      
                   </ul>
                </nav>
@@ -194,7 +201,7 @@
                   <div class="iq-navbar-logo d-flex justify-content-between">
                      <a href="index.html">
                      <img src="images/logo.png" class="img-fluid" alt="">
-                     <span>SocialV</span>
+                     <span>UGRAM</span>
                      </a>
                      <div class="iq-menu-bt align-self-center">
                      <div class="wrapper-menu">
@@ -204,7 +211,7 @@
                   </div>
                   <div class="iq-search-bar">
                      <form action="#" class="searchbox">
-                        <input type="text" class="text search-input" placeholder="Type here to search...">
+                        <input type="text" class="text search-input" placeholder="Buscar...">
                         <a class="search-link" href="#"><i class="ri-search-line"></i></a>
                      </form>
                   </div>
@@ -215,14 +222,14 @@
                      <ul class="navbar-nav ml-auto navbar-list">
                         <li>
                            <a href="profile.html" class="iq-waves-effect d-flex align-items-center">
-                              <img src="images/user/1.jpg" class="img-fluid rounded-circle mr-3" alt="user">
+                              <img id="foto_actual_id1" src="images/user/1.jpg" class="img-fluid rounded-circle mr-3" alt="user">
                               <div class="caption">
-                                 <h6 class="mb-0 line-height">Bni Cyst</h6>
+                                 <h6 id="nombre_id1" class="mb-0 line-height">Bni Cyst</h6>
                               </div>
                            </a>
                         </li>
                         <li>
-                           <a href="index.html" class="iq-waves-effect d-flex align-items-center">
+                           <a href="profile.html" class="iq-waves-effect d-flex align-items-center">
                            <i class="ri-home-line"></i>
                            </a>
                         </li>
@@ -452,8 +459,8 @@
                               <div class="iq-card shadow-none m-0">
                                  <div class="iq-card-body p-0 ">
                                     <div class="bg-primary p-3 line-height">
-                                       <h5 class="mb-0 text-white line-height">Hello Bni Cyst</h5>
-                                       <span class="text-white font-size-12">Available</span>
+                                       <h5 id="nombre_id2" class="mb-0 text-white line-height">Hello Bni Cyst</h5>
+                                       <span class="text-white font-size-12">Disponible</span>
                                     </div>
                                     <a href="profile.html" class="iq-sub-card iq-bg-primary-hover">
                                        <div class="media align-items-center">
@@ -461,23 +468,23 @@
                                              <i class="ri-file-user-line"></i>
                                           </div>
                                           <div class="media-body ml-3">
-                                             <h6 class="mb-0 ">My Profile</h6>
-                                             <p class="mb-0 font-size-12">View personal profile details.</p>
+                                             <h6 class="mb-0 ">Mi Perfil</h6>
+                                             <p class="mb-0 font-size-12">Ver detalles de información personal.</p>
                                           </div>
                                        </div>
                                     </a>
-                                    <a href="profile-edit.html" class="iq-sub-card iq-bg-warning-hover">
+                                    <a href="profile.html" class="iq-sub-card iq-bg-warning-hover">
                                        <div class="media align-items-center">
                                           <div class="rounded iq-card-icon iq-bg-warning">
                                              <i class="ri-profile-line"></i>
                                           </div>
                                           <div class="media-body ml-3">
-                                             <h6 class="mb-0 ">Edit Profile</h6>
-                                             <p class="mb-0 font-size-12">Modify your personal details.</p>
+                                             <h6 class="mb-0 ">Editar perfil</h6>
+                                             <p class="mb-0 font-size-12">Modificar tus detalles personales.</p>
                                           </div>
                                        </div>
                                     </a>
-                                    <a href="account-setting.html" class="iq-sub-card iq-bg-info-hover">
+                                    <!-- <a href="account-setting.html" class="iq-sub-card iq-bg-info-hover">
                                        <div class="media align-items-center">
                                           <div class="rounded iq-card-icon iq-bg-info">
                                              <i class="ri-account-box-line"></i>
@@ -498,9 +505,9 @@
                                              <p class="mb-0 font-size-12">Control your privacy parameters.</p>
                                           </div>
                                        </div>
-                                    </a>
+                                    </a> -->
                                     <div class="d-inline-block w-100 text-center p-3">
-                                       <a class="bg-primary iq-sign-btn" href="sign-in.html" role="button">Sign out<i class="ri-login-box-line ml-2"></i></a>
+                                       <a class="bg-primary iq-sign-btn" href="index.html" role="button">Sign out<i class="ri-login-box-line ml-2"></i></a>
                                     </div>
                                  </div>
                               </div>
@@ -513,7 +520,7 @@
          </div>
          <!-- TOP Nav Bar END -->
          <!-- Right Sidebar Panel Start-->
-         <div class="right-sidebar-mini right-sidebar">
+         <!-- <div class="right-sidebar-mini right-sidebar">
             <div class="right-sidebar-panel p-0">
                <div class="iq-card shadow-none">
                   <div class="iq-card-body p-0">
@@ -616,7 +623,7 @@
                   </div>
                </div>
             </div>
-         </div>
+         </div> -->
          <!-- Right Sidebar Panel End-->
          <!-- Page Content  -->
          <div id="content-page" class="content-page">
@@ -629,22 +636,22 @@
                               <ul class="iq-edit-profile d-flex nav nav-pills">
                                  <li class="col-md-3 p-0">
                                     <a class="nav-link active" data-toggle="pill" href="#personal-information">
-                                    Personal Information
+                                    Informacion personal
                                     </a>
                                  </li>
-                                 <li class="col-md-3 p-0">
+                                 <!-- <li class="col-md-3 p-0">
                                     <a class="nav-link" data-toggle="pill" href="#chang-pwd">
-                                    Change Password
+                                    Cambiar contraseña
                                     </a>
-                                 </li>
+                                 </li> -->
                                  <li class="col-md-3 p-0">
                                     <a class="nav-link" data-toggle="pill" href="#emailandsms">
-                                    Email and SMS
+                                    Email & SMS
                                     </a>
                                  </li>
                                  <li class="col-md-3 p-0">
                                     <a class="nav-link" data-toggle="pill" href="#manage-contact">
-                                    Manage Contact
+                                    Contacto
                                     </a>
                                  </li>
                               </ul>
@@ -659,41 +666,41 @@
                               <div class="iq-card">
                                  <div class="iq-card-header d-flex justify-content-between">
                                     <div class="iq-header-title">
-                                       <h4 class="card-title">Personal Information</h4>
+                                       <h4 class="card-title">Información personal</h4>
                                     </div>
                                  </div>
                                  <div class="iq-card-body">
-                                    <form>
+                                    <form id="campos">
                                        <div class="form-group row align-items-center">
                                           <div class="col-md-12">
                                              <div class="profile-img-edit">
-                                                <img class="profile-pic" src="images/user/11.png" alt="profile-pic">
+                                                <img id="foto_actual_id" class="profile-pic" src="images/user/11.png" alt="profile-pic">
                                                 <div class="p-image">
                                                    <i class="ri-pencil-line upload-button"></i>
-                                                   <input class="file-upload" type="file" accept="image/*"/>
+                                                   <input class="file-upload" type="file" id="foto_id" accept="image/*"/>
                                                 </div>
                                              </div>
                                           </div>
                                        </div>
                                        <div class=" row align-items-center">
                                           <div class="form-group col-sm-6">
-                                             <label for="fname">First Name:</label>
-                                             <input type="text" class="form-control" id="fname" value="Bni">
+                                             <label for="fname">Nombre:</label>
+                                             <input type="text" class="form-control" id="nombre_id" value="Bni">
                                           </div>
                                           <div class="form-group col-sm-6">
-                                             <label for="lname">Last Name:</label>
-                                             <input type="text" class="form-control" id="lname" value="Jhon">
+                                             <label for="lname">Apellido:</label>
+                                             <input type="text" class="form-control" id="apellido_id" value="Jhon">
                                           </div>
                                           <div class="form-group col-sm-6">
-                                             <label for="uname">User Name:</label>
-                                             <input type="text" class="form-control" id="uname" value="Bni@01">
+                                             <label for="uname">Username:</label>
+                                             <input type="text" class="form-control" id="username_id" value="Bni@01">
                                           </div>
                                           <div class="form-group col-sm-6">
-                                             <label for="cname">City:</label>
-                                             <input type="text" class="form-control" id="cname" value="Atlanta">
+                                             <label for="cname">Contraseña:</label>
+                                             <input type="text" class="form-control" id="contrasenia_id" value="Atlanta">
                                           </div>
                                           <div class="form-group col-sm-6">
-                                             <label class="d-block">Gender:</label>
+                                             <label class="d-block">Genero:</label>
                                              <div class="custom-control custom-radio custom-control-inline">
                                                 <input type="radio" id="customRadio6" name="customRadio1" class="custom-control-input" checked="">
                                                 <label class="custom-control-label" for="customRadio6"> Male </label>
@@ -703,7 +710,7 @@
                                                 <label class="custom-control-label" for="customRadio7"> Female </label>
                                              </div>
                                           </div>
-                                          <div class="form-group col-sm-6">
+                                          <!-- <div class="form-group col-sm-6">
                                              <label for="dob">Date Of Birth:</label>
                                              <input  class="form-control" id="dob" value="1984-01-24">
                                           </div>
@@ -755,10 +762,10 @@
                                              United States of America
                                              Zip Code: 85001
                                              </textarea>
-                                          </div>
+                                          </div> -->
                                        </div>
-                                       <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                                       <button type="reset" class="btn iq-bg-danger">Cancle</button>
+                                       <button type="button" onclick="editar(this.form)" class="btn btn-primary mr-2">Cambiar</button>
+                                       <button type="reset" id="cancelar_id" class="btn iq-bg-danger">Cancelar</button>
                                     </form>
                                  </div>
                               </div>
@@ -795,44 +802,44 @@
                               <div class="iq-card">
                                  <div class="iq-card-header d-flex justify-content-between">
                                     <div class="iq-header-title">
-                                       <h4 class="card-title">Email and SMS</h4>
+                                       <h4 class="card-title">Email & SMS</h4>
                                     </div>
                                  </div>
                                  <div class="iq-card-body">
                                     <form>
                                        <div class="form-group row align-items-center">
-                                          <label class="col-md-3" for="emailnotification">Email Notification:</label>
+                                          <label class="col-md-3" for="emailnotification">Notificaciones Email:</label>
                                           <div class="col-md-9 custom-control custom-switch">
                                              <input type="checkbox" class="custom-control-input" id="emailnotification" checked="">
                                              <label class="custom-control-label" for="emailnotification"></label>
                                           </div>
                                        </div>
                                        <div class="form-group row align-items-center">
-                                          <label class="col-md-3" for="smsnotification">SMS Notification:</label>
+                                          <label class="col-md-3" for="smsnotification">Notificaciones SMS:</label>
                                           <div class="col-md-9 custom-control custom-switch">
                                              <input type="checkbox" class="custom-control-input" id="smsnotification" checked="">
                                              <label class="custom-control-label" for="smsnotification"></label>
                                           </div>
                                        </div>
                                        <div class="form-group row align-items-center">
-                                          <label class="col-md-3" for="npass">When To Email</label>
+                                          <label class="col-md-3" for="npass">¿Cuándo recibir emails?</label>
                                           <div class="col-md-9">
                                              <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input" id="email01">
-                                                <label class="custom-control-label" for="email01">You have new notifications.</label>
+                                                <label class="custom-control-label" for="email01">Nuevas notificaciones.</label>
                                              </div>
                                              <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input" id="email02">
-                                                <label class="custom-control-label" for="email02">You're sent a direct message</label>
+                                                <label class="custom-control-label" for="email02">Nuevo mensaje directo.</label>
                                              </div>
                                              <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input" id="email03" checked="">
-                                                <label class="custom-control-label" for="email03">Someone adds you as a connection</label>
+                                                <label class="custom-control-label" for="email03">Nueva solicitud de amistad.</label>
                                              </div>
                                           </div>
                                        </div>
-                                       <div class="form-group row align-items-center">
-                                          <label class="col-md-3" for="npass">When To Escalate Emails</label>
+                                       <!-- <div class="form-group row align-items-center">
+                                          <label class="col-md-3" for="npass">¿Cuándo escalar emails?</label>
                                           <div class="col-md-9">
                                              <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input" id="email04">
@@ -847,9 +854,9 @@
                                                 <label class="custom-control-label" for="email06"> Member registration</label>
                                              </div>
                                           </div>
-                                       </div>
-                                       <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                                       <button type="reset" class="btn iq-bg-danger">Cancle</button>
+                                       </div> -->
+                                       <button type="submit" class="btn btn-primary mr-2">Aceptar</button>
+                                       <button type="reset" class="btn iq-bg-danger">Cancelar</button>
                                     </form>
                                  </div>
                               </div>
@@ -858,13 +865,13 @@
                               <div class="iq-card">
                                  <div class="iq-card-header d-flex justify-content-between">
                                     <div class="iq-header-title">
-                                       <h4 class="card-title">Manage Contact</h4>
+                                       <h4 class="card-title">Administrar contacto</h4>
                                     </div>
                                  </div>
                                  <div class="iq-card-body">
                                     <form>
                                        <div class="form-group">
-                                          <label for="cno">Contact Number:</label>
+                                          <label for="cno">Número:</label>
                                           <input type="text" class="form-control" id="cno" value="001 2536 123 458">
                                        </div>
                                        <div class="form-group">
@@ -875,8 +882,8 @@
                                           <label for="url">Url:</label>
                                           <input type="text" class="form-control" id="url" value="https://getbootstrap.com">
                                        </div>
-                                       <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                                       <button type="reset" class="btn iq-bg-danger">Cancle</button>
+                                       <button type="submit" class="btn btn-primary mr-2">Aceptar</button>
+                                       <button type="reset" class="btn iq-bg-danger">Cancelar</button>
                                     </form>
                                  </div>
                               </div>
@@ -938,5 +945,134 @@
       <script src="js/chart-custom.js"></script>
       <!-- Custom JavaScript -->
       <script src="js/custom.js"></script>
+      <!-- SCRIPTS -->
+         <script>
+            $(document).ready(function(){
+               // localStorage.setItem("usuario_activo", data_user_ver);
+               var usuario_activo = localStorage.getItem("usuario_activo");
+               usuario_activo = JSON.parse(usuario_activo);
+               // toast.info(usuario_activo.nombre.S);
+               // console.log("usuario activo: ", JSON.parse(usuario_activo));
+               // Obteniendo datos
+               var nombre = usuario_activo.nombre.S;
+               var apellido = usuario_activo.apellido.S;
+               var username = usuario_activo.username.S;
+               var contrasenia = usuario_activo.contrasenia.S;
+               var url_foto = usuario_activo.url_foto.S;
+               // Colocando datos input
+               $("#nombre_id").val(nombre);
+               $("#apellido_id").val(apellido);
+               $("#username_id").val(username);
+               $("#contrasenia_id").val(contrasenia);
+               $("#nombre_id").val(nombre);
+
+               // console.log('img_url', url_foto);
+               // Colocando imagen
+               $("#foto_actual_id").attr('src', url_foto);
+               $("#foto_actual_id1").attr('src', url_foto);
+               // Colocando h
+               $("#nombre_id1").text(nombre);
+               $("#nombre_id2").text("Hola " + nombre);
+
+               // Cancelar
+               $("#cancelar_id").click(function(){
+                  $("#nombre_id").val(nombre);
+                  $("#apellido_id").val(apellido);
+                  $("#username_id").val(username);
+                  $("#contrasenia_id").val(contrasenia);
+                  $("#nombre_id").val(nombre);
+               });
+            })
+         </script>
+         <!-- POST EDITAR -->
+         <script>
+            async function editar(form) {
+               var usuario_activo = localStorage.getItem("usuario_activo");
+               usuario_activo = JSON.parse(usuario_activo);
+               // toast.info(usuario_activo.nombre.S);
+               // console.log("usuario activo: ", JSON.parse(usuario_activo));
+               // Obteniendo datos
+               var id_user = usuario_activo.id_usuario.S;
+               var url_foto = usuario_activo.url_foto.S;
+                  // Obteniendo valores para data
+                  var foto_nombre_ext = form.foto_id.files[0].name.split('.');
+                  var fotoblob = form.foto_id.files[0];
+                  var dateNow = Date.now();
+                  // Data values
+                  // var id_user = dateNow + form.nombre_id.value;
+                  var contrasenia = form.contrasenia_id.value;
+                  var nombre = form.nombre_id.value;
+                  var apellido = form.apellido_id.value;
+                  var username = form.username_id.value;
+                  var foto_nombre = foto_nombre_ext[0];
+                  var foto_ext = form.foto_id.files[0].name.split('.').pop().toLowerCase();
+                  var foto_b64 = "";            
+                  // ---  Convertir foto a b64    ---
+                  const callback = result =>{
+                        // console.log('res: ', result);
+                     }
+
+                  // console.log("callback: ", callback.result);
+                  var promise = codificar64(fotoblob, callback);
+                  promise.then(async function (result){
+                     foto_b64 = result;
+                     // ++++++ POST ++++++++++
+                     try{
+                        let data = {
+                              nombre: nombre,
+                              contrasenia: contrasenia,
+                              apellido: apellido,
+                              username: username,
+                              foto_b64: foto_b64,
+                              foto_nombre: foto_nombre,
+                              foto_ext: foto_ext,
+                              id_user: id_user,
+                              url_foto: url_foto
+                        };
+                        // ///////////// ///////////// ///////////
+                        // /////////// Editando datos usuario /////////////
+                        // data to be sent to the POST request
+                        let data_response = "";
+                        const req = await fetch('http://localhost:3333/editar', {
+                              method: "POST",
+                              body: JSON.stringify(data),
+                              headers: {"Content-type": "application/json; charset=UTF-8"}
+                        });
+                        // .then(response => response.json())
+                        // .catch(err => console.log(err));
+
+                        const res = await req.json();
+                        data_response = res;
+                        console.log("data_response: ", data_response.message);
+                        data_user = data_response.User;
+                        // alert(data_user);
+                        localStorage.setItem("usuario_activo", JSON.stringify(data_user));
+                        // res.redirect('back');
+                        // alert("Se aplicaron los cambios, necesitas iniciar sesion de nuevo.");
+                        location="index.html";
+                        // console.log("data_response_user: ", data_response.User.username.S);
+                        // ///////////// ///////////// ///////////
+                        // ///////////// ///////////// ///////////
+                     } catch(err){
+                        console.log("error: ", err);
+                     }
+                     // ++++++ POST ++++++++++
+                  }); 
+            }
+
+            function codificar64(fotoblob, callback){
+                     return new Promise (function (resolve, reject) {
+                        var reader = new FileReader();
+                        reader.onloadend = function(){
+                              callback(reader.result);
+                              resolve(reader.result);
+                              // console.log('RESULT', reader.result);
+                        }
+                        reader.onerror = reject;
+                        reader.readAsDataURL(fotoblob);
+                     });
+            }
+         </script>
+      <!-- SCRIPTS -->
    </body>
 </html>
