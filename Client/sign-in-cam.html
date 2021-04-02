@@ -41,25 +41,30 @@
       <!-- loader END -->
         <!-- Sign in Start -->
         <section class="sign-in-page">
+            <!-- CAMARA -->
+            <div id="camera">
+                <!-- <video autoplay="true" id="videoElement"> -->
+                <video id="videoElement" width="480" height="360" autoplay>Medios no disponibles.</video>
+                <p></p>
+                <canvas id="canvas" width="480" height="360"></canvas>
+            </div>
+            
           <div id="container-inside">
               <div id="circle-small"></div>
               <div id="circle-medium"></div>
               <div id="circle-large"></div>
               <div id="circle-xlarge"></div>
               <div id="circle-xxlarge"></div>
+              <a class="sign-in-logo mb-5" href="#"><h1>UGRAM</h1></a>
           </div>
           
             <div class="container p-0">
                 <div class="row no-gutters">
                     <div class="col-md-6 text-center pt-1">
                         <div class="sign-in-detail text-white">
-                            <a class="sign-in-logo mb-5" href="#"><h1>UGRAM</h1></a>
-                            <div class="item">
-                                <video autoplay="true" id="videoElement">
-                                
-                                </video>
-                            </div>
-                            <p></p>
+                            
+                            <!-- <div class="item"> -->
+                            
                             <!-- <div class="owl-carousel" data-autoplay="false" data-loop="false" data-nav="false" data-dots="true" data-items="1" data-items-laptop="1" data-items-tab="1" data-items-mobile="1" data-items-mobile-sm="1" data-margin="0"> -->
                                 <!-- <div class="item"> -->
                                     <!-- <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
@@ -74,13 +79,19 @@
                             <h1 class="mb-0">Iniciar sesión</h1>
                             <p>Activa tu webcam para iniciar sesión mediante reconocimiento facial.</p>
                             <form class="mt-4">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Usuario</label>
+                                    <input type="email" class="form-control mb-0" id="username_id" placeholder="Ingresa tu usuario">
+                                </div>
                                 <div class="d-inline-block w-100">
                                     <div class="custom-control custom-checkbox d-inline-block mt-2 pt-1">
                                         <input type="checkbox" class="custom-control-input" id="customCheck1">
                                         <!-- <label class="custom-control-label" for="customCheck1">Recuerdame</label> -->
                                     </div>
                                     <!-- <button type="submit" class="btn btn-primary float-right" onclick="login(this.form)">Ingresar</button> -->
-                                    <button type="button" class="btn btn-primary float-right" onclick="login(this.form)">Ingresar</button>
+                                    <button id="snap" type="button" class="btn btn-info float-left" onclick="capturar(this.form)">Tomar foto</button>
+                                    
+                                    <button type="button" class="btn btn-primary float-right" onclick="login(this.form)" id="btnSave">Ingresar</button>
                                 </div>
                                 <div class="sign-info">
                                     <span class="dark-color d-inline-block line-height-2">¿Aún no tienes una cuenta? <a href="/sign-up.html">Registrarse</a></span>
@@ -131,15 +142,75 @@
       <script src="js/custom.js"></script>
       <!-- ***************  Script para login ********************** -->
       <script language="javascript">
+            async function capturar(form){
+                // *****************    Obteniendo foto     *****************
+                var canvas = document.getElementById('canvas');
+                var context = canvas.getContext('2d');
+                var video = document.querySelector("#videoElement");
+                // Mostrando camara
+                if (navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices.getUserMedia({ video: true })
+                    .then(function (stream) {
+                    video.srcObject = stream;
+                    video.play();
+                    })
+                    .catch(function (err0r) {
+                    console.log("F");
+                    });
+                }
+                // Tomando foto
+                document.getElementById("snap").addEventListener("click", function() {
+                    context.drawImage(video, 0, 0, 640, 480);
+                });
+            }
+
             async function login(form) {
+                var imagebase64data;
+                // Below new canvas to generate flip/mirron image from existing canvas  
+                // $("#btnSave").click(function () {
+                    var destinationCanvas = document.createElement("canvas");  
+                    var destCtx = destinationCanvas.getContext('2d');  
+                    var video = document.querySelector("#videoElement");
+            
+                    destinationCanvas.height = 500;  
+                    destinationCanvas.width = 500;  
+            
+                    destCtx.translate(video.videoWidth, 0);  
+                    destCtx.scale(-1, 1);  
+                    destCtx.drawImage(document.getElementById("canvas"), 0, 0);  
+            
+                    // Get base64 data to send to server for upload  
+                    imagebase64data = destinationCanvas.toDataURL("image/png");  
+                    // imagebase64data = imagebase64data.replace('data:image/png;base64,', '');
+                    // console.log(imagebase64data);
+                // });
+                let data = {
+                    user: form.username_id.value,
+                    image: imagebase64data
+                }
+                console.log(data);
+                // $.ajax({  
+                //     type: 'POST',  
+                //     url: 'http://localhost:3333/login_cam',  
+                //     data: '{ "imageData" : "' + imagebase64data + '" }',  
+                //     contentType: 'application/json; charset=utf-8',  
+                //     dataType: 'text',  
+                //     success: function (out) {  
+                //         alert('Image uploaded successfully..');  
+                //     }  
+                // });
+
+
+
+                //////////////////////////////////////////////////////////////////////
                 try{
                     // data to be sent to the POST request
-                    let _data = {
-                        user: form.username_id.value,
-                        pass: form.contrasena_id.value
-                    }
+                    // let _data = {
+                    //     user: form.username_id.value,
+                    //     pass: form.contrasena_id.value
+                    // }
                     let data_response = "";
-                    const req = await fetch('http://localhost:3333/login', {
+                    const req = await fetch('http://localhost:3333/login_cam', {
                         method: "POST",
                         body: JSON.stringify(_data),
                         headers: {"Content-type": "application/json; charset=UTF-8"}
@@ -151,10 +222,10 @@
                     const res = await req.json();
                     data_response = res;
                     console.log("data_response: ", data_response);
-                    console.log("data_response_user: ", data_response.User);
-                    data_user = data_response.User;
-                    var user = data_user.username.S;
-                    var pass = data_user.contrasenia.S;
+                    // console.log("data_response_user: ", data_response.User);
+                    // data_user = data_response.User;
+                    // var user = data_user.username.S;
+                    // var pass = data_user.contrasenia.S;
                     // alert(JSON.stringify(data_user));
                     localStorage.setItem("usuario_activo", JSON.stringify(data_user));
                     
@@ -172,17 +243,6 @@
                 } catch(err){
                     console.log("error:", err);
                 }
-            }
-            var video = document.querySelector("#videoElement");
-
-            if (navigator.mediaDevices.getUserMedia) {
-            navigator.mediaDevices.getUserMedia({ video: true })
-                .then(function (stream) {
-                video.srcObject = stream;
-                })
-                .catch(function (err0r) {
-                console.log("F");
-                });
             }
       </script>
    </body>
