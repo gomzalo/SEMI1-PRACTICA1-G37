@@ -699,15 +699,23 @@
                                              <label for="cname">Contraseña:</label>
                                              <input type="text" class="form-control" id="contrasenia_id" value="Atlanta">
                                           </div>
+                                          <div class="form-group">
+                                             <label for="exampleInputPassword1">Contraseña</label>
+                                             <input type="password" class="form-control mb-0" id="contrasenia_id1" placeholder="Confirma tu contraseña">
+                                         </div>
                                           <div class="form-group col-sm-6">
                                              <label class="d-block">Genero:</label>
                                              <div class="custom-control custom-radio custom-control-inline">
                                                 <input type="radio" id="customRadio6" name="customRadio1" class="custom-control-input" checked="">
-                                                <label class="custom-control-label" for="customRadio6"> Male </label>
+                                                <label class="custom-control-label" for="customRadio6"> Hombre </label>
                                              </div>
                                              <div class="custom-control custom-radio custom-control-inline">
                                                 <input type="radio" id="customRadio7" name="customRadio1" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio7"> Female </label>
+                                                <label class="custom-control-label" for="customRadio7"> Mujer </label>
+                                             </div>
+                                             <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" id="customRadio7" name="customRadio1" class="custom-control-input">
+                                                <label class="custom-control-label" for="customRadio7"> Indefinido </label>
                                              </div>
                                           </div>
                                           <!-- <div class="form-group col-sm-6">
@@ -995,12 +1003,17 @@
                var id_user = usuario_activo.id_usuario.S;
                var url_foto = usuario_activo.url_foto.S;
                   // Obteniendo valores para data
+                  if(form.foto_id.files[0] == null){
+                     alert("Elije una foto.");
+                  }else{
                   var foto_nombre_ext = form.foto_id.files[0].name.split('.');
                   var fotoblob = form.foto_id.files[0];
+                  }
                   var dateNow = Date.now();
                   // Data values
                   // var id_user = dateNow + form.nombre_id.value;
                   var contrasenia = form.contrasenia_id.value;
+                  var contrasenia_conf = form.contrasenia_id1.value;
                   var nombre = form.nombre_id.value;
                   var apellido = form.apellido_id.value;
                   var username = form.username_id.value;
@@ -1032,24 +1045,27 @@
                         // ///////////// ///////////// ///////////
                         // /////////// Editando datos usuario /////////////
                         // data to be sent to the POST request
-                        let data_response = "";
-                        const req = await fetch('http://localhost:3333/editar', {
-                              method: "POST",
-                              body: JSON.stringify(data),
-                              headers: {"Content-type": "application/json; charset=UTF-8"}
-                        });
-                        // .then(response => response.json())
-                        // .catch(err => console.log(err));
+                        if(validar(nombre, apellido, username, contrasenia, contrasenia_conf)){
+                           let data_response = "";
+                           const req = await fetch('http://localhost:3333/editar', {
+                                 method: "POST",
+                                 body: JSON.stringify(data),
+                                 headers: {"Content-type": "application/json; charset=UTF-8"}
+                           });
+                           // .then(response => response.json())
+                           // .catch(err => console.log(err));
 
-                        const res = await req.json();
-                        data_response = res;
-                        console.log("data_response: ", data_response.message);
-                        data_user = data_response.User;
-                        // alert(data_user);
-                        localStorage.setItem("usuario_activo", JSON.stringify(data_user));
-                        // res.redirect('back');
-                        // alert("Se aplicaron los cambios, necesitas iniciar sesion de nuevo.");
-                        location="index.html";
+                           const res = await req.json();
+                           data_response = res;
+                           console.log("data_response: ", data_response.message);
+                           data_user = data_response.User;
+                           // alert(data_user);
+                           localStorage.setItem("usuario_activo", JSON.stringify(data_user));
+                           // res.redirect('back');
+                           // alert("Se aplicaron los cambios correctamente.");
+                           alert("Se aplicaron los cambios, necesitas iniciar sesion de nuevo.");
+                           location="index.html";
+                        }
                         // console.log("data_response_user: ", data_response.User.username.S);
                         // ///////////// ///////////// ///////////
                         // ///////////// ///////////// ///////////
@@ -1059,6 +1075,41 @@
                      // ++++++ POST ++++++++++
                   }); 
             }
+
+            function validar(nombre, apellido, username, contrasenia, contrasenia_conf){
+               if(nombre == ""){
+                  alert("Ingrese un nombre");
+                  $("#nombre_id").focus();
+                  return false;
+               }
+               if(apellido == ""){
+                  alert("Ingrese un apellido");
+                  $("#apellido_id").focus();
+                  return false;
+               }
+               if(username == ""){
+                  alert("Ingrese un username");
+                  $("#username_id").focus();
+                  return false;
+               }
+               if(contrasenia == ""){
+                  alert("Ingrese una contraseña");
+                  $("#contrasenia_id").focus();
+                  return false;
+               }
+               if(contrasenia_conf == ""){
+                  alert("Confirma la contraseña");
+                  $("#contrasenia_id1").focus();
+                  return false;
+               }
+               if(contrasenia_conf != contrasenia){
+                  alert("Las contraseñas no coinciden");
+                  $("#contrasenia_id").focus();
+                  $("#contrasenia_id1").focus();
+                  return false;
+               }
+               return true;
+         }
 
             function codificar64(fotoblob, callback){
                      return new Promise (function (resolve, reject) {

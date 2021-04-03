@@ -84,6 +84,10 @@
                                     <input type="password" class="form-control mb-0" id="contrasenia_id" placeholder="Crea una contraseña (6 caracteres minimo)">
                                 </div>
                                 <div class="form-group">
+                                    <label for="exampleInputPassword1">Contraseña</label>
+                                    <input type="password" class="form-control mb-0" id="contrasenia_id1" placeholder="Confirma tu contraseña">
+                                </div>
+                                <div class="form-group">
                                     <label for="exampleInputPassword1">Foto de perfil</label>
                                     <!-- <input type="file" class="form-control mb-0" id="exampleInputPassword1" placeholder="Foto"> -->
                                     <div class="custom-file">
@@ -151,16 +155,25 @@
       <script language="javascript">
        async function registro(form) {
             // Obteniendo valores para data
-            var foto_nombre_ext = form.foto_id.files[0].name.split('.');
-            var fotoblob = form.foto_id.files[0];
+            if(form.foto_id.files[0] == null){
+                alert("Elije una foto.");
+            }else{
+                var foto_nombre_ext = form.foto_id.files[0].name.split('.');
+                var fotoblob = form.foto_id.files[0];
+            }
             var dateNow = Date.now();
             // Data values
-            var id_user = dateNow + form.nombre_id.value;
-            var contrasenia = form.contrasenia_id.value;
+            
             var nombre = form.nombre_id.value;
             var apellido = form.apellido_id.value;
             var username = form.username_id.value;
             var foto_nombre = foto_nombre_ext[0];
+            var contrasenia = form.contrasenia_id.value;
+            var contrasenia_conf = form.contrasenia_id1.value;
+            
+            // validar(nombre, apellido, username, foto_nombre, contrasenia, contrasenia_conf);
+
+            var id_user = dateNow + form.nombre_id.value;
             var foto_ext = form.foto_id.files[0].name.split('.').pop().toLowerCase();
             var foto_b64 = "";            
             // ---  Convertir foto a b64    ---
@@ -174,16 +187,18 @@
                 foto_b64 = result;
                 // ++++++ POST ++++++++++
                 try{
-                    let data = {
-                        nombre: nombre,
-                        contrasenia: contrasenia,
-                        apellido: apellido,
-                        username: username,
-                        foto_b64: foto_b64,
-                        foto_nombre: foto_nombre,
-                        foto_ext: foto_ext,
-                        id_user: id_user
-                    };
+                    // if(validar(nombre, apellido, username, contrasenia, contrasenia_conf)){
+                        let data = {
+                                nombre: nombre,
+                                contrasenia: contrasenia,
+                                apellido: apellido,
+                                username: username,
+                                foto_b64: foto_b64,
+                                foto_nombre: foto_nombre,
+                                foto_ext: foto_ext,
+                                id_user: id_user
+                            };
+                    // }
                     // ///////////// ///////////// ///////////
                     // /////////// Comprobando usuario /////////////
                     // data to be sent to the POST request
@@ -218,36 +233,38 @@
                             console.log("data: ", JSON.stringify(data));
 
                             let data_response_reg = "";
-                            const req = await fetch('http://localhost:3333/registro', {
-                                method: "POST",
-                                body: JSON.stringify(data),
-                                headers: {"Content-type": "application/json; charset=UTF-8"}
-                            })
-                            // .then(response => response.json())
-                            // .catch(err => console.log(err));
-                            // ///////////// ///////////// ///////////
-                            // /////////// Comprobando usuario /////////////
-                            // data to be sent to the POST request
-                            let _data_ = {
-                                user: username,
-                                pass: contrasenia
-                            };
-                            let data_response_ver = "";
-                            const req_ver = await fetch('http://localhost:3333/verificar', {
-                                method: "POST",
-                                body: JSON.stringify(_data_),
-                                headers: {"Content-type": "application/json; charset=UTF-8"}
-                            });
-                            // .then(response => response.json())
-                            // .catch(err => console.log(err));
+                            if(validar(nombre, apellido, username, contrasenia, contrasenia_conf)){
+                                const req = await fetch('http://localhost:3333/registro', {
+                                    method: "POST",
+                                    body: JSON.stringify(data),
+                                    headers: {"Content-type": "application/json; charset=UTF-8"}
+                                });
+                                // .then(response => response.json())
+                                // .catch(err => console.log(err));
+                                // ///////////// ///////////// ///////////
+                                // /////////// Comprobando usuario /////////////
+                                // data to be sent to the POST request
+                                // let _data_ = {
+                                //     user: username,
+                                //     pass: contrasenia
+                                // };
+                                // let data_response_ver = "";
+                                // const req_ver = await fetch('http://localhost:3333/verificar', {
+                                //     method: "POST",
+                                //     body: JSON.stringify(_data_),
+                                //     headers: {"Content-type": "application/json; charset=UTF-8"}
+                                // });
+                                // .then(response => response.json())
+                                // .catch(err => console.log(err));
 
-                            const res_ver = await req_ver.json();
-                            data_response_ver = res_ver;
-                            console.log("usuario_activo: ", data_response_ver.User);
-                            data_user_ver = data_response_ver.User;
-                            localStorage.setItem("usuario_activo", JSON.stringify(data_user_ver));
-                            // alert("Se registro exitosamente, ahora puedes iniciar sesion.");
-                            location="index.html";
+                                const res_ver = await req_ver.json();
+                                data_response_ver = res_ver;
+                                console.log("usuario_activo: ", data_response_ver.User);
+                                data_user_ver = data_response_ver.User;
+                                localStorage.setItem("usuario_activo", JSON.stringify(data_user_ver));
+                                alert("Se registro exitosamente, ahora puedes iniciar sesion.");
+                                location="index.html";
+                            }
                             // ///////////// ///////////// ///////////
                             // ///////////// ///////////// ///////////
                         }
@@ -255,9 +272,45 @@
                     // ///////////// ///////////// ///////////
                 } catch(err){
                     console.log("error: ", err);
+                    // alert(err);
                 }
                 // ++++++ POST ++++++++++
             }); 
+        }
+
+        function validar(nombre, apellido, username, contrasenia, contrasenia_conf){
+            if(nombre == ""){
+                alert("Ingrese un nombre");
+                $("#nombre_id").focus();
+                return false;
+            }
+            if(apellido == ""){
+                alert("Ingrese un apellido");
+                $("#apellido_id").focus();
+                return false;
+            }
+            if(username == ""){
+                alert("Ingrese un username");
+                $("#username_id").focus();
+                return false;
+            }
+            if(contrasenia == ""){
+                alert("Ingrese una contraseña");
+                $("#contrasenia_id").focus();
+                return false;
+            }
+            if(contrasenia_conf == ""){
+                alert("Confirma la contraseña");
+                $("#contrasenia_id1").focus();
+                return false;
+            }
+            if(contrasenia_conf != contrasenia){
+                alert("Las contraseñas no coinciden");
+                $("#contrasenia_id").focus();
+                $("#contrasenia_id1").focus();
+                return false;
+            }
+            return true;
         }
 
         function codificar64(fotoblob, callback){
