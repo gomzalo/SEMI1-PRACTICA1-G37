@@ -48,9 +48,11 @@ app.listen(port, () => {
 // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 var AWS = require('aws-sdk');
+const { response } = require('express');
 // Instanciando los servicios a utilizar y sus accesos.
 const s3 = new AWS.S3(aws_keys.s3);
 const ddb = new AWS.DynamoDB(aws_keys.dynamodb);
+const rek = new AWS.Rekognition(aws_keys.rekognition)
 // ***************************************************
 // *****************    Almacenamiento - S3     *****************
 // ***************************************************
@@ -197,6 +199,8 @@ async function scanVerificar(user, callback) {
     console.error(error);
   }
 }
+
+
 // ................................................
 // ........ Registro ........
 // ................................................
@@ -271,7 +275,7 @@ app.post('/registro', (req, res) => {
               TableName: "Album",
               Item: {
                 "id_album": { S: id_album },
-                "nombre": { S: nombre_album },                
+                "nombre": { S: nombre_album },
                 "id_usuario": { S: id_user }
               }
             }
@@ -472,4 +476,91 @@ app.post('/subirImagenDB', (req, res) => {
       });
     }
   });
-})
+});
+
+
+
+//####################################################
+//....... INICIAR SESION COMPARANDO 2 FOTOS  .........
+//####################################################
+app.post('/loginPorFoto', (req, res) => {
+  
+  var user = req.body.username;
+  //obtener base64 de la imagen 
+  let imagenBytes = req.body.imagen.split(',').pop();
+  
+  const callback = result => {
+    // console.log("Result: ", result);
+    items_login = result.slice();
+    //console.log("Items: ", items_login);
+    //console.log("Length: ", items_login.length);
+    if (items_login.length >= 1) {
+      console.log('Datos correctos');
+      var url_foto_= items_login[0].url_foto.S;
+      //res.send({ 'message': url_foto_ });     
+      console.log(url_foto_);
+      
+      let nombre_imagen = url_foto_.split('/').pop();
+      console.log(nombre_imagen);
+
+      var params = {    
+        SourceImage: {
+            //Bytes: Buffer.from(imagen1, 'base64')     
+            /*podria colocarse la imagen de un bucket*/
+            S3Object: {
+            Bucket: "practica2-g37-imageness", 
+            Name: "fotos_perfil/"+nombre_imagen
+            }
+        }, 
+        TargetImage: {
+            Bytes: Buffer.from(imagenBytes, 'base64')    
+            /*S3Object: {
+              Bucket: "practica2-g37-imageness", 
+              Name: "pruebas/paul1.jpg"
+              }*/
+        },
+        SimilarityThreshold: '80'
+      }; 
+      
+      rek.compareFaces(params, function(err, data) {
+        if (err) {
+          console.log(err,err.stack);
+          res.send({ 'message': 0 });
+        } 
+        else { 
+          res.json({Comparacion: data.FaceMatches});                  
+          data.FaceMatches.forEach(data => {
+            let position   = data.Face.BoundingBox
+            let similarity = data.Similarity
+            console.log(`The face at: ${position.Left}, ${position.Top} matches with ${similarity} % confidence`)
+          })  
+            
+        }
+      });
+
+    } else {
+      console.log('Datos incorrectos');
+      res.send({ 'message': 0 });
+    }
+  }
+
+  scanLoginFoto(user, callback);
+});
+
+async function scanLoginFoto(user, callback) {
+  try {      //Consultar un registro
+    var params = {
+      TableName: 'Usuario',
+      FilterExpression: "username = :usrn ",
+      ExpressionAttributeValues: {
+        ":usrn": { "S": user}
+      },
+      ProjectionExpression: 'url_foto'  //Este es solo para obtener un dato en especifico
+      // Limit: 10
+    };
+    var response = await ddb.scan(params).promise();
+    callback(response.Items);
+  } catch (error) {
+    console.error(error);
+  }
+}
