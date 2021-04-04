@@ -49,6 +49,7 @@ app.listen(port, () => {
 
 var AWS = require('aws-sdk');
 const { response } = require('express');
+// const { ConfigurationServicePlaceholders } = require('aws-sdk/lib/config_service_placeholders');
 // Instanciando los servicios a utilizar y sus accesos.
 const s3 = new AWS.S3(aws_keys.s3);
 const ddb = new AWS.DynamoDB(aws_keys.dynamodb);
@@ -60,7 +61,7 @@ const rek = new AWS.Rekognition(aws_keys.rekognition)
 // ................................................
 // ........ Subir foto a s3 ........
 // ................................................
-app.post('/subirfoto', function (req, res) {
+app.post('/subirfotoS3', function (req, res) {
 
   var id = req.body.id;
   var foto = req.body.foto;
@@ -123,7 +124,39 @@ app.post('/login', (req, res) => {
     console.log("Length: ", items_login.length);
     if (items_login.length >= 1) {
       console.log('Datos correctos');
-      res.send({ 'message': 1, "User": items_login[0] });
+      var url_foto_= items_login[0].url_foto.S;
+      //res.send({ 'message': url_foto_ });     
+      console.log(url_foto_);
+      let nombre_imagen = url_foto_.split('/').pop();
+      console.log(nombre_imagen);
+
+      const params = {
+        Image: {
+          S3Object: {
+            Bucket: "practica2-g37-imageness", 
+            Name: "fotos_perfil/" + nombre_imagen
+          }
+        },
+        // Image: { 
+        //   // Bytes: Buffer.from(encodedImage, 'base64')
+        // }, 
+        MaxLabels: 10
+      }
+      let tags;
+      rek.detectLabels(params, function(err, data) {
+        if (err) {
+          // res.send({mensaje: "Error rekognition"})
+          console.log(err, err.stack);
+        } else {   
+          // res.send({labels: data.Labels});
+          tags = data.Labels;
+          tags = JSON.stringify(tags);
+          // console.log("data.labels: ", tags);
+          res.send({ 'message': 1, "User": items_login[0], "Tags": tags });
+        }
+      });
+
+      
     } else {
       console.log('Datos incorrectos');
       res.send({ 'message': 0 });
@@ -218,6 +251,7 @@ app.post('/registro', (req, res) => {
   let name = body.foto_nombre;
   let base64String = body.foto_b64.split(',').pop();
   let extension = body.foto_ext;
+  let descripcion = "Foto de perfil";
   // Usuario
   let id_user = body.id_user;
   let nombre = body.nombre;
@@ -225,91 +259,115 @@ app.post('/registro', (req, res) => {
   let apellido = body.apellido;
   let username = body.username;
   // Album
-  let nombre_album = id_user + "fotos_perfil";
+  let nombre_album = username + "fotos_perfil";
   let id_album = `${nombre_album}-${uuid()}`;
   //Decodificar imagen
   let encodedImage = base64String;
   let decodedImage = Buffer.from(encodedImage, 'base64');
   let filename = `${name}-${uuid()}.${extension}`; //uuid() genera un id unico para el archivo en s3
   let id_foto = `${name}-${uuid()}`;
-
-  //Parámetros para S3
-  let bucketname = 'practica2-g37-imageness';
-  let folder = 'fotos_perfil/';
-  let filepath = `${folder}${filename}`;
-  var uploadParamsS3 = {
-    Bucket: bucketname,
-    Key: filepath,
-    Body: decodedImage,
-    ACL: 'public-read',
-  };
-  // Callback
-
-  //*** S3 ***
-  // Subiendo imagen a S3
-  s3.upload(uploadParamsS3, function sync(err, data) {
+  // Obteniendo tags
+  const params = {
+    /* S3Object: {
+      Bucket: "mybucket", 
+      Name: "mysourceimage"
+    }*/
+    Image: { 
+      Bytes: Buffer.from(encodedImage, 'base64')
+    }, 
+    MaxLabels: 10
+  }
+  let tags;
+  rek.detectLabels(params, function(err, data) {
     if (err) {
-      console.log('Error uploading file to S3:', err);
-      // res.send({ 'message': 's3 failed' })
-      res.send({ 'res': '0' })
-    } else {
-      console.log('Upload success at:', data.Location);
-      //*** DDB ***
-      // Guardando en FOTO
-      ddb.transactWriteItems({
-        TransactItems: [
-          {
-            Put: {
-              TableName: "Foto",
-              Item: {
-                "id_foto": { S: uuid() },
-                "nombre": { S: name },
-                "url": { S: data.Location },
-                "id_album": { S: id_album },
-                "id_usuario": { S: id_user }
-              }
-            }
-          },
-          {
-            Put: {
-              TableName: "Album",
-              Item: {
-                "id_album": { S: id_album },
-                "nombre": { S: nombre_album },
-                "id_usuario": { S: id_user }
-              }
-            }
-          },
-          {
-            Put: {
-              TableName: "Usuario",
-              Item: {
-                "id_usuario": { S: id_user },
-                "apellido": { S: apellido },
-                "contrasenia": { S: contrasenia },
-                "nombre": { S: nombre },
-                "url_foto": { S: data.Location },
-                "username": { S: username }
-              }
-            }
-          }
-        ]
-      }, function (err, data) {
+      // res.send({mensaje: "Error rekognition"})
+      console.log(err, err.stack);
+    } else {   
+      // res.send({labels: data.Labels});
+      tags = data.Labels;
+      tags = JSON.stringify(tags);
+      console.log("data.labels: ", tags);
+      //Parámetros para S3
+      let bucketname = 'practica2-g37-imageness';
+      let folder = 'fotos_perfil/';
+      let filepath = `${folder}${filename}`;
+      var uploadParamsS3 = {
+        Bucket: bucketname,
+        Key: filepath,
+        Body: decodedImage,
+        ACL: 'public-read',
+      };
+      // Callback
+
+      //*** S3 ***
+      // Subiendo imagen a S3
+      s3.upload(uploadParamsS3, function sync(err, data) {
         if (err) {
-          console.log('Error saving data:', err);
-          res.send({ 'message': 'ddb failed' });
-          // return;
+          console.log('Error uploading file to S3:', err);
+          // res.send({ 'message': 's3 failed' })
+          res.send({ 'res': '0' })
         } else {
-          console.log('Se registro el usuario, foto y album:', data);
-          res.send({ 'message': 'ddb success' });
-          // return;
-          //
+          console.log('Upload success at:', data.Location);
+          //*** DDB ***
+          // Guardando en FOTO
+          ddb.transactWriteItems({
+            TransactItems: [
+              {
+                Put: {
+                  TableName: "Foto",
+                  Item: {
+                    "id_foto": { S: uuid() },
+                    "nombre": { S: name },
+                    "url": { S: data.Location },
+                    "id_album": { S: id_album },
+                    "id_usuario": { S: id_user },
+                    "nombre_album": { S: nombre_album },
+                    "descripcion": {S: descripcion},
+                    "tags": {S: tags}
+                  }
+                }
+              },
+              {
+                Put: {
+                  TableName: "Album",
+                  Item: {
+                    "id_album": { S: id_album },
+                    "nombre": { S: nombre_album },
+                    "id_usuario": { S: id_user }
+                  }
+                }
+              },
+              {
+                Put: {
+                  TableName: "Usuario",
+                  Item: {
+                    "id_usuario": { S: id_user },
+                    "apellido": { S: apellido },
+                    "contrasenia": { S: contrasenia },
+                    "nombre": { S: nombre },
+                    "url_foto": { S: data.Location },
+                    "username": { S: username }
+                  }
+                }
+              }
+            ]
+          }, function (err, data) {
+            if (err) {
+              console.log('Error saving data:', err);
+              res.send({ 'message': 'ddb failed' });
+              // return;
+            } else {
+              console.log('Se registro el usuario, foto y album:', data);
+              res.send({ 'message': 'ddb success' });
+              // return;
+              //
+            }
+          });
+
         }
       });
-
     }
   });
-
 });
 // ................................................
 // ........   Editar   ........
@@ -327,6 +385,7 @@ app.post('/editar', (req, res) => {
   let name = body.foto_nombre;
   let base64String = body.foto_b64.split(',').pop();
   let extension = body.foto_ext;
+  let descripcion = "Foto de perfil";
   let url_foto = body.url_foto;
   // Usuario
   let id_user = body.id_user;
@@ -335,147 +394,205 @@ app.post('/editar', (req, res) => {
   let apellido = body.apellido;
   let username = body.username;
   // Album
-  let nombre_album = id_user + "fotos_perfil";
+  let nombre_album = username + "fotos_perfil";
   let id_album = `${nombre_album}-${uuid()}`;
   //Decodificar imagen
   let encodedImage = base64String;
   let decodedImage = Buffer.from(encodedImage, 'base64');
   let filename = `${name}-${uuid()}.${extension}`; //uuid() genera un id unico para el archivo en s3
   let id_foto = `${name}-${uuid()}`;
-
-  //Parámetros para S3
-  let bucketname = 'practica2-g37-imageness';
-  let folder = 'fotos_perfil/';
-  let filepath = `${folder}${filename}`;
-  var uploadParamsS3 = {
-    Bucket: bucketname,
-    Key: filepath,
-    Body: decodedImage,
-    ACL: 'public-read',
-  };
-  // Callback
-
-  //*** S3 ***
-  // Subiendo imagen a S3
-  s3.upload(uploadParamsS3, function sync(err, data) {
+  // Obteniendo tags
+  const params = {
+    /* S3Object: {
+      Bucket: "mybucket", 
+      Name: "mysourceimage"
+    }*/
+    Image: { 
+      Bytes: Buffer.from(encodedImage, 'base64')
+    }, 
+    MaxLabels: 10
+  }
+  let tags;
+  rek.detectLabels(params, function(err, data) {
     if (err) {
-      console.log('Error uploading file to S3:', err);
-      // res.send({ 'message': 's3 failed' })
-      res.send({ 'res': '0' })
-    } else {
-      console.log('Upload success at:', data.Location);
-      //*** DDB ***
-      // Guardando en FOTO
-      ddb.transactWriteItems({
-        TransactItems: [
-          {
-            Put: {
-              TableName: "Foto",
-              Item: {
-                "id_foto": { S: uuid() },
-                "nombre": { S: name },
-                "url": { S: data.Location },
-                "id_album": { S: id_album },
-                "id_usuario": { S: id_user }
-              }
-            }
-          },
-          {
-            Put: {
-              TableName: "Album",
-              Item: {
-                "nombre": { S: nombre_album },
-                "id_album": { S: id_album },
-                "id_usuario": { S: id_user }
-              }
-            }
-          },
-          {
-            Update: {
-              TableName: "Usuario",
-              Key: {
-                "id_usuario": { S: id_user }
-              },
-              UpdateExpression: "SET apellido = :apell, contrasenia = :contr, nombre = :nomb, url_foto = :url, username = :usrn",
-              ExpressionAttributeValues: {
-                ":apell": { S: apellido },
-                ":contr": { S: contrasenia },
-                ":nomb": { S: nombre },
-                ":url": { S: data.Location },
-                ":usrn": { S: username },
-              }
-            }
-          }
-        ]
-      }, function (err, data) {
+      // res.send({mensaje: "Error rekognition"})
+      console.log(err, err.stack);
+    } else {   
+      // res.send({labels: data.Labels});
+      tags = data.Labels;
+      tags = JSON.stringify(tags);
+      console.log("data.labels: ", tags);
+      //Parámetros para S3
+      let bucketname = 'practica2-g37-imageness';
+      let folder = 'fotos_perfil/';
+      let filepath = `${folder}${filename}`;
+      var uploadParamsS3 = {
+        Bucket: bucketname,
+        Key: filepath,
+        Body: decodedImage,
+        ACL: 'public-read',
+      };
+      // Callback
+
+      //*** S3 ***
+      // Subiendo imagen a S3
+      s3.upload(uploadParamsS3, function sync(err, data) {
         if (err) {
-          console.log('Error saving data:', err);
-          res.send({ 'message': 'ddb failed' });
-          // return;
+          console.log('Error uploading file to S3:', err);
+          // res.send({ 'message': 's3 failed' })
+          res.send({ 'res': '0' })
         } else {
-          console.log('Se actualizo el usuario, foto y album:', data);
-          res.send({ 'message': 'ddb success' });
-          // return;
+          console.log('Upload success at:', data.Location);
+          //*** DDB ***
+          // Guardando en FOTO
+          ddb.transactWriteItems({
+            TransactItems: [
+              {
+                Put: {
+                  TableName: "Foto",
+                  Item: {
+                    "id_foto": { S: uuid() },
+                    "nombre": { S: name },
+                    "url": { S: data.Location },
+                    "id_album": { S: id_album },
+                    "id_usuario": { S: id_user },
+                    "nombre_album": { S: nombre_album },
+                    "descripcion": {S: descripcion},
+                    "tags": {S: tags}
+                  }
+                }
+              },
+              {
+                Put: {
+                  TableName: "Album",
+                  Item: {
+                    "nombre": { S: nombre_album },
+                    "id_album": { S: id_album },
+                    "id_usuario": { S: id_user }
+                  }
+                }
+              },
+              {
+                Update: {
+                  TableName: "Usuario",
+                  Key: {
+                    "id_usuario": { S: id_user }
+                  },
+                  UpdateExpression: "SET apellido = :apell, contrasenia = :contr, nombre = :nomb, url_foto = :url, username = :usrn",
+                  ExpressionAttributeValues: {
+                    ":apell": { S: apellido },
+                    ":contr": { S: contrasenia },
+                    ":nomb": { S: nombre },
+                    ":url": { S: data.Location },
+                    ":usrn": { S: username },
+                  }
+                }
+              }
+            ]
+          }, function (err, data) {
+            if (err) {
+              console.log('Error saving data:', err);
+              res.send({ 'message': 'ddb failed' });
+              // return;
+            } else {
+              console.log('Se actualizo el usuario, foto y album:', data);
+              res.send({ 'message': 'ddb success' });
+              // return;
+            }
+          });
+
         }
       });
-
     }
   });
-
 });
+
 // ................................................
 //subir foto y guardar en dynamo
 // ................................................
-app.post('/subirImagenDB', (req, res) => {
+app.post('/subir', (req, res) => {
   let body = req.body;
+  // console.log("body: ", body);
   //Imagen
-  let name = body.foto_nombre;
+  let name = body.nombre;
+  let descripcion = body.descripcion;
   let base64String = body.foto_b64.split(',').pop();;
   let extension = body.foto_ext;
   // Usuario
   let id_user = body.id_user;
+  let username = body.username;
+  // Album
+  let nombre_album = username + "fotos_publicadas";
+  let id_album = `${nombre_album}-${uuid()}`;
   //Decodificar imagen
   let encodedImage = base64String;
   let decodedImage = Buffer.from(encodedImage, 'base64');
   let filename = `${name}-${uuid()}.${extension}`; //uuid() genera un id unico para el archivo en s3
-
-  //Parámetros para S3
-  let bucketname = 'practica1-g37-imagenes';
-  let folder = 'fotos_publicadas/';
-  let filepath = `${folder}${filename}`;
-  var uploadParamsS3 = {
-    Bucket: bucketname,
-    Key: filepath,
-    Body: decodedImage,
-    ACL: 'public-read',
-  };
-
-  s3.upload(uploadParamsS3, function sync(err, data) {
+  // Obteniendo tags
+  const params = {
+    /* S3Object: {
+      Bucket: "mybucket", 
+      Name: "mysourceimage"
+    }*/
+    Image: { 
+      Bytes: Buffer.from(encodedImage, 'base64')
+    }, 
+    MaxLabels: 10
+  }
+  let tags;
+  rek.detectLabels(params, function(err, data) {
     if (err) {
-      console.log('Error uploading file:', err);
-      res.send({ 'message': 's3 failed' })
-    } else {
-      console.log('Upload success at:', data.Location);
-      ddb.putItem({
-        TableName: "Foto",
-        Item: {
-          "id_foto": { S: uuid() },
-          "nombre": { S: name },
-          "url": { S: data.Location },
-          "id_album": { S: 'prueba' },
-          "id_usuario": { S: 'hjkasdhfkjasdhfljk' }
-        }
-      }, function (err, data) {
+      // res.send({mensaje: "Error rekognition"})
+      console.log(err, err.stack);
+    } else {   
+      // res.send({labels: data.Labels});
+      tags = data.Labels;
+      tags = JSON.stringify(tags);
+      console.log("data.labels: ", tags);
+      //Parámetros para S3
+      let bucketname = 'practica2-g37-imageness';
+      let folder = 'fotos_publicadas/';
+      let filepath = `${folder}${filename}`;
+      var uploadParamsS3 = {
+        Bucket: bucketname,
+        Key: filepath,
+        Body: decodedImage,
+        ACL: 'public-read',
+      };
+
+      s3.upload(uploadParamsS3, function sync(err, data) {
         if (err) {
-          console.log('Error saving data:', err);
-          res.send({ 'message': 'ddb failed' });
+          console.log('Error uploading file:', err);
+          res.send({ 'message': 's3 failed' })
         } else {
-          console.log('Save success:', data);
-          res.send({ 'message': 'ddb success' });
+          console.log('Upload success at:', data.Location);
+          ddb.putItem({
+            TableName: "Foto",
+            Item: {
+              "id_foto": { S: uuid() },
+              "id_album": { S: id_album },
+              "id_usuario": { S: id_user },
+              "nombre": { S: name },
+              "url": { S: data.Location },
+              "nombre_album": { S: nombre_album },
+              "descripcion": {S: descripcion},
+              "tags": {S: tags}
+            }
+          }, function (err, data) {
+            if (err) {
+              console.log('Error saving data:', err);
+              res.send({ 'message': 'ddb failed' });
+            } else {
+              console.log('Save success:', data);
+              res.send({ 'message': 'ddb success' });
+            }
+          });
         }
       });
-    }
-  });
+      } // else
+    });
+  // console.log("tags: ", tags);
+  
 });
 
 
@@ -520,7 +637,7 @@ app.post('/loginPorFoto', (req, res) => {
               }*/
         },
         SimilarityThreshold: '80'
-      }; 
+      } 
       
       rek.compareFaces(params, function(err, data) {
         if (err) {

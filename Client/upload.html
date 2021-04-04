@@ -4,7 +4,7 @@
       <!-- Required meta tags -->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>SocialV - Responsive Bootstrap 4 Admin Dashboard Template</title>
+      <title>[SEMI1]Practica2-Grupo 37</title>
       <!-- Favicon -->
       <link rel="shortcut icon" href="images/favicon.ico" />
       <!-- Bootstrap CSS -->
@@ -30,22 +30,22 @@
             <div id="sidebar-scrollbar">
                <nav class="iq-sidebar-menu">
                   <ul id="iq-sidebar-toggle" class="iq-menu">
-                     <li>
+                     <!-- <li>
                         <a href="index.html" class="iq-waves-effect"><i class="las la-newspaper"></i><span>Newsfeed</span></a>
-                     </li>
+                     </li> -->
                      <li>
                         <a href="profile.html" class="iq-waves-effect"><i class="las la-user"></i><span>Profile</span></a>
                      </li>
-                     <li>
-                        <a href="friend-list.html" class="iq-waves-effect"><i class="las la-user-friends"></i><span>Friend Lists</span></a>
+                     <li class="active">
+                        <a href="upload.html" class="iq-waves-effect"><i class="las la-file"></i><span>Subir</span></a>
                      </li>
-                     <li>
+                     <!-- <li>
                         <a href="group.html" class="iq-waves-effect"><i class="las la-users"></i><span>Group</span></a>
-                     </li>
+                     </li> -->
                      <li>
-                        <a href="profile-images.html" class="iq-waves-effect"><i class="las la-image"></i><span>Profile Image</span></a>
+                        <a href="profile-images.html" class="iq-waves-effect"><i class="las la-image"></i><span>Imagenes</span></a>
                      </li>
-                     <li>
+                     <!-- <li>
                         <a href="profile-video.html" class="iq-waves-effect"><i class="las la-video"></i><span>Profile Video</span></a>
                      </li>
                      <li>
@@ -59,11 +59,11 @@
                      </li>
                      <li>
                         <a href="friend-request.html" class="iq-waves-effect"><i class="las la-anchor"></i><span>Friend Request</span></a>
-                     </li>
+                     </li>-->
                      <li>
                         <a href="chat.html" class="iq-waves-effect"><i class="lab la-rocketchat"></i><span>Chat</span></a>
                      </li>
-                     <li>
+                     <!--<li>
                         <a href="todo.html" class="iq-waves-effect"><i class="las la-check-circle"></i><span>Todo</span></a>
                      </li>
                      <li>
@@ -180,7 +180,7 @@
                               </ul>
                            </li>
                         </ul>
-                     </li>
+                     </li> -->
                      
                   </ul>
                </nav>
@@ -194,7 +194,7 @@
                   <div class="iq-navbar-logo d-flex justify-content-between">
                      <a href="index.html">
                      <img src="images/logo.png" class="img-fluid" alt="">
-                     <span>SocialV</span>
+                     <span>UGRAM</span>
                      </a>
                      <div class="iq-menu-bt align-self-center">
                      <div class="wrapper-menu">
@@ -204,7 +204,7 @@
                   </div>
                   <div class="iq-search-bar">
                      <form action="#" class="searchbox">
-                        <input type="text" class="text search-input" placeholder="Type here to search...">
+                        <input type="text" class="text search-input" placeholder="Buscar...">
                         <a class="search-link" href="#"><i class="ri-search-line"></i></a>
                      </form>
                   </div>
@@ -215,100 +215,18 @@
                      <ul class="navbar-nav ml-auto navbar-list">
                         <li>
                            <a href="profile.html" class="iq-waves-effect d-flex align-items-center">
-                              <img src="images/user/1.jpg" class="img-fluid rounded-circle mr-3" alt="user">
+                              <img id="foto_actual_id1" src="images/user/1.jpg" class="img-fluid rounded-circle mr-3" alt="user">
                               <div class="caption">
-                                 <h6 class="mb-0 line-height">Bni Cyst</h6>
+                                 <h6 id="nombre_id1" class="mb-0 line-height">Bicho</h6>
                               </div>
                            </a>
                         </li>
                         <li>
-                           <a href="index.html" class="iq-waves-effect d-flex align-items-center">
+                           <a href="profile-images.html" class="iq-waves-effect d-flex align-items-center">
                            <i class="ri-home-line"></i>
                            </a>
                         </li>
-                        <li class="nav-item">
-                           <a class="search-toggle iq-waves-effect" href="#"><i class="ri-group-line"></i></a>
-                           <div class="iq-sub-dropdown iq-sub-dropdown-large">
-                              <div class="iq-card shadow-none m-0">
-                                 <div class="iq-card-body p-0 ">
-                                    <div class="bg-primary p-3">
-                                       <h5 class="mb-0 text-white">Friend Request<small class="badge  badge-light float-right pt-1">4</small></h5>
-                                    </div>
-                                    <div class="iq-friend-request">
-                                       <div class="iq-sub-card iq-sub-card-big d-flex align-items-center justify-content-between" >
-                                          <div class="d-flex align-items-center">
-                                             <div class="">
-                                                <img class="avatar-40 rounded" src="images/user/01.jpg" alt="">
-                                             </div>
-                                             <div class="media-body ml-3">
-                                                <h6 class="mb-0 ">Jaques Amole</h6>
-                                                <p class="mb-0">40  friends</p>
-                                             </div>
-                                          </div>
-                                          <div class="d-flex align-items-center">
-                                             <a href="javascript:void();" class="mr-3 btn btn-primary rounded">Confirm</a>
-                                             <a href="javascript:void();" class="mr-3 btn btn-secondary rounded">Delete Request</a>                                    
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="iq-friend-request">
-                                       <div class="iq-sub-card iq-sub-card-big d-flex align-items-center justify-content-between" >
-                                          <div class="d-flex align-items-center">
-                                             <div class="">
-                                                <img class="avatar-40 rounded" src="images/user/02.jpg" alt="">
-                                             </div>
-                                             <div class="media-body ml-3">
-                                                <h6 class="mb-0 ">Lucy Tania</h6>
-                                                <p class="mb-0">12  friends</p>
-                                             </div>
-                                          </div>
-                                          <div class="d-flex align-items-center">
-                                             <a href="javascript:void();" class="mr-3 btn btn-primary rounded">Confirm</a>
-                                             <a href="javascript:void();" class="mr-3 btn btn-secondary rounded">Delete Request</a>                                    
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="iq-friend-request">
-                                       <div class="iq-sub-card iq-sub-card-big d-flex align-items-center justify-content-between" >
-                                          <div class="d-flex align-items-center">
-                                             <div class="">
-                                                <img class="avatar-40 rounded" src="images/user/03.jpg" alt="">
-                                             </div>
-                                             <div class="media-body ml-3">
-                                                <h6 class="mb-0 ">Manny Petty</h6>
-                                                <p class="mb-0">3  friends</p>
-                                             </div>
-                                          </div>
-                                          <div class="d-flex align-items-center">
-                                             <a href="javascript:void();" class="mr-3 btn btn-primary rounded">Confirm</a>
-                                             <a href="javascript:void();" class="mr-3 btn btn-secondary rounded">Delete Request</a>                                    
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="iq-friend-request">
-                                       <div class="iq-sub-card iq-sub-card-big d-flex align-items-center justify-content-between" >
-                                          <div class="d-flex align-items-center">
-                                             <div class="">
-                                                <img class="avatar-40 rounded" src="images/user/04.jpg" alt="">
-                                             </div>
-                                             <div class="media-body ml-3">
-                                                <h6 class="mb-0 ">Marsha Mello</h6>
-                                                <p class="mb-0">15  friends</p>
-                                             </div>
-                                          </div>
-                                          <div class="d-flex align-items-center">
-                                             <a href="javascript:void();" class="mr-3 btn btn-primary rounded">Confirm</a>
-                                             <a href="javascript:void();" class="mr-3 btn btn-secondary rounded">Delete Request</a>                                    
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="text-center">
-                                       <a href="#" class="mr-3 btn text-primary">View More Request</a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </li>
+                         
                         <li class="nav-item">
                            <a href="#" class="search-toggle iq-waves-effect">
                               <div id="lottie-beil"></div>
@@ -318,7 +236,7 @@
                               <div class="iq-card shadow-none m-0">
                                  <div class="iq-card-body p-0 ">
                                     <div class="bg-primary p-3">
-                                       <h5 class="mb-0 text-white">All Notifications<small class="badge  badge-light float-right pt-1">4</small></h5>
+                                       <h5 class="mb-0 text-white">Notificaciones<small class="badge  badge-light float-right pt-1">4</small></h5>
                                     </div>
                                     <a href="#" class="iq-sub-card" >
                                        <div class="media align-items-center">
@@ -381,7 +299,7 @@
                               <div class="iq-card shadow-none m-0">
                                  <div class="iq-card-body p-0 ">
                                     <div class="bg-primary p-3">
-                                       <h5 class="mb-0 text-white">All Messages<small class="badge  badge-light float-right pt-1">5</small></h5>
+                                       <h5 class="mb-0 text-white">Mensajes<small class="badge  badge-light float-right pt-1">5</small></h5>
                                     </div>
                                     <a href="#" class="iq-sub-card" >
                                        <div class="media align-items-center">
@@ -452,8 +370,8 @@
                               <div class="iq-card shadow-none m-0">
                                  <div class="iq-card-body p-0 ">
                                     <div class="bg-primary p-3 line-height">
-                                       <h5 class="mb-0 text-white line-height">Hello Bni Cyst</h5>
-                                       <span class="text-white font-size-12">Available</span>
+                                       <h5 id="nombre_id2" class="mb-0 text-white line-height">Hola</h5>
+                                       <span class="text-white font-size-12">Disponible</span>
                                     </div>
                                     <a href="profile.html" class="iq-sub-card iq-bg-primary-hover">
                                        <div class="media align-items-center">
@@ -461,23 +379,23 @@
                                              <i class="ri-file-user-line"></i>
                                           </div>
                                           <div class="media-body ml-3">
-                                             <h6 class="mb-0 ">My Profile</h6>
-                                             <p class="mb-0 font-size-12">View personal profile details.</p>
+                                             <h6 class="mb-0 ">Mi perfil</h6>
+                                             <p class="mb-0 font-size-12">Ver detalles de información personal.</p>
                                           </div>
                                        </div>
                                     </a>
-                                    <a href="profile-edit.html" class="iq-sub-card iq-bg-warning-hover">
+                                    <a href="profile.html" class="iq-sub-card iq-bg-warning-hover">
                                        <div class="media align-items-center">
                                           <div class="rounded iq-card-icon iq-bg-warning">
                                              <i class="ri-profile-line"></i>
                                           </div>
                                           <div class="media-body ml-3">
-                                             <h6 class="mb-0 ">Edit Profile</h6>
-                                             <p class="mb-0 font-size-12">Modify your personal details.</p>
+                                             <h6 class="mb-0 ">Editar perfil</h6>
+                                             <p class="mb-0 font-size-12">Modificar tus detalles personales.</p>
                                           </div>
                                        </div>
                                     </a>
-                                    <a href="account-setting.html" class="iq-sub-card iq-bg-info-hover">
+                                    <!-- <a href="account-setting.html" class="iq-sub-card iq-bg-info-hover">
                                        <div class="media align-items-center">
                                           <div class="rounded iq-card-icon iq-bg-info">
                                              <i class="ri-account-box-line"></i>
@@ -498,9 +416,9 @@
                                              <p class="mb-0 font-size-12">Control your privacy parameters.</p>
                                           </div>
                                        </div>
-                                    </a>
+                                    </a> -->
                                     <div class="d-inline-block w-100 text-center p-3">
-                                       <a class="bg-primary iq-sign-btn" href="sign-in.html" role="button">Sign out<i class="ri-login-box-line ml-2"></i></a>
+                                       <a class="bg-primary iq-sign-btn" href="index.html" role="button">Cerrar sesión<i class="ri-login-box-line ml-2"></i></a>
                                     </div>
                                  </div>
                               </div>
@@ -513,7 +431,7 @@
          </div>
          <!-- TOP Nav Bar END -->
          <!-- Right Sidebar Panel Start-->
-         <div class="right-sidebar-mini right-sidebar">
+         <!-- <div class="right-sidebar-mini right-sidebar">
             <div class="right-sidebar-panel p-0">
                <div class="iq-card shadow-none">
                   <div class="iq-card-body p-0">
@@ -616,7 +534,7 @@
                   </div>
                </div>
             </div>
-         </div>
+         </div> -->
          <!-- Right Sidebar Panel End-->
          <!-- Page Content  -->
          <div id="content-page" class="content-page">
@@ -625,8 +543,8 @@
                   <div class="col-sm-12">
                      <div class="iq-card position-relative inner-page-bg bg-primary" style="height: 150px;">
                         <div class="inner-page-title">
-                           <h3 class="text-white">Validation Form Page</h3>
-                           <p class="text-white">lorem ipsum</p>
+                           <h3 class="text-white">Subir una imagen</h3>
+                           <p class="text-white">Asignale un nombre y una descripción.</p>
                         </div>
                      </div>
                   </div>
@@ -634,76 +552,49 @@
                      <div class="iq-card">
                         <div class="iq-card-header d-flex justify-content-between">
                            <div class="iq-header-title">
-                              <h4 class="card-title"> Default Validation</h4>
+                              <h4 class="card-title">Imagen</h4>
                            </div>
                         </div>
                         <div class="iq-card-body">
-                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vulputate, ex ac venenatis mollis, diam nibh finibus leo</p>
+                           <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vulputate, ex ac venenatis mollis, diam nibh finibus leo</p> -->
                            <form>
                               <div class="form-row">
-                                 <div class="col-md-6 mb-3">
-                                    <label for="validationDefault01">First name</label>
-                                    <input type="text" class="form-control" id="validationDefault01" required>
-                                 </div>
-                                 <div class="col-md-6 mb-3">
-                                    <label for="validationDefault02">Last name</label>
-                                    <input type="text" class="form-control" id="validationDefault02" required>
-                                 </div>
-                                 <div class="col-md-6 mb-3">
-                                    <label for="validationDefaultUsername">Username</label>
-                                    <div class="input-group">
-                                       <div class="input-group-prepend">
-                                          <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                                 <div class="col-md-12">
+                                    <div class="profile-img-gallary">
+                                       <img id="imagen_id" class="profile-pic" src="images/page-img/n3.jpg" alt="profile-pic">
+                                       <div class="p-image">
+                                          <i class="ri-pencil-line upload-button"></i>
+                                          <input class="file-upload" type="file" id="foto_id" accept="image/*"/>
                                        </div>
-                                       <input type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required>
                                     </div>
                                  </div>
                                  <div class="col-md-6 mb-3">
-                                    <label for="validationDefault03">City</label>
-                                    <input type="text" class="form-control" id="validationDefault03" required>
+                                    <label for="validationDefault01">Nombre</label>
+                                    <input type="text" class="form-control" id="nombre_id" required placeholder="Ingresa un nombre">
                                  </div>
-                                 <div class="col-md-6 mb-3">
-                                    <label for="validationDefault04">State</label>
-                                    <select class="form-control" id="validationDefault04" required>
-                                       <option selected disabled value="">Choose...</option>
-                                       <option>...</option>
-                                    </select>
+                                 <div class="mb-3">
+                                    <label for="validationTextarea">Descripción</label>
+                                    <textarea class="form-control is-invalid" id="descripcion_id" placeholder="Ingresa una descripción" required></textarea>
+                                    <div class="invalid-feedback">
+                                       Debes ingresar una descripción para la imagen.
+                                    </div>
+                                 <div class="form-group">
+                                    <button class="btn btn-primary" type="button" onclick="subir(this.form)">Subir</button>
                                  </div>
-                                 <div class="col-md-6 mb-3">
-                                    <label for="validationDefault05">Zip</label>
-                                    <input type="text" class="form-control" id="validationDefault05" required>
-                                 </div>
-                              </div>
-                              <div class="form-group">
-                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                                    <label class="form-check-label" for="invalidCheck2">
-                                    Agree to terms and conditions
-                                    </label>
-                                 </div>
-                              </div>
-                              <div class="form-group">
-                                 <button class="btn btn-primary" type="submit">Submit form</button>
                               </div>
                            </form>
                         </div>
                      </div>
                      <div class="iq-card">
-                        <div class="iq-card-header d-flex justify-content-between">
+                        <!-- <div class="iq-card-header d-flex justify-content-between">
                            <div class="iq-header-title">
                               <h4 class="card-title"> Supported elements</h4>
                            </div>
-                        </div>
+                        </div> -->
                         <div class="iq-card-body">
-                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vulputate, ex ac venenatis mollis, diam nibh finibus leo</p>
-                           <form class="was-validated">
-                              <div class="mb-3">
-                                 <label for="validationTextarea">Textarea</label>
-                                 <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Required example textarea" required></textarea>
-                                 <div class="invalid-feedback">
-                                    Please enter a message in the textarea.
-                                 </div>
-                              </div>
+                           <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vulputate, ex ac venenatis mollis, diam nibh finibus leo</p> -->
+                           <!-- <form class="was-validated">
+                              
                               <div class="custom-control custom-checkbox mb-3">
                                  <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
                                  <label class="custom-control-label" for="customControlValidation1">Check this custom checkbox</label>
@@ -732,12 +623,12 @@
                                  <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
                                  <div class="invalid-feedback">Example invalid custom file feedback</div>
                               </div>
-                           </form>
+                           </form> -->
                         </div>
                      </div>
                   </div>
                   <div class="col-sm-12 col-lg-6">
-                     <div class="iq-card">
+                     <!-- <div class="iq-card">
                         <div class="iq-card-header d-flex justify-content-between">
                            <div class="iq-header-title">
                               <h4 class="card-title">Custom Validation</h4>
@@ -812,14 +703,14 @@
                               <button class="btn btn-primary" type="submit">Submit form</button>
                            </form>
                         </div>
-                     </div>
+                     </div> -->
                      <div class="iq-card">
-                        <div class="iq-card-header d-flex justify-content-between">
+                        <!-- <div class="iq-card-header d-flex justify-content-between">
                            <div class="iq-header-title">
                               <h4 class="card-title">Tooltips</h4>
                            </div>
-                        </div>
-                        <div class="iq-card-body">
+                        </div> -->
+                        <!-- <div class="iq-card-body">
                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vulputate, ex ac venenatis mollis, diam nibh finibus leo</p>
                            <form class="needs-validation" novalidate>
                               <div class="form-row">
@@ -876,7 +767,7 @@
                               </div>
                               <button class="btn btn-primary" type="submit">Submit form</button>
                            </form>
-                        </div>
+                        </div> -->
                      </div>
                   </div>
                </div>
@@ -933,5 +824,159 @@
       <script src="js/chart-custom.js"></script>
       <!-- Custom JavaScript -->
       <script src="js/custom.js"></script>
+      <!-- SCRIPTS -->
+      <script>
+         async function subir(form){
+            var usuario_activo = localStorage.getItem("usuario_activo");
+         }
+      </script>
+      <!-- SCRIPTS -->
+      <script>
+         $(document).ready(function(){
+               // localStorage.setItem("usuario_activo", data_user_ver);
+               var usuario_activo = localStorage.getItem("usuario_activo");
+               usuario_activo = JSON.parse(usuario_activo);
+               // toast.info(usuario_activo.nombre.S);
+               // console.log("usuario activo: ", JSON.parse(usuario_activo));
+               // Obteniendo datos
+               var nombre = usuario_activo.nombre.S;
+               // var apellido = usuario_activo.apellido.S;
+               // var username = usuario_activo.username.S;
+               // var contrasenia = usuario_activo.contrasenia.S;
+               var url_foto = usuario_activo.url_foto.S;
+               // // Colocando datos input
+               // $("#nombre_id").val(nombre);
+               // $("#apellido_id").val(apellido);
+               // $("#username_id").val(username);
+               // $("#contrasenia_id").val(contrasenia);
+               // $("#nombre_id").val(nombre);
+
+               // // console.log('img_url', url_foto);
+               // // Colocando imagen
+               // $("#foto_actual_id").attr('src', url_foto);
+               
+               // Colocando header
+               $("#foto_actual_id1").attr('src', url_foto);
+               $("#nombre_id1").text(nombre);
+               $("#nombre_id2").text("Hola " + nombre);
+
+               // // Cancelar
+               // $("#cancelar_id").click(function(){
+               //    $("#nombre_id").val(nombre);
+               //    $("#apellido_id").val(apellido);
+               //    $("#username_id").val(username);
+               //    $("#contrasenia_id").val(contrasenia);
+               //    $("#nombre_id").val(nombre);
+               // });
+            })
+      </script>
+      <!-- POST SUBIR -->
+      <script>
+         async function subir(form) {
+               var usuario_activo = localStorage.getItem("usuario_activo");
+               usuario_activo = JSON.parse(usuario_activo);
+               // toast.info(usuario_activo.nombre.S);
+               // console.log("usuario activo: ", JSON.parse(usuario_activo));
+               // Obteniendo datos
+               var username = usuario_activo.username.S;
+               var id_user = usuario_activo.id_usuario.S;
+                  // Obteniendo valores para data
+                  if(form.foto_id.files[0] == null){
+                     alert("Elije una foto.");
+                  }else{
+                  var foto_nombre_ext = form.foto_id.files[0].name.split('.');
+                  var fotoblob = form.foto_id.files[0];
+                  }
+                  var dateNow = Date.now();
+                  // Data values
+                  // var id_user = dateNow + form.nombre_id.value;
+                  var nombre = form.nombre_id.value;
+                  var descripcion = form.descripcion_id.value;
+                  var foto_nombre = foto_nombre_ext[0];
+                  // $("#nombre_id").text(foto_nombre);
+                  var foto_ext = form.foto_id.files[0].name.split('.').pop().toLowerCase();
+                  var foto_b64 = "";            
+                  // ---  Convertir foto a b64    ---
+                  const callback = result =>{
+                        // console.log('res: ', result);
+                     }
+
+                  // console.log("callback: ", callback.result);
+                  var promise = codificar64(fotoblob, callback);
+                  promise.then(async function (result){
+                     foto_b64 = result;
+                     // ++++++ POST ++++++++++
+                     try{
+                        let data = {
+                              nombre: nombre,
+                              descripcion: descripcion,
+                              foto_b64: foto_b64,
+                              id_user: id_user,
+                              foto_ext: foto_ext,
+                              username: username,
+                        };
+                        console.log("data: ", data);
+                        // ///////////// ///////////// ///////////
+                        // /////////// Editando datos usuario /////////////
+                        // data to be sent to the POST request
+                        if(validar(nombre, descripcion)){
+                           let data_response = "";
+                           const req = await fetch('http://localhost:3333/subir', {
+                                 method: "POST",
+                                 body: JSON.stringify(data),
+                                 headers: {"Content-type": "application/json; charset=UTF-8"}
+                           });
+                           // .then(response => response.json())
+                           // .catch(err => console.log(err));
+
+                           const res = await req.json();
+                           data_response = res;
+                           console.log("data_response: ", data_response.message);
+                           // data_user = data_response.User;
+                           // alert(data_user);
+                           // localStorage.setItem("usuario_activo", JSON.stringify(data_user));
+                           // res.redirect('back');
+                           // alert("Se aplicaron los cambios correctamente.");
+                           alert("Se subio la imagen correctamente.");
+                           location="profile-images.html";
+                        }
+                        // console.log("data_response_user: ", data_response.User.username.S);
+                        // ///////////// ///////////// ///////////
+                        // ///////////// ///////////// ///////////
+                     } catch(err){
+                        console.log("error: ", err);
+                     }
+                     // ++++++ POST ++++++++++
+                  }); 
+            }
+
+            function validar(nombre, descripcion){
+               if(nombre == ""){
+                  alert("Ingrese un nombre");
+                  $("#nombre_id").focus();
+                  return false;
+               }
+               if(descripcion == ""){
+                  alert("Ingrese una descripcion");
+                  $("#descripcion_id").focus();
+                  return false;
+               }
+               return true;
+         }
+
+            function codificar64(fotoblob, callback){
+                     return new Promise (function (resolve, reject) {
+                        var reader = new FileReader();
+                        reader.onloadend = function(){
+                              callback(reader.result);
+                              resolve(reader.result);
+                              // console.log('RESULT', reader.result);
+                        }
+                        reader.onerror = reject;
+                        reader.readAsDataURL(fotoblob);
+                     });
+            }
+      </script>
+      <!-- SCRIPTS -->
    </body>
 </html>

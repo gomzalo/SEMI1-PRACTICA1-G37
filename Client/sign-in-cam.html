@@ -95,6 +95,7 @@
                                 </div>
                                 <div class="sign-info">
                                     <span class="dark-color d-inline-block line-height-2">¿Aún no tienes una cuenta? <a href="/sign-up.html">Registrarse</a></span>
+                                    <span class="dark-color d-inline-block line-height-2">También puedes <a href="/index.html">Iniciar sesión</a> de forma clásica.</span>
                                     <ul class="iq-social-media">
                                         <li><a href="#"><i class="ri-facebook-box-line"></i></a></li>
                                         <li><a href="#"><i class="ri-twitter-line"></i></a></li>
@@ -180,13 +181,13 @@
                     destCtx.drawImage(document.getElementById("canvas"), 0, 0);  
             
                     // Get base64 data to send to server for upload  
-                    imagebase64data = destinationCanvas.toDataURL("image/png");  
+                    imagebase64data = destinationCanvas.toDataURL("image/jpg");  
                     // imagebase64data = imagebase64data.replace('data:image/png;base64,', '');
                     // console.log(imagebase64data);
                 // });
                 let data = {
-                    user: form.username_id.value,
-                    image: imagebase64data
+                    username: form.username_id.value,
+                    imagen: imagebase64data
                 }
                 console.log(data);
                 // $.ajax({  
@@ -210,9 +211,9 @@
                     //     pass: form.contrasena_id.value
                     // }
                     let data_response = "";
-                    const req = await fetch('http://localhost:3333/login_cam', {
+                    const req = await fetch('http://localhost:3333/loginPorFoto', {
                         method: "POST",
-                        body: JSON.stringify(_data),
+                        body: JSON.stringify(data),
                         headers: {"Content-type": "application/json; charset=UTF-8"}
                     });
                     // .then(response => data_response = response.json())

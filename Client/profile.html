@@ -15,13 +15,6 @@
       <link rel="stylesheet" href="css/style.css">
       <!-- Responsive CSS -->
       <link rel="stylesheet" href="css/responsive.css">
-      <!-- SCRIPTS -->
-      <script>
-         function cargarPerfil(){
-
-         }
-      </script>
-      <!-- SCRIPTS -->
    </head>
    <body class="sidebar-main-active right-column-fixed">
       <!-- loader Start -->
@@ -40,17 +33,17 @@
                      <!-- <li>
                         <a href="index.html" class="iq-waves-effect"><i class="las la-newspaper"></i><span>Newsfeed</span></a>
                      </li> -->
-                     <li>
+                     <li class="active">
                         <a href="profile.html" class="iq-waves-effect"><i class="las la-user"></i><span>Profile</span></a>
                      </li>
-                     <!-- <li>
-                        <a href="friend-list.html" class="iq-waves-effect"><i class="las la-user-friends"></i><span>Friend Lists</span></a>
-                     </li>
                      <li>
+                        <a href="upload.html" class="iq-waves-effect"><i class="las la-file"></i><span>Subir</span></a>
+                     </li>
+                     <!-- <li>
                         <a href="group.html" class="iq-waves-effect"><i class="las la-users"></i><span>Group</span></a>
                      </li> -->
                      <li>
-                        <a href="profile-images.html" class="iq-waves-effect"><i class="las la-image"></i><span>Profile Image</span></a>
+                        <a href="profile-images.html" class="iq-waves-effect"><i class="las la-image"></i><span>Imagenes</span></a>
                      </li>
                      <!-- <li>
                         <a href="profile-video.html" class="iq-waves-effect"><i class="las la-video"></i><span>Profile Video</span></a>
@@ -66,11 +59,11 @@
                      </li>
                      <li>
                         <a href="friend-request.html" class="iq-waves-effect"><i class="las la-anchor"></i><span>Friend Request</span></a>
-                     </li>
+                     </li>-->
                      <li>
                         <a href="chat.html" class="iq-waves-effect"><i class="lab la-rocketchat"></i><span>Chat</span></a>
                      </li>
-                     <li>
+                     <!--<li>
                         <a href="todo.html" class="iq-waves-effect"><i class="las la-check-circle"></i><span>Todo</span></a>
                      </li>
                      <li>
@@ -224,98 +217,16 @@
                            <a href="profile.html" class="iq-waves-effect d-flex align-items-center">
                               <img id="foto_actual_id1" src="images/user/1.jpg" class="img-fluid rounded-circle mr-3" alt="user">
                               <div class="caption">
-                                 <h6 id="nombre_id1" class="mb-0 line-height">Bni Cyst</h6>
+                                 <h6 id="nombre_id1" class="mb-0 line-height">Bicho</h6>
                               </div>
                            </a>
                         </li>
                         <li>
-                           <a href="profile.html" class="iq-waves-effect d-flex align-items-center">
+                           <a href="profile-images.html" class="iq-waves-effect d-flex align-items-center">
                            <i class="ri-home-line"></i>
                            </a>
                         </li>
-                        <li class="nav-item">
-                           <a class="search-toggle iq-waves-effect" href="#"><i class="ri-group-line"></i></a>
-                           <div class="iq-sub-dropdown iq-sub-dropdown-large">
-                              <div class="iq-card shadow-none m-0">
-                                 <div class="iq-card-body p-0 ">
-                                    <div class="bg-primary p-3">
-                                       <h5 class="mb-0 text-white">Friend Request<small class="badge  badge-light float-right pt-1">4</small></h5>
-                                    </div>
-                                    <div class="iq-friend-request">
-                                       <div class="iq-sub-card iq-sub-card-big d-flex align-items-center justify-content-between" >
-                                          <div class="d-flex align-items-center">
-                                             <div class="">
-                                                <img class="avatar-40 rounded" src="images/user/01.jpg" alt="">
-                                             </div>
-                                             <div class="media-body ml-3">
-                                                <h6 class="mb-0 ">Jaques Amole</h6>
-                                                <p class="mb-0">40  friends</p>
-                                             </div>
-                                          </div>
-                                          <div class="d-flex align-items-center">
-                                             <a href="javascript:void();" class="mr-3 btn btn-primary rounded">Confirm</a>
-                                             <a href="javascript:void();" class="mr-3 btn btn-secondary rounded">Delete Request</a>                                    
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="iq-friend-request">
-                                       <div class="iq-sub-card iq-sub-card-big d-flex align-items-center justify-content-between" >
-                                          <div class="d-flex align-items-center">
-                                             <div class="">
-                                                <img class="avatar-40 rounded" src="images/user/02.jpg" alt="">
-                                             </div>
-                                             <div class="media-body ml-3">
-                                                <h6 class="mb-0 ">Lucy Tania</h6>
-                                                <p class="mb-0">12  friends</p>
-                                             </div>
-                                          </div>
-                                          <div class="d-flex align-items-center">
-                                             <a href="javascript:void();" class="mr-3 btn btn-primary rounded">Confirm</a>
-                                             <a href="javascript:void();" class="mr-3 btn btn-secondary rounded">Delete Request</a>                                    
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="iq-friend-request">
-                                       <div class="iq-sub-card iq-sub-card-big d-flex align-items-center justify-content-between" >
-                                          <div class="d-flex align-items-center">
-                                             <div class="">
-                                                <img class="avatar-40 rounded" src="images/user/03.jpg" alt="">
-                                             </div>
-                                             <div class="media-body ml-3">
-                                                <h6 class="mb-0 ">Manny Petty</h6>
-                                                <p class="mb-0">3  friends</p>
-                                             </div>
-                                          </div>
-                                          <div class="d-flex align-items-center">
-                                             <a href="javascript:void();" class="mr-3 btn btn-primary rounded">Confirm</a>
-                                             <a href="javascript:void();" class="mr-3 btn btn-secondary rounded">Delete Request</a>                                    
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="iq-friend-request">
-                                       <div class="iq-sub-card iq-sub-card-big d-flex align-items-center justify-content-between" >
-                                          <div class="d-flex align-items-center">
-                                             <div class="">
-                                                <img class="avatar-40 rounded" src="images/user/04.jpg" alt="">
-                                             </div>
-                                             <div class="media-body ml-3">
-                                                <h6 class="mb-0 ">Marsha Mello</h6>
-                                                <p class="mb-0">15  friends</p>
-                                             </div>
-                                          </div>
-                                          <div class="d-flex align-items-center">
-                                             <a href="javascript:void();" class="mr-3 btn btn-primary rounded">Confirm</a>
-                                             <a href="javascript:void();" class="mr-3 btn btn-secondary rounded">Delete Request</a>                                    
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="text-center">
-                                       <a href="#" class="mr-3 btn text-primary">View More Request</a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </li>
+                         
                         <li class="nav-item">
                            <a href="#" class="search-toggle iq-waves-effect">
                               <div id="lottie-beil"></div>
@@ -325,7 +236,7 @@
                               <div class="iq-card shadow-none m-0">
                                  <div class="iq-card-body p-0 ">
                                     <div class="bg-primary p-3">
-                                       <h5 class="mb-0 text-white">All Notifications<small class="badge  badge-light float-right pt-1">4</small></h5>
+                                       <h5 class="mb-0 text-white">Notificaciones<small class="badge  badge-light float-right pt-1">4</small></h5>
                                     </div>
                                     <a href="#" class="iq-sub-card" >
                                        <div class="media align-items-center">
@@ -388,7 +299,7 @@
                               <div class="iq-card shadow-none m-0">
                                  <div class="iq-card-body p-0 ">
                                     <div class="bg-primary p-3">
-                                       <h5 class="mb-0 text-white">All Messages<small class="badge  badge-light float-right pt-1">5</small></h5>
+                                       <h5 class="mb-0 text-white">Mensajes<small class="badge  badge-light float-right pt-1">5</small></h5>
                                     </div>
                                     <a href="#" class="iq-sub-card" >
                                        <div class="media align-items-center">
@@ -459,7 +370,7 @@
                               <div class="iq-card shadow-none m-0">
                                  <div class="iq-card-body p-0 ">
                                     <div class="bg-primary p-3 line-height">
-                                       <h5 id="nombre_id2" class="mb-0 text-white line-height">Hello Bni Cyst</h5>
+                                       <h5 id="nombre_id2" class="mb-0 text-white line-height">Hola</h5>
                                        <span class="text-white font-size-12">Disponible</span>
                                     </div>
                                     <a href="profile.html" class="iq-sub-card iq-bg-primary-hover">
@@ -468,7 +379,7 @@
                                              <i class="ri-file-user-line"></i>
                                           </div>
                                           <div class="media-body ml-3">
-                                             <h6 class="mb-0 ">Mi Perfil</h6>
+                                             <h6 class="mb-0 ">Mi perfil</h6>
                                              <p class="mb-0 font-size-12">Ver detalles de información personal.</p>
                                           </div>
                                        </div>
@@ -507,7 +418,7 @@
                                        </div>
                                     </a> -->
                                     <div class="d-inline-block w-100 text-center p-3">
-                                       <a class="bg-primary iq-sign-btn" href="index.html" role="button">Sign out<i class="ri-login-box-line ml-2"></i></a>
+                                       <a class="bg-primary iq-sign-btn" href="index.html" role="button">Cerrar sesión<i class="ri-login-box-line ml-2"></i></a>
                                     </div>
                                  </div>
                               </div>
@@ -685,19 +596,19 @@
                                        <div class=" row align-items-center">
                                           <div class="form-group col-sm-6">
                                              <label for="fname">Nombre:</label>
-                                             <input type="text" class="form-control" id="nombre_id" value="Bni">
+                                             <input type="text" class="form-control" id="nombre_id" value="">
                                           </div>
                                           <div class="form-group col-sm-6">
                                              <label for="lname">Apellido:</label>
-                                             <input type="text" class="form-control" id="apellido_id" value="Jhon">
+                                             <input type="text" class="form-control" id="apellido_id" value="">
                                           </div>
                                           <div class="form-group col-sm-6">
                                              <label for="uname">Username:</label>
-                                             <input type="text" class="form-control" id="username_id" value="Bni@01">
+                                             <input type="text" class="form-control" id="username_id" value="">
                                           </div>
                                           <div class="form-group col-sm-6">
                                              <label for="cname">Contraseña:</label>
-                                             <input type="text" class="form-control" id="contrasenia_id" value="Atlanta">
+                                             <input type="text" class="form-control" id="contrasenia_id" value="">
                                           </div>
                                           <div class="form-group">
                                              <label for="exampleInputPassword1">Contraseña</label>
@@ -714,8 +625,8 @@
                                                 <label class="custom-control-label" for="customRadio7"> Mujer </label>
                                              </div>
                                              <div class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" id="customRadio7" name="customRadio1" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio7"> Indefinido </label>
+                                                <input type="radio" id="customRadio8" name="customRadio1" class="custom-control-input">
+                                                <label class="custom-control-label" for="customRadio8"> Indefinido </label>
                                              </div>
                                           </div>
                                           <!-- <div class="form-group col-sm-6">
@@ -773,7 +684,7 @@
                                           </div> -->
                                        </div>
                                        <button type="button" onclick="editar(this.form)" class="btn btn-primary mr-2">Cambiar</button>
-                                       <button type="reset" id="cancelar_id" class="btn iq-bg-danger">Cancelar</button>
+                                       <button type="reset" id="cancelar_id" class="btn iq-bg-danger"><a href="profile.html">Cancelar</a></button>
                                     </form>
                                  </div>
                               </div>
@@ -801,7 +712,7 @@
                                           <input type="Password" class="form-control" id="vpass" value="">
                                        </div>
                                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                                       <button type="reset" class="btn iq-bg-danger">Cancle</button>
+                                       <button type="reset" class="btn iq-bg-danger">Cancelar</button>
                                     </form>
                                  </div>
                               </div>
@@ -880,15 +791,15 @@
                                     <form>
                                        <div class="form-group">
                                           <label for="cno">Número:</label>
-                                          <input type="text" class="form-control" id="cno" value="001 2536 123 458">
+                                          <input type="text" class="form-control" id="cno" value="502 2255 8896">
                                        </div>
                                        <div class="form-group">
                                           <label for="email">Email:</label>
-                                          <input type="text" class="form-control" id="email" value="Bnijone@demo.com">
+                                          <input type="text" class="form-control" id="email" value="aymimadre@elbicho.com">
                                        </div>
                                        <div class="form-group">
                                           <label for="url">Url:</label>
-                                          <input type="text" class="form-control" id="url" value="https://getbootstrap.com">
+                                          <input type="text" class="form-control" id="url" value="https://bicho.com">
                                        </div>
                                        <button type="submit" class="btn btn-primary mr-2">Aceptar</button>
                                        <button type="reset" class="btn iq-bg-danger">Cancelar</button>
@@ -958,6 +869,8 @@
             $(document).ready(function(){
                // localStorage.setItem("usuario_activo", data_user_ver);
                var usuario_activo = localStorage.getItem("usuario_activo");
+               var tags_foto = localStorage.getItem("tags_foto_perfil");
+               tags_foto = JSON.parse(tags_foto);
                usuario_activo = JSON.parse(usuario_activo);
                // toast.info(usuario_activo.nombre.S);
                // console.log("usuario activo: ", JSON.parse(usuario_activo));
@@ -977,8 +890,9 @@
                // console.log('img_url', url_foto);
                // Colocando imagen
                $("#foto_actual_id").attr('src', url_foto);
+               
+               // Colocando header
                $("#foto_actual_id1").attr('src', url_foto);
-               // Colocando h
                $("#nombre_id1").text(nombre);
                $("#nombre_id2").text("Hola " + nombre);
 

@@ -30,22 +30,22 @@
             <div id="sidebar-scrollbar">
                <nav class="iq-sidebar-menu">
                   <ul id="iq-sidebar-toggle" class="iq-menu">
-                     <li>
+                     <!-- <li>
                         <a href="index.html" class="iq-waves-effect"><i class="las la-newspaper"></i><span>Newsfeed</span></a>
+                     </li> -->
+                     <li>
+                        <a href="profile.html" class="iq-waves-effect"><i class="las la-user"></i><span>Perfil</span></a>
                      </li>
                      <li>
-                        <a href="profile.html" class="iq-waves-effect"><i class="las la-user"></i><span>Profile</span></a>
+                        <a href="upload.html" class="iq-waves-effect"><i class="las la-file"></i><span>Subir</span></a>
                      </li>
-                     <li>
-                        <a href="friend-list.html" class="iq-waves-effect"><i class="las la-user-friends"></i><span>Friend Lists</span></a>
-                     </li>
-                     <li>
+                     <!-- <li>
                         <a href="group.html" class="iq-waves-effect"><i class="las la-users"></i><span>Group</span></a>
-                     </li>
+                     </li> -->
                      <li>
-                        <a href="profile-images.html" class="iq-waves-effect"><i class="las la-image"></i><span>Profile Image</span></a>
+                        <a href="profile-images.html" class="iq-waves-effect"><i class="las la-image"></i><span>Imagenes</span></a>
                      </li>
-                     <li>
+                     <!-- <li>
                         <a href="profile-video.html" class="iq-waves-effect"><i class="las la-video"></i><span>Profile Video</span></a>
                      </li>
                      <li>
@@ -59,11 +59,11 @@
                      </li>
                      <li>
                         <a href="friend-request.html" class="iq-waves-effect"><i class="las la-anchor"></i><span>Friend Request</span></a>
-                     </li>
+                     </li> -->
                      <li class="active">
                         <a href="chat.html" class="iq-waves-effect"><i class="lab la-rocketchat"></i><span>Chat</span></a>
                      </li>
-                     <li>
+                     <!-- <li>
                         <a href="todo.html" class="iq-waves-effect"><i class="las la-check-circle"></i><span>Todo</span></a>
                      </li>
                      <li>
@@ -180,7 +180,7 @@
                               </ul>
                            </li>
                         </ul>
-                     </li>
+                     </li> -->
                      
                   </ul>
                </nav>
@@ -194,7 +194,7 @@
                   <div class="iq-navbar-logo d-flex justify-content-between">
                      <a href="index.html">
                      <img src="images/logo.png" class="img-fluid" alt="">
-                     <span>SocialV</span>
+                     <span>UGRAM</span>
                      </a>
                      <div class="iq-menu-bt align-self-center">
                      <div class="wrapper-menu">
@@ -215,100 +215,18 @@
                      <ul class="navbar-nav ml-auto navbar-list">
                         <li>
                            <a href="profile.html" class="iq-waves-effect d-flex align-items-center">
-                              <img src="images/user/1.jpg" class="img-fluid rounded-circle mr-3" alt="user">
+                              <img id="foto_actual_id1" src="images/user/1.jpg" class="img-fluid rounded-circle mr-3" alt="user">
                               <div class="caption">
-                                 <h6 class="mb-0 line-height">Bni Cyst</h6>
+                                 <h6 id="nombre_id1" class="mb-0 line-height">Bicho</h6>
                               </div>
                            </a>
                         </li>
                         <li>
-                           <a href="index.html" class="iq-waves-effect d-flex align-items-center">
+                           <a href="profile-images.html" class="iq-waves-effect d-flex align-items-center">
                            <i class="ri-home-line"></i>
                            </a>
                         </li>
-                        <li class="nav-item">
-                           <a class="search-toggle iq-waves-effect" href="#"><i class="ri-group-line"></i></a>
-                           <div class="iq-sub-dropdown iq-sub-dropdown-large">
-                              <div class="iq-card shadow-none m-0">
-                                 <div class="iq-card-body p-0 ">
-                                    <div class="bg-primary p-3">
-                                       <h5 class="mb-0 text-white">Friend Request<small class="badge  badge-light float-right pt-1">4</small></h5>
-                                    </div>
-                                    <div class="iq-friend-request">
-                                       <div class="iq-sub-card iq-sub-card-big d-flex align-items-center justify-content-between" >
-                                          <div class="d-flex align-items-center">
-                                             <div class="">
-                                                <img class="avatar-40 rounded" src="images/user/01.jpg" alt="">
-                                             </div>
-                                             <div class="media-body ml-3">
-                                                <h6 class="mb-0 ">Jaques Amole</h6>
-                                                <p class="mb-0">40  friends</p>
-                                             </div>
-                                          </div>
-                                          <div class="d-flex align-items-center">
-                                             <a href="javascript:void();" class="mr-3 btn btn-primary rounded">Confirm</a>
-                                             <a href="javascript:void();" class="mr-3 btn btn-secondary rounded">Delete Request</a>                                    
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="iq-friend-request">
-                                       <div class="iq-sub-card iq-sub-card-big d-flex align-items-center justify-content-between" >
-                                          <div class="d-flex align-items-center">
-                                             <div class="">
-                                                <img class="avatar-40 rounded" src="images/user/02.jpg" alt="">
-                                             </div>
-                                             <div class="media-body ml-3">
-                                                <h6 class="mb-0 ">Lucy Tania</h6>
-                                                <p class="mb-0">12  friends</p>
-                                             </div>
-                                          </div>
-                                          <div class="d-flex align-items-center">
-                                             <a href="javascript:void();" class="mr-3 btn btn-primary rounded">Confirm</a>
-                                             <a href="javascript:void();" class="mr-3 btn btn-secondary rounded">Delete Request</a>                                    
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="iq-friend-request">
-                                       <div class="iq-sub-card iq-sub-card-big d-flex align-items-center justify-content-between" >
-                                          <div class="d-flex align-items-center">
-                                             <div class="">
-                                                <img class="avatar-40 rounded" src="images/user/03.jpg" alt="">
-                                             </div>
-                                             <div class="media-body ml-3">
-                                                <h6 class="mb-0 ">Manny Petty</h6>
-                                                <p class="mb-0">3  friends</p>
-                                             </div>
-                                          </div>
-                                          <div class="d-flex align-items-center">
-                                             <a href="javascript:void();" class="mr-3 btn btn-primary rounded">Confirm</a>
-                                             <a href="javascript:void();" class="mr-3 btn btn-secondary rounded">Delete Request</a>                                    
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="iq-friend-request">
-                                       <div class="iq-sub-card iq-sub-card-big d-flex align-items-center justify-content-between" >
-                                          <div class="d-flex align-items-center">
-                                             <div class="">
-                                                <img class="avatar-40 rounded" src="images/user/04.jpg" alt="">
-                                             </div>
-                                             <div class="media-body ml-3">
-                                                <h6 class="mb-0 ">Marsha Mello</h6>
-                                                <p class="mb-0">15  friends</p>
-                                             </div>
-                                          </div>
-                                          <div class="d-flex align-items-center">
-                                             <a href="javascript:void();" class="mr-3 btn btn-primary rounded">Confirm</a>
-                                             <a href="javascript:void();" class="mr-3 btn btn-secondary rounded">Delete Request</a>                                    
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="text-center">
-                                       <a href="#" class="mr-3 btn text-primary">View More Request</a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </li>
+                         
                         <li class="nav-item">
                            <a href="#" class="search-toggle iq-waves-effect">
                               <div id="lottie-beil"></div>
@@ -318,7 +236,7 @@
                               <div class="iq-card shadow-none m-0">
                                  <div class="iq-card-body p-0 ">
                                     <div class="bg-primary p-3">
-                                       <h5 class="mb-0 text-white">All Notifications<small class="badge  badge-light float-right pt-1">4</small></h5>
+                                       <h5 class="mb-0 text-white">Notificaciones<small class="badge  badge-light float-right pt-1">4</small></h5>
                                     </div>
                                     <a href="#" class="iq-sub-card" >
                                        <div class="media align-items-center">
@@ -381,7 +299,7 @@
                               <div class="iq-card shadow-none m-0">
                                  <div class="iq-card-body p-0 ">
                                     <div class="bg-primary p-3">
-                                       <h5 class="mb-0 text-white">All Messages<small class="badge  badge-light float-right pt-1">5</small></h5>
+                                       <h5 class="mb-0 text-white">Mensajes<small class="badge  badge-light float-right pt-1">5</small></h5>
                                     </div>
                                     <a href="#" class="iq-sub-card" >
                                        <div class="media align-items-center">
@@ -452,8 +370,8 @@
                               <div class="iq-card shadow-none m-0">
                                  <div class="iq-card-body p-0 ">
                                     <div class="bg-primary p-3 line-height">
-                                       <h5 class="mb-0 text-white line-height">Hello Bni Cyst</h5>
-                                       <span class="text-white font-size-12">Available</span>
+                                       <h5 id="nombre_id2" class="mb-0 text-white line-height">Hola</h5>
+                                       <span class="text-white font-size-12">Disponible</span>
                                     </div>
                                     <a href="profile.html" class="iq-sub-card iq-bg-primary-hover">
                                        <div class="media align-items-center">
@@ -461,8 +379,8 @@
                                              <i class="ri-file-user-line"></i>
                                           </div>
                                           <div class="media-body ml-3">
-                                             <h6 class="mb-0 ">My Profile</h6>
-                                             <p class="mb-0 font-size-12">View personal profile details.</p>
+                                             <h6 class="mb-0 ">Mi perfil</h6>
+                                             <p class="mb-0 font-size-12">Ver detalles de información personal.</p>
                                           </div>
                                        </div>
                                     </a>
@@ -472,12 +390,12 @@
                                              <i class="ri-profile-line"></i>
                                           </div>
                                           <div class="media-body ml-3">
-                                             <h6 class="mb-0 ">Edit Profile</h6>
-                                             <p class="mb-0 font-size-12">Modify your personal details.</p>
+                                             <h6 class="mb-0 ">Editar perfil</h6>
+                                             <p class="mb-0 font-size-12">Modificar tus detalles personales.</p>
                                           </div>
                                        </div>
                                     </a>
-                                    <a href="account-setting.html" class="iq-sub-card iq-bg-info-hover">
+                                    <!-- <a href="account-setting.html" class="iq-sub-card iq-bg-info-hover">
                                        <div class="media align-items-center">
                                           <div class="rounded iq-card-icon iq-bg-info">
                                              <i class="ri-account-box-line"></i>
@@ -498,9 +416,9 @@
                                              <p class="mb-0 font-size-12">Control your privacy parameters.</p>
                                           </div>
                                        </div>
-                                    </a>
+                                    </a> -->
                                     <div class="d-inline-block w-100 text-center p-3">
-                                       <a class="bg-primary iq-sign-btn" href="sign-in.html" role="button">Sign out<i class="ri-login-box-line ml-2"></i></a>
+                                       <a class="bg-primary iq-sign-btn" href="sign-in.html" role="button">Cerrar sesión<i class="ri-login-box-line ml-2"></i></a>
                                     </div>
                                  </div>
                               </div>
@@ -513,7 +431,7 @@
          </div>
          <!-- TOP Nav Bar END -->
          <!-- Right Sidebar Panel Start-->
-         <div class="right-sidebar-mini right-sidebar">
+         <!-- <div class="right-sidebar-mini right-sidebar">
             <div class="right-sidebar-panel p-0">
                <div class="iq-card shadow-none">
                   <div class="iq-card-body p-0">
@@ -616,7 +534,7 @@
                   </div>
                </div>
             </div>
-         </div>
+         </div> -->
          <!-- Right Sidebar Panel End-->
          <!-- Page Content  -->
          <div id="content-page" class="content-page">
@@ -2734,5 +2652,46 @@
       <script src="js/chart-custom.js"></script>
       <!-- Custom JavaScript -->
       <script src="js/custom.js"></script>
+      <!-- SCRIPTS -->
+      <script>
+         $(document).ready(function(){
+               // localStorage.setItem("usuario_activo", data_user_ver);
+               var usuario_activo = localStorage.getItem("usuario_activo");
+               usuario_activo = JSON.parse(usuario_activo);
+               // alert(usuario_activo);
+               console.log("usuario activo: ", usuario_activo);
+               // Obteniendo datos
+               var nombre = usuario_activo.nombre.S;
+               // var apellido = usuario_activo.apellido.S;
+               // var username = usuario_activo.username.S;
+               // var contrasenia = usuario_activo.contrasenia.S;
+               var url_foto = usuario_activo.url_foto.S;
+               // // Colocando datos input
+               // $("#nombre_id").val(nombre);
+               // $("#apellido_id").val(apellido);
+               // $("#username_id").val(username);
+               // $("#contrasenia_id").val(contrasenia);
+               // $("#nombre_id").val(nombre);
+
+               // // console.log('img_url', url_foto);
+               // // Colocando imagen
+               // $("#foto_actual_id").attr('src', url_foto);
+               
+               // Colocando header
+               $("#foto_actual_id1").attr('src', url_foto);
+               $("#nombre_id1").text(nombre);
+               $("#nombre_id2").text("Hola " + nombre);
+
+               // // Cancelar
+               // $("#cancelar_id").click(function(){
+               //    $("#nombre_id").val(nombre);
+               //    $("#apellido_id").val(apellido);
+               //    $("#username_id").val(username);
+               //    $("#contrasenia_id").val(contrasenia);
+               //    $("#nombre_id").val(nombre);
+               // });
+            })
+      </script>
+      <!-- SCRIPTS -->
    </body>
 </html>

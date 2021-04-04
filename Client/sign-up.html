@@ -244,16 +244,16 @@
                                 // ///////////// ///////////// ///////////
                                 // /////////// Comprobando usuario /////////////
                                 // data to be sent to the POST request
-                                // let _data_ = {
-                                //     user: username,
-                                //     pass: contrasenia
-                                // };
-                                // let data_response_ver = "";
-                                // const req_ver = await fetch('http://localhost:3333/verificar', {
-                                //     method: "POST",
-                                //     body: JSON.stringify(_data_),
-                                //     headers: {"Content-type": "application/json; charset=UTF-8"}
-                                // });
+                                let _data_ = {
+                                    user: username,
+                                    pass: contrasenia
+                                };
+                                let data_response_ver = "";
+                                const req_ver = await fetch('http://localhost:3333/verificar', {
+                                    method: "POST",
+                                    body: JSON.stringify(_data_),
+                                    headers: {"Content-type": "application/json; charset=UTF-8"}
+                                });
                                 // .then(response => response.json())
                                 // .catch(err => console.log(err));
 
