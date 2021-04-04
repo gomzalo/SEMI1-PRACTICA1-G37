@@ -618,7 +618,7 @@ app.post('/loginPorFoto', (req, res) => {
       console.log(url_foto_);
       
       let nombre_imagen = url_foto_.split('/').pop();
-      console.log(nombre_imagen);
+      console.log("nombre_imagen: ", nombre_imagen);
 
       var params = {    
         SourceImage: {
@@ -645,12 +645,12 @@ app.post('/loginPorFoto', (req, res) => {
           res.send({ 'message': 0 });
         } 
         else { 
-          res.json({Comparacion: data.FaceMatches});                  
+          res.send({'message': 1, "User": items_login[0], 'Data_face': data.FaceMatches});                  
           data.FaceMatches.forEach(data => {
             let position   = data.Face.BoundingBox
             let similarity = data.Similarity
             console.log(`The face at: ${position.Left}, ${position.Top} matches with ${similarity} % confidence`)
-          })  
+          })
             
         }
       });
@@ -672,7 +672,7 @@ async function scanLoginFoto(user, callback) {
       ExpressionAttributeValues: {
         ":usrn": { "S": user}
       },
-      ProjectionExpression: 'url_foto'  //Este es solo para obtener un dato en especifico
+      // ProjectionExpression: 'url_foto'  //Este es solo para obtener un dato en especifico
       // Limit: 10
     };
     var response = await ddb.scan(params).promise();

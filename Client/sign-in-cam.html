@@ -172,6 +172,7 @@
                     var destinationCanvas = document.createElement("canvas");  
                     var destCtx = destinationCanvas.getContext('2d');  
                     var video = document.querySelector("#videoElement");
+                    var username = form.username_id.value;
             
                     destinationCanvas.height = 500;  
                     destinationCanvas.width = 500;  
@@ -186,7 +187,7 @@
                     // console.log(imagebase64data);
                 // });
                 let data = {
-                    username: form.username_id.value,
+                    username: username,
                     imagen: imagebase64data
                 }
                 console.log(data);
@@ -222,23 +223,38 @@
                     
                     const res = await req.json();
                     data_response = res;
-                    console.log("data_response: ", data_response);
+                    // console.log("data_response: ", data_response);
+                    data_msj = data_response.message;
+                    if(data_msj == 0){
+                        alert("Ocurrio un error.");
+                    }else{
+                        data_face = data_response.Data_face;
+                        similaridad = data_face[0].Similarity;
+                        console.log("data_face similarity: ", similaridad);
+                        data_user = data_response.User;
+                        console.log("data_response_user: ", data_user);
+                        if(similaridad > 80.0){
+                            alert("¡Bienvenido!");
+                            location="profile.html";
+                            localStorage.setItem("usuario_activo", JSON.stringify(data_user));
+                        }
+                    }
                     // console.log("data_response_user: ", data_response.User);
                     // data_user = data_response.User;
                     // var user = data_user.username.S;
                     // var pass = data_user.contrasenia.S;
                     // alert(JSON.stringify(data_user));
-                    localStorage.setItem("usuario_activo", JSON.stringify(data_user));
                     
-                    if (form.username_id.value == user) { 
-                        if (form.contrasena_id.value == pass) {              
-                            location="profile.html";
-                        } else {
-                            alert("¡Contraseña incorrecta!")
-                        }
-                    } else {  
-                        alert("¡Usuario invalido!")
-                    }
+                    
+                    // if (form.username_id.value == user) { 
+                    //     if (form.contrasena_id.value == pass) {              
+                    //         location="profile.html";
+                    //     } else {
+                    //         alert("¡Contraseña incorrecta!")
+                    //     }
+                    // } else {  
+                    //     alert("¡Usuario invalido!")
+                    // }
                     // console.log(res)
                     // Testing DynamoDB
                 } catch(err){
