@@ -15,6 +15,9 @@
       <link rel="stylesheet" href="css/style.css">
       <!-- Responsive CSS -->
       <link rel="stylesheet" href="css/responsive.css">
+      <!-- TAGIT -->
+      <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
+      <link href="css/jquery.tagit.css" rel="stylesheet" type="text/css">
    </head>
    <body class="sidebar-main-active right-column-fixed">
       <!-- loader Start -->
@@ -592,6 +595,9 @@
                                                 </div>
                                              </div>
                                           </div>
+                                          <ul id="myTags">
+                                             <!-- Existing list items will be pre-added to the tags -->
+                                         </ul>
                                        </div>
                                        <div class=" row align-items-center">
                                           <div class="form-group col-sm-6">
@@ -864,16 +870,38 @@
       <script src="js/chart-custom.js"></script>
       <!-- Custom JavaScript -->
       <script src="js/custom.js"></script>
+      <!-- TAGIT -->
+      <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js" type="text/javascript" charset="utf-8"></script> -->
+      <link href = "https://code.jquery.com/ui/1.8.12/themes/ui-darkness/jquery-ui.css"
+         rel = "stylesheet">
+      <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+      <script src="js/tag-it.js" type="text/javascript" charset="utf-8"></script>
+      <!-- <script type="text/javascript">
+         $(document).ready(function() {
+             $("#myTags").tagit();
+         });
+     </script> -->
+     <!-- TAGIT -->
       <!-- SCRIPTS -->
          <script>
             $(document).ready(function(){
+               $("#myTags").tagit();
                // localStorage.setItem("usuario_activo", data_user_ver);
                var usuario_activo = localStorage.getItem("usuario_activo");
                var tags_foto = localStorage.getItem("tags_foto_perfil");
                tags_foto = JSON.parse(tags_foto);
                usuario_activo = JSON.parse(usuario_activo);
                // toast.info(usuario_activo.nombre.S);
+               // Llenando tags
+               console.log("tags: ", JSON.parse(tags_foto));
+               // console.log("tags size: ", tags_foto.length);
+               
+               // console.log(JSON.parse(tags_foto)[0].Name);
+               for(i = 0; i < JSON.parse(tags_foto).length; i++){
+                  $("#myTags").tagit("createTag", JSON.parse(tags_foto)[i].Name);
+               }
                // console.log("usuario activo: ", JSON.parse(usuario_activo));
+               
                // Obteniendo datos
                var nombre = usuario_activo.nombre.S;
                var apellido = usuario_activo.apellido.S;

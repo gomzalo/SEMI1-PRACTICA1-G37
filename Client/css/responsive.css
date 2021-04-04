@@ -1,9 +1,3 @@
-/*
-Template: SocialV - Responsive Bootstrap 4 Admin Dashboard Template
-Author: iqonicthemes.in
-Design and Developed by: iqonicthemes.in
-NOTE: This file contains the styling for responsive Template.
-*/
 	@media (min-width:1200px) {
 		.container, .container-lg, .container-md, .container-sm, .container-xl { max-width: 1000px; }
 	}

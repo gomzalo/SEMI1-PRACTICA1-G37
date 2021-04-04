@@ -1,13 +1,3 @@
-/*
-* Remix Icon v2.0.0
-* https://remixicon.com
-* https://github.com/Remix-Design/RemixIcon
-*
-* Copyright RemixIcon.com
-* Released under the Apache License Version 2.0
-*
-* Date: 2019-09-15
-*/
 @font-face {
   font-family: "remixicon";
   src: url('../fonts/remixicon.eot?t=1568552893872'); /* IE9*/
@@ -18,7 +8,16 @@
   url('../fonts/remixicon.svg?t=1568552893872#remixicon') format('svg'); /* iOS 4.1- */
   font-display: swap;
 }
-
+/*
+* Remix Icon v2.0.0
+* https://remixicon.com
+* https://github.com/Remix-Design/RemixIcon
+*
+* Copyright RemixIcon.com
+* Released under the Apache License Version 2.0
+*
+* Date: 2019-09-15
+*/
 [class^="ri-"], [class*=" ri-"] {
   font-family: 'remixicon' !important;
   font-style: normal;
