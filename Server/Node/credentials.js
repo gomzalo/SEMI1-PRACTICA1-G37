@@ -15,6 +15,11 @@ let aws_keys = {
         region: 'us-east-2',
         accessKeyId: "AKIASKVPP37UCBXPBGPC",
         secretAccessKey: "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"        
+    },
+    translate:{
+        region: 'us-east-2',
+        accessKeyId: "AKIASKVPP37UCY75VAVJ",
+        secretAccessKey: "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"        
     }
 
 }

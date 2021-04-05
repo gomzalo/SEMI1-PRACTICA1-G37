@@ -54,6 +54,7 @@ const { response } = require('express');
 const s3 = new AWS.S3(aws_keys.s3);
 const ddb = new AWS.DynamoDB(aws_keys.dynamodb);
 const rek = new AWS.Rekognition(aws_keys.rekognition)
+const translate = new AWS.Translate(aws_keys.translate);
 // ***************************************************
 // *****************    Almacenamiento - S3     *****************
 // ***************************************************
@@ -733,3 +734,28 @@ async function scanLoginFoto(user, callback) {
     console.error(error);
   }
 }
+
+
+//###############################################
+//#### TRADUCIR LA DESCRIPCION DE LA FOTO #######
+//###############################################
+app.post('/traducirDescripcion', (req, res) => {
+  let descripcion = req.body.descripcion;
+  let idioma_destino = req.body.idioma;
+
+  let params = {
+    SourceLanguageCode: 'auto',
+    TargetLanguageCode: idioma_destino,
+    Text: descripcion
+  };
+
+  translate.translateText(params, function (err, data) {
+    if (err) {
+      console.log(err, err.stack);
+      res.send({ error: err })
+    } else {
+      console.log(data);
+      res.send({ message: data })
+    }
+  });
+});
