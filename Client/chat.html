@@ -384,7 +384,7 @@
                                           </div>
                                        </div>
                                     </a>
-                                    <a href="profile-edit.html" class="iq-sub-card iq-bg-warning-hover">
+                                    <a href="profile.html" class="iq-sub-card iq-bg-warning-hover">
                                        <div class="media align-items-center">
                                           <div class="rounded iq-card-icon iq-bg-warning">
                                              <i class="ri-profile-line"></i>
@@ -418,7 +418,7 @@
                                        </div>
                                     </a> -->
                                     <div class="d-inline-block w-100 text-center p-3">
-                                       <a class="bg-primary iq-sign-btn" href="sign-in.html" role="button">Cerrar sesión<i class="ri-login-box-line ml-2"></i></a>
+                                       <a class="bg-primary iq-sign-btn" href="index.html" role="button">Cerrar sesión<i class="ri-login-box-line ml-2"></i></a>
                                     </div>
                                  </div>
                               </div>
@@ -2657,40 +2657,48 @@
          $(document).ready(function(){
                // localStorage.setItem("usuario_activo", data_user_ver);
                var usuario_activo = localStorage.getItem("usuario_activo");
-               usuario_activo = JSON.parse(usuario_activo);
-               // alert(usuario_activo);
-               console.log("usuario activo: ", usuario_activo);
-               // Obteniendo datos
-               var nombre = usuario_activo.nombre.S;
-               // var apellido = usuario_activo.apellido.S;
-               // var username = usuario_activo.username.S;
-               // var contrasenia = usuario_activo.contrasenia.S;
-               var url_foto = usuario_activo.url_foto.S;
-               // // Colocando datos input
-               // $("#nombre_id").val(nombre);
-               // $("#apellido_id").val(apellido);
-               // $("#username_id").val(username);
-               // $("#contrasenia_id").val(contrasenia);
-               // $("#nombre_id").val(nombre);
+               console.log(usuario_activo);
+               if(usuario_activo != "null"){
+                  usuario_activo = JSON.parse(usuario_activo);
+                  // alert(usuario_activo);
+                  console.log("usuario activo: ", usuario_activo);
+                  // Obteniendo datos
+                  var nombre = usuario_activo.nombre.S;
+                  // var apellido = usuario_activo.apellido.S;
+                  // var username = usuario_activo.username.S;
+                  // var contrasenia = usuario_activo.contrasenia.S;
+                  var url_foto = usuario_activo.url_foto.S;
+                  // // Colocando datos input
+                  // $("#nombre_id").val(nombre);
+                  // $("#apellido_id").val(apellido);
+                  // $("#username_id").val(username);
+                  // $("#contrasenia_id").val(contrasenia);
+                  // $("#nombre_id").val(nombre);
 
-               // // console.log('img_url', url_foto);
-               // // Colocando imagen
-               // $("#foto_actual_id").attr('src', url_foto);
-               
-               // Colocando header
-               $("#foto_actual_id1").attr('src', url_foto);
-               $("#nombre_id1").text(nombre);
-               $("#nombre_id2").text("Hola " + nombre);
+                  // // console.log('img_url', url_foto);
+                  // // Colocando imagen
+                  // $("#foto_actual_id").attr('src', url_foto);
+                  
+                  // Colocando header
+                  $("#foto_actual_id1").attr('src', url_foto);
+                  $("#nombre_id1").text(nombre);
+                  $("#nombre_id2").text("Hola " + nombre);
 
-               // // Cancelar
-               // $("#cancelar_id").click(function(){
-               //    $("#nombre_id").val(nombre);
-               //    $("#apellido_id").val(apellido);
-               //    $("#username_id").val(username);
-               //    $("#contrasenia_id").val(contrasenia);
-               //    $("#nombre_id").val(nombre);
-               // });
-            })
+                  // // Cancelar
+                  // $("#cancelar_id").click(function(){
+                  //    $("#nombre_id").val(nombre);
+                  //    $("#apellido_id").val(apellido);
+                  //    $("#username_id").val(username);
+                  //    $("#contrasenia_id").val(contrasenia);
+                  //    $("#nombre_id").val(nombre);
+                  // });
+               } else {
+                  // header('Location: /index.html');
+                  alert("Primero inicia sesion");
+                  console.log("Primero inicia sesion");
+                  location="index.html";
+               }
+            });
       </script>
       <!-- SCRIPTS -->
    </body>

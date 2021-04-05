@@ -826,49 +826,26 @@
       <script src="js/custom.js"></script>
       <!-- SCRIPTS -->
       <script>
-         async function subir(form){
-            var usuario_activo = localStorage.getItem("usuario_activo");
-         }
-      </script>
-      <!-- SCRIPTS -->
-      <script>
          $(document).ready(function(){
                // localStorage.setItem("usuario_activo", data_user_ver);
                var usuario_activo = localStorage.getItem("usuario_activo");
-               usuario_activo = JSON.parse(usuario_activo);
-               // toast.info(usuario_activo.nombre.S);
-               // console.log("usuario activo: ", JSON.parse(usuario_activo));
-               // Obteniendo datos
-               var nombre = usuario_activo.nombre.S;
-               // var apellido = usuario_activo.apellido.S;
-               // var username = usuario_activo.username.S;
-               // var contrasenia = usuario_activo.contrasenia.S;
-               var url_foto = usuario_activo.url_foto.S;
-               // // Colocando datos input
-               // $("#nombre_id").val(nombre);
-               // $("#apellido_id").val(apellido);
-               // $("#username_id").val(username);
-               // $("#contrasenia_id").val(contrasenia);
-               // $("#nombre_id").val(nombre);
-
-               // // console.log('img_url', url_foto);
-               // // Colocando imagen
-               // $("#foto_actual_id").attr('src', url_foto);
-               
-               // Colocando header
-               $("#foto_actual_id1").attr('src', url_foto);
-               $("#nombre_id1").text(nombre);
-               $("#nombre_id2").text("Hola " + nombre);
-
-               // // Cancelar
-               // $("#cancelar_id").click(function(){
-               //    $("#nombre_id").val(nombre);
-               //    $("#apellido_id").val(apellido);
-               //    $("#username_id").val(username);
-               //    $("#contrasenia_id").val(contrasenia);
-               //    $("#nombre_id").val(nombre);
-               // });
-            })
+               console.log(usuario_activo);
+               if(usuario_activo != "null"){
+                  usuario_activo = JSON.parse(usuario_activo);
+                  var nombre = usuario_activo.nombre.S;
+                  var url_foto = usuario_activo.url_foto.S;
+                  
+                  // Colocando header
+                  $("#foto_actual_id1").attr('src', url_foto);
+                  $("#nombre_id1").text(nombre);
+                  $("#nombre_id2").text("Hola " + nombre);
+               } else {
+                  // header('Location: /index.html');
+                  alert("Primero inicia sesion");
+                  console.log("Primero inicia sesion");
+                  location="index.html";
+               }
+            });
       </script>
       <!-- POST SUBIR -->
       <script>

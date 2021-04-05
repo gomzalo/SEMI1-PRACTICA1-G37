@@ -15,7 +15,9 @@
       <link rel="stylesheet" href="css/style.css">
       <!-- Responsive CSS -->
       <link rel="stylesheet" href="css/responsive.css">
-      
+      <!-- TAGIT -->
+      <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
+      <link href="css/jquery.tagit.css" rel="stylesheet" type="text/css">
    </head>
    <body class="sidebar-main-active right-column-fixed">
       <!-- loader Start -->
@@ -86,9 +88,9 @@
                            <li><a href="app/email-compose.html"><i class="ri-edit-line"></i>Email Compose</a></li>
                         </ul>
                      </li>
-                     <li>
-                        <a href="#ui-elements" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><i class="ri-focus-2-line"></i><span>Ui-Elements</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
-                        <ul id="ui-elements" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                     <li class="active">
+                        <a href="#ui-elements" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="true"><i class="ri-focus-2-line"></i><span>Ui-Elements</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                        <ul id="ui-elements" class="iq-submenu collapse show" data-parent="#iq-sidebar-toggle">
                            <li>
                               <a href="#ui-kit" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="ri-pencil-ruler-line"></i><span>UI Kit</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                               <ul id="ui-kit" class="iq-submenu collapse" data-parent="#ui-elements">
@@ -114,11 +116,11 @@
                                  <li><a href="ui-tooltips.html"><i class="ri-record-mail-line"></i>Tooltips</a></li>
                               </ul>
                            </li>
-                           <li>
-                              <a href="#forms" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="ri-profile-line"></i><span>Forms</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
-                              <ul id="forms" class="iq-submenu collapse" data-parent="#ui-elements">
+                           <li class="active">
+                              <a href="#forms" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="true"><i class="ri-profile-line"></i><span>Forms</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                              <ul id="forms" class="iq-submenu collapse show" data-parent="#ui-elements">
                                  <li><a href="form-layout.html"><i class="ri-tablet-line"></i>Form Elements</a></li>
-                                 <li><a href="form-validation.html"><i class="ri-device-line"></i>Form Validation</a></li>
+                                 <li class="active"><a href="form-validation.html"><i class="ri-device-line"></i>Form Validation</a></li>
                                  <li><a href="form-switch.html"><i class="ri-toggle-line"></i>Form Switch</a></li>
                                  <li><a href="form-chechbox.html"><i class="ri-checkbox-line"></i>Form Checkbox</a></li>
                                  <li><a href="form-radio.html"><i class="ri-radio-button-line"></i>Form Radio</a></li>
@@ -380,7 +382,7 @@
                                              <i class="ri-file-user-line"></i>
                                           </div>
                                           <div class="media-body ml-3">
-                                             <h6 class="mb-0 ">Mi Perfil</h6>
+                                             <h6 class="mb-0 ">Mi perfil</h6>
                                              <p class="mb-0 font-size-12">Ver detalles de información personal.</p>
                                           </div>
                                        </div>
@@ -537,85 +539,264 @@
             </div>
          </div> -->
          <!-- Right Sidebar Panel End-->
-         <div class="header-for-bg">
-            <div class="background-header position-relative">
-               <img src="images/page-img/profile-bg8.jpg" class="img-fluid rounded w-100 rounded rounded" alt="profile-bg">
-               <div class="title-on-header">
-                  <div class="data-block">
-                     <h2>Galeria</h2>
-                  </div>
-                  <div class="iq-card-body">
-                     <p>Elige una etiqueta para ver las fotografias en el album.</p>
-                     <div class="col-lg-6 col-md-6 mb-2 mb-lg-0 mb-md-0">
-                        <div class="dropdown">
-                           <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           Dropdown button
-                           </button> -->
-                           <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">Action</a>
-                              <a class="dropdown-item" href="#">Another action</a>
-                              <a class="dropdown-item" href="#">Something else here</a>
-                           </div> -->
-                           <select id="select_albumes_id" class="btn btn-secondary dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           <!-- <select id="select_albumes_id" class="custom-select-sm"> -->
-                              <!-- <option value="">Elige uno</option> -->
-                              <!-- <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option> -->
-                           </select>
-                        </div>
-                     </div>
-                     
-                     <div class="invalid-feedback">Example invalid custom select feedback</div>
-                  </div>
-               </div>
-            </div>
-         </div>
          <!-- Page Content  -->
          <div id="content-page" class="content-page">
             <div class="container">
-               <div id="galeria_row_id" class="row">
-                  <!-- <div class="col-md-6 col-lg-4 mb-3">
-                     <div class="user-images position-relative overflow-hidden">
-                        <a href="#">
-                           
-                        <img src="images/page-img/63.jpg" class="img-fluid rounded" alt="Responsive image">
-                        dasdasf
-                        </a>
-                        <div class="image-hover-data">
-                           <div class="product-elements-icon">
-                           </div>
-                        </div>
-                     </div>
-                  </div> -->
-                  <!-- <div class="col-md-6 col-lg-4 mb-3">
-                     <div class="user-images position-relative overflow-hidden">
-                        <a href="#">
-                           
-                        <img src="images/page-img/64.jpg" class="img-fluid rounded" alt="Responsive image">
-                        eeeeee
-                        </a>
-                        <div class="image-hover-data">
-                           <div class="product-elements-icon">
-                           </div>
+               <div class="row">
+                  <div class="col-sm-12">
+                     <div class="iq-card position-relative inner-page-bg bg-primary" style="height: 150px;">
+                        <div class="inner-page-title">
+                           <h3 class="text-white">Visualizar</h3>
+                           <p class="text-white">Elige un idioma para traducir la descripcion.</p>
                         </div>
                      </div>
                   </div>
-                  <div class="col-md-6 col-lg-4 mb-3">
-                     <div class="user-images position-relative overflow-hidden">
-                        <a href="#">
-                        <img src="images/page-img/65.jpg" class="img-fluid rounded" alt="Responsive image">
-                        </a>
-                        <div class="image-hover-data">
-                           <div class="product-elements-icon">
+                  <div class="col-sm-12 col-lg-6">
+                     <div class="iq-card">
+                        <div class="iq-card-header d-flex justify-content-between">
+                           <div class="iq-header-title">
+                              <h4 class="card-title">Imagen</h4>
                            </div>
                         </div>
+                        <div class="iq-card-body">
+                           <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vulputate, ex ac venenatis mollis, diam nibh finibus leo</p> -->
+                           <form>
+                              <div class="form-row">
+                                 <div class="col-md-12">
+                                    <div class="image-absulute">
+                                       <img id="imagen_id" class="profile-pic" src="images/page-img/n3.jpg" alt="profile-pic">
+                                    </div>
+                                    <ul id="myTags">
+                                       <!-- Existing list items will be pre-added to the tags -->
+                                   </ul>
+                                 </div>
+                                 <div class="mb-3">
+                                    <div class="col-md-6 mb-2 mb-3"></div>
+                                    <label for="validationDefault01">Nombre</label>
+                                    <input type="text" class="form-control" id="nombre_id" placeholder="Nombre foto." readonly disabled="">
+                                    <div class="form-group"></div>
+                                    <div class="mb-3">
+      
+                                    <!-- </div> -->
+                                       <!-- <div class="col-md-6 mb-2 mb-3"> -->
+                                          <div class="dropdown">
+                                             <select id="select_idioma_id" class="btn btn-secondary dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <option value="Inglés">Inglés</option>
+                                                <option value="Portugués">Portugués</option>
+                                                <option value="Mandarín">Mandarín</option>
+                                                <option value="Francés">Francés</option>
+                                                <option value="Ruso">Ruso</option>
+                                             </select>
+                                             
+                                          </div>
+                                          <div>
+                                             <p>Elige un idioma a traducir.</p>
+                                          </div>
+                                       </div>
+                                 </div>
+                                 <!-- <div class="mb-3"> -->
+                                 <div class="col-md-6 mb-2 mb-3">
+                                    <div class="col-md-6 mb-2 mb-3"></div>
+                                    <label for="validationTextarea">Descripción</label>
+                                    <textarea class="form-control" id="descripcion_id" placeholder="Descripción foto." readonly disabled=""></textarea>
+                                    <div class="form-group">
+                                       <div class="col-md-6 mb-2 mb-3"></div>
+                                          <button id="traducir_btn_id" class="btn btn-primary" type="button" ">Traducir</button>
+                                       <!-- </div> -->
+                                 </div>
+                              </div>
+                              
+                           </form>
+                        </div>
                      </div>
-                  </div> -->
+                     <div class="iq-card">
+                        <!-- <div class="iq-card-header d-flex justify-content-between">
+                           <div class="iq-header-title">
+                              <h4 class="card-title"> Supported elements</h4>
+                           </div>
+                        </div> -->
+                        <div class="iq-card-body">
+                           <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vulputate, ex ac venenatis mollis, diam nibh finibus leo</p> -->
+                           <!-- <form class="was-validated">
+                              
+                              <div class="custom-control custom-checkbox mb-3">
+                                 <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
+                                 <label class="custom-control-label" for="customControlValidation1">Check this custom checkbox</label>
+                                 <div class="invalid-feedback">Example invalid feedback text</div>
+                              </div>
+                              <div class="custom-control custom-radio">
+                                 <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
+                                 <label class="custom-control-label" for="customControlValidation2">Toggle this custom radio</label>
+                              </div>
+                              <div class="custom-control custom-radio mb-3">
+                                 <input type="radio" class="custom-control-input" id="customControlValidation3" name="radio-stacked" required>
+                                 <label class="custom-control-label" for="customControlValidation3">Or toggle this other custom radio</label>
+                                 <div class="invalid-feedback">More example invalid feedback text</div>
+                              </div>
+                              <div class="form-group">
+                                 <select class="custom-select" required>
+                                    <option value="">Open this select menu</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                 </select>
+                                 <div class="invalid-feedback">Example invalid custom select feedback</div>
+                              </div>
+                              <div class="custom-file">
+                                 <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+                                 <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                 <div class="invalid-feedback">Example invalid custom file feedback</div>
+                              </div>
+                           </form> -->
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-sm-12 col-lg-6">
+                     <!-- <div class="iq-card">
+                        <div class="iq-card-header d-flex justify-content-between">
+                           <div class="iq-header-title">
+                              <h4 class="card-title">Custom Validation</h4>
+                           </div>
+                        </div>
+                        <div class="iq-card-body">
+                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vulputate, ex ac venenatis mollis, diam nibh finibus leo</p>
+                           <form class="needs-validation" novalidate>
+                              <div class="form-row">
+                                 <div class="col-md-6 mb-3">
+                                    <label for="validationCustom01">First name</label>
+                                    <input type="text" class="form-control" id="validationCustom01"  required>
+                                    <div class="valid-feedback">
+                                       Looks good!
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6 mb-3">
+                                    <label for="validationCustom02">Last name</label>
+                                    <input type="text" class="form-control" id="validationCustom02"  required>
+                                    <div class="valid-feedback">
+                                       Looks good!
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6 mb-3">
+                                    <label for="validationCustomUsername">Username</label>
+                                    <div class="input-group">
+                                       <div class="input-group-prepend">
+                                          <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                       </div>
+                                       <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                                       <div class="invalid-feedback">
+                                          Please choose a username.
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6 mb-3">
+                                    <label for="validationCustom03">City</label>
+                                    <input type="text" class="form-control" id="validationCustom03" required>
+                                    <div class="invalid-feedback">
+                                       Please provide a valid city.
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6 mb-3">
+                                    <label for="validationCustom04">State</label>
+                                    <select class="form-control" id="validationCustom04" required>
+                                       <option selected disabled value="">Choose...</option>
+                                       <option>...</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                       Please select a valid state.
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6 mb-3">
+                                    <label for="validationCustom05">Zip</label>
+                                    <input type="text" class="form-control" id="validationCustom05" required>
+                                    <div class="invalid-feedback">
+                                       Please provide a valid zip.
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="form-group">
+                                 <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                    <label class="form-check-label" for="invalidCheck">
+                                    Agree to terms and conditions
+                                    </label>
+                                    <div class="invalid-feedback">
+                                       You must agree before submitting.
+                                    </div>
+                                 </div>
+                              </div>
+                              <button class="btn btn-primary" type="submit">Submit form</button>
+                           </form>
+                        </div>
+                     </div> -->
+                     <div class="iq-card">
+                        <!-- <div class="iq-card-header d-flex justify-content-between">
+                           <div class="iq-header-title">
+                              <h4 class="card-title">Tooltips</h4>
+                           </div>
+                        </div> -->
+                        <!-- <div class="iq-card-body">
+                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vulputate, ex ac venenatis mollis, diam nibh finibus leo</p>
+                           <form class="needs-validation" novalidate>
+                              <div class="form-row">
+                                 <div class="col-md-6 mb-3">
+                                    <label for="validationTooltip01">First name</label>
+                                    <input type="text" class="form-control" id="validationTooltip01" value="Mark" required>
+                                    <div class="valid-tooltip">
+                                       Looks good!
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6 mb-3">
+                                    <label for="validationTooltip02">Last name</label>
+                                    <input type="text" class="form-control" id="validationTooltip02" value="Jhon" required>
+                                    <div class="valid-tooltip">
+                                       Looks good!
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6 mb-3">
+                                    <label for="validationTooltipUsername">Username</label>
+                                    <div class="input-group">
+                                       <div class="input-group-prepend">
+                                          <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                                       </div>
+                                       <input type="text" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
+                                       <div class="invalid-tooltip">
+                                          Please choose a unique and valid username.
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6 mb-3">
+                                    <label for="validationTooltip03">City</label>
+                                    <input type="text" class="form-control" id="validationTooltip03" required>
+                                    <div class="invalid-tooltip">
+                                       Please provide a valid city.
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6 mb-3">
+                                    <label for="validationTooltip04">State</label>
+                                    <select class="form-control" id="validationTooltip04" required>
+                                       <option selected disabled value="">Choose...</option>
+                                       <option>...</option>
+                                    </select>
+                                    <div class="invalid-tooltip">
+                                       Please select a valid state.
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6 mb-3">
+                                    <label for="validationTooltip05">Zip</label>
+                                    <input type="text" class="form-control" id="validationTooltip05" required>
+                                    <div class="invalid-tooltip">
+                                       Please provide a valid zip.
+                                    </div>
+                                 </div>
+                              </div>
+                              <button class="btn btn-primary" type="submit">Submit form</button>
+                           </form>
+                        </div> -->
+                     </div>
+                  </div>
                </div>
             </div>
          </div>
-         <!-- Page content -->
       </div>
       <!-- Wrapper END -->
       <!-- Footer -->
@@ -663,140 +844,85 @@
       <script src="js/smooth-scrollbar.js"></script>
       <!-- lottie JavaScript -->
       <script src="js/lottie.js"></script>
-      <!-- am core JavaScript -->
-      <script src="js/core.js"></script>
-      <!-- am charts JavaScript -->
-      <script src="js/charts.js"></script>
-      <!-- am animated JavaScript -->
-      <script src="js/animated.js"></script>
-      <!-- am kelly JavaScript -->
-      <script src="js/kelly.js"></script>
-      <!-- am maps JavaScript -->
-      <script src="js/maps.js"></script>
-      <!-- am worldLow JavaScript -->
-      <script src="js/worldLow.js"></script>
       <!-- Chart Custom JavaScript -->
       <script src="js/chart-custom.js"></script>
       <!-- Custom JavaScript -->
       <script src="js/custom.js"></script>
+      <!-- TAGIT -->
+      <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js" type="text/javascript" charset="utf-8"></script> -->
+      <link href = "https://code.jquery.com/ui/1.8.12/themes/ui-darkness/jquery-ui.css"
+         rel = "stylesheet">
+      <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+      <script src="js/tag-it.js" type="text/javascript" charset="utf-8"></script>
       <!-- SCRIPTS -->
       <script>
-         // Obteniendo user
          $(document).ready(function(){
-               // localStorage.setItem("usuario_activo", data_user_ver);
+               // Obteniendo datos usuario
                var usuario_activo = localStorage.getItem("usuario_activo");
                console.log(usuario_activo);
+
                if(usuario_activo != "null"){
                   usuario_activo = JSON.parse(usuario_activo);
-                  // console.log("usuario activo: ", JSON.parse(usuario_activo));
-                  // Obteniendo datos
                   var nombre = usuario_activo.nombre.S;
-                  // var apellido = usuario_activo.apellido.S;
-                  var username = usuario_activo.username.S;
-                  // var contrasenia = usuario_activo.contrasenia.S;
                   var url_foto = usuario_activo.url_foto.S;
+               // Imagen
+                  var url_string = window.location.href;
+                  var url = new URL(url_string);
+                  var nombre_imagen = url.searchParams.get('nombre');
+                  var descripcion = url.searchParams.get('descripcion');
+                  var url_imagen = url.searchParams.get('URL');
+                  var tags = url.searchParams.get('tags');
+                  var tags_foto = JSON.parse(tags);
+                  console.log("tags: ", tags_foto);
+                  // // Colocando datos input
+                  $("#nombre_id").val(nombre_imagen);
+                  $("#descripcion_id").val(descripcion);
+
+                  // console.log('img_url', url_foto);
+                  // // Colocando imagen
+                  $("#imagen_id").attr('src', url_imagen);
+                  
                   // Colocando header
                   $("#foto_actual_id1").attr('src', url_foto);
                   $("#nombre_id1").text(nombre);
                   $("#nombre_id2").text("Hola " + nombre);
-                  // ***************   OBTENIENDO FOTOS  ***************
-                  $.ajax({
-                     
-                     //url: 'https://reqres.in/api/users?page='+ 0,
-                     url: "http://localhost:3333/getFotos",
-                     // 	"method": "GET",,
-                     // headers: {"Content-Type": "application/json"},
-                     data: {"username": username},
-                     type: 'POST',
-                     success: function(res){
-                        data_msj = res.message;
-                        // Si hay albumes
-                        if(data_msj == 1){
-                           data_fotos = res.fotos;
-                           console.log("Albumes obtenidos: ", data_fotos);
-                           // TAGS obtenidos
-                           var select_albumes = document.getElementById("select_albumes_id");
-                           // var data = [
-                           //    { "name": "Bob", "customerName": "Bob" },
-                           //    { "name": "Mike", "customerName": "Mike" }
-                           // ];
-                           var data = [];
-                           var data_rep = [];
-                           // Llenando arreglo con tags
-                           data_fotos.forEach(element => {
-                              // console.log(element.nombre.S);
-                              var tag_temp = JSON.parse(element.tags.S);
-                              tag_temp.forEach(e => {
-                                 // console.log(e.Name);
-                                 data_rep.push(e.Name);
-                              });
-                           });
-                           // Removiendo duplicados
-                           $.each(data_rep, function(i, el){
-                              if($.inArray(el, data) === -1) data.push(el);
-                           })
-                           // LLenando Select
-                           console.log("data: \n", data);
-                           for (var index = 0; index <= data.length; index++) {
-                              $('#select_albumes_id').append('<option value="' + data[index] + '">' + data[index] + '</option>');
-                           }
-                           // Obteninedo el valor del select
-                           // alert($('#select_albumes_id option:selected').text());
-                           $('#select_albumes_id').change(function(){ 
-                              // var value = $(this).val();
-                              $('#galeria_row_id').empty();
-                              var value = $('#select_albumes_id option:selected').text();
-                              console.log("Se eligio: ", value.toString());
-                              // alert(value);
-                              // Obteniendo datos de fotos con el tag seleccionado
-                              fotos_arr = [];
-                              data_fotos.forEach(element => {
-                                 // console.log(element.nombre.S);
-                                 var tag_temp_arr = JSON.parse(element.tags.S);
-                                 tag_temp_arr.forEach(e => {
-                                    var nombre = e.Name;
-                                    // console.log(nombre);
-                                    if(value == nombre){
-                                       fotos_arr.push({"Nombre":element.nombre.S, "Descripcion":element.descripcion.S, "URL":element.url.S, "Tags":element.tags.S, "ID":element.id_foto.S});
-                                    }
-
-                                 }); // foreach tags_array
-                              }); // foreach data_fotos
-                              // Mostrando fotos
-                              console.log("fotos_arr: \n", fotos_arr);
-                              fotos_arr.forEach(f => {
-                                 var url_tmp = f.URL;
-                                 var desc_tmp = f.Descripcion;
-                                 var tags_tmp = JSON.parse(f.Tags);
-                                 var tag_name_arr = [];
-                                 tags_tmp.forEach(e => {
-                                    // console.log(e.Name);
-                                    tag_name_arr.push(e.Name);
-                                 });
-                                 // Codificando array de tags para enviar mediante URL
-                                 var tag_name_arrs = encodeURIComponent(JSON.stringify(tag_name_arr));
-                                 // console.log("url", JSON.stringify(url_tmp));
-                                 console.log("tags", tag_name_arr);
-                                 var nombre_tmp = f.Nombre;
-                                 $('#galeria_row_id').append('<div class="col-md-6 col-lg-4 mb-3">\n\t<div class="user-images position-relative overflow-hidden">\n<a id="'+ nombre_tmp +'_id" href="/view.html?nombre='+ nombre_tmp +'&URL='+url_tmp+'&descripcion='+desc_tmp+'&tags='+tag_name_arrs.toString()+'">\n<img src=' + url_tmp.toString() + ' class="img-fluid rounded" alt="Responsive image">' + nombre_tmp.toString() + '</a>\n<div class="image-hover-data">\n<div class="product-elements-icon">\n</div>\n</div>\n</div>\n</div>');
-                              });
-                           }); // select albumes on change selected
-                           // Al clicar en una imagen
-                           // $('')
-                        } else {
-                           // Si no hay albumes
-                           alert("Sube una foto primero.");
-                        }
-                     }
-                  });
-               // ***************   OBTENIENDO FOTOS  ***************
-               } else {
-                  // header('Location: /index.html');
-                  alert("Primero inicia sesion");
-                  console.log("Primero inicia sesion");
-                  location="index.html";
-               }
-            });
+                  // Colocando tags
+                  $("#myTags").tagit();
+                  for(i = 0; i < tags_foto.length; i++){
+                     $("#myTags").tagit("createTag", tags_foto[i]);
+                  }
+               // Obteniendo valor Select
+               $('#select_idioma_id').change(function(){ 
+                     var value = $('#select_idioma_id option:selected').text();
+                     console.log("Se eligio: ", value.toString());
+                     // Traduccion
+                     $("#traducir_btn_id").on('click', function(){
+                        alert(value);
+                        //POST
+                           // $.ajax({
+                           //    url: "http://localhost:3333/traducir",
+                           //    // 	"method": "GET",,
+                           //    // headers: {"Content-Type": "application/json"},
+                           //    data: {  
+                           //       "idioma": value,
+                           //       "descripcion": descripcion
+                           //    },
+                           //    type: 'POST',
+                           //    success: function(res){
+                           //       data_response = res.traduccion;
+                           //       // Mostrando la traduccion
+                           //       $("#descripcion_id").val(data_response);
+                           //    }
+                           // });
+                     });
+               });
+            } else {
+               // header('Location: /index.html');
+               alert("Primero inicia sesion");
+               console.log("Primero inicia sesion");
+               location="index.html";
+            }
+         });
       </script>
       <!-- SCRIPTS -->
    </body>
