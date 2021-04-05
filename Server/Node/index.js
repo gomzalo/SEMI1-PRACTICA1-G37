@@ -604,8 +604,9 @@ app.post('/getFotos', async (req, res) =>{
   // Usuario
   //  let id_user = body.id_user;
    let username = body.username;
+   let album = body.album;
   // Album
-   let nombre_album = username + "fotos_publicadas";
+   let nombre_album = username + album;
    console.log("Album a buscar: ", nombre_album);
 
    const callback = result => {
