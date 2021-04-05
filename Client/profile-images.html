@@ -558,9 +558,9 @@
                            </div> -->
                            <select id="select_albumes_id" class="btn btn-secondary dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                            <!-- <select id="select_albumes_id" class="custom-select-sm"> -->
-                              <!-- <option value="">Elige uno</option> -->
-                              <!-- <option value="1">One</option>
-                              <option value="2">Two</option>
+                              <option value="Todo">Todo</option>
+                              <option value="Perfil">Perfil</option>
+                              <!-- <option value="2">Two</option>
                               <option value="3">Three</option> -->
                            </select>
                         </div>
@@ -706,7 +706,10 @@
                      url: "http://localhost:3333/getFotos",
                      // 	"method": "GET",,
                      // headers: {"Content-Type": "application/json"},
-                     data: {"username": username},
+                     data: {
+                        "username": username,
+                        "album": "fotos_publicadas"
+                     },
                      type: 'POST',
                      success: function(res){
                         data_msj = res.message;
@@ -750,8 +753,48 @@
                               // alert(value);
                               // Obteniendo datos de fotos con el tag seleccionado
                               fotos_arr = [];
+                              ///// Fotos perfil /////
+                              if(value == "Perfil"){
+                                 
+                                 $.ajax({
+                                 url: "http://localhost:3333/getFotos",
+                                 data: {
+                                    "username": username,
+                                    "album": "fotos_perfil"
+                                 },
+                                 type: 'POST',
+                                 success: function(resp){
+                                    data_fotos_p = resp.fotos;
+                                    data_fotos_p.forEach(element => {
+                                       fotos_arr.push({"Nombre":element.nombre.S, "Descripcion":element.descripcion.S, "URL":element.url.S, "Tags":element.tags.S, "ID":element.id_foto.S});
+                                       // alert(fotos_arr);
+                                       fotos_arr.forEach(f => {
+                                          var url_tmp = f.URL;
+                                          var desc_tmp = f.Descripcion;
+                                          var tags_tmp = JSON.parse(f.Tags);
+                                          var tag_name_arr = [];
+                                          tags_tmp.forEach(e => {
+                                             // console.log(e.Name);
+                                             tag_name_arr.push(e.Name);
+                                          });
+                                          // Codificando array de tags para enviar mediante URL
+                                          var tag_name_arrs = encodeURIComponent(JSON.stringify(tag_name_arr));
+                                          // console.log("url", JSON.stringify(url_tmp));
+                                          console.log("tags", tag_name_arr);
+                                          var nombre_tmp = f.Nombre;
+                                          $('#galeria_row_id').append('<div class="col-md-6 col-lg-4 mb-3">\n\t<div class="user-images position-relative overflow-hidden">\n<a id="'+ nombre_tmp +'_id" href="/view.html?nombre='+ nombre_tmp +'&URL='+url_tmp+'&descripcion='+desc_tmp+'&tags='+tag_name_arrs.toString()+'">\n<img src=' + url_tmp.toString() + ' class="img-fluid rounded" alt="Responsive image">' + nombre_tmp.toString() + '</a>\n<div class="image-hover-data">\n<div class="product-elements-icon">\n</div>\n</div>\n</div>\n</div>');
+                                       });
+                                    });
+                                 }
+                                 });
+                              }
+                              // alert(fotos_arr);
+                              ///// Fotos perfil /////
                               data_fotos.forEach(element => {
                                  // console.log(element.nombre.S);
+                                 if(value == "Todo"){
+                                    fotos_arr.push({"Nombre":element.nombre.S, "Descripcion":element.descripcion.S, "URL":element.url.S, "Tags":element.tags.S, "ID":element.id_foto.S});
+                                 }
                                  var tag_temp_arr = JSON.parse(element.tags.S);
                                  tag_temp_arr.forEach(e => {
                                     var nombre = e.Name;
@@ -759,7 +802,6 @@
                                     if(value == nombre){
                                        fotos_arr.push({"Nombre":element.nombre.S, "Descripcion":element.descripcion.S, "URL":element.url.S, "Tags":element.tags.S, "ID":element.id_foto.S});
                                     }
-
                                  }); // foreach tags_array
                               }); // foreach data_fotos
                               // Mostrando fotos

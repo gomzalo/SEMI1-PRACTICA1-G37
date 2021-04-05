@@ -604,6 +604,7 @@ app.post('/getFotos', async (req, res) => {
   let body = req.body;
   // Usuario
   //  let id_user = body.id_user;
+<<<<<<< HEAD
   let username = body.username;
   // Album
   let nombre_album = username + "fotos_publicadas";
@@ -623,6 +624,29 @@ app.post('/getFotos', async (req, res) => {
     } else {
       console.log('No hay albumes');
       res.send({ 'message': 0 });
+=======
+   let username = body.username;
+   let album = body.album;
+  // Album
+   let nombre_album = username + album;
+   console.log("Album a buscar: ", nombre_album);
+
+   const callback = result => {
+      // console.log("Result: ", result);
+      items_album = result.slice();
+      console.log("Items: ", items_album);
+      console.log("Length: ", items_album.length);
+      if (items_album.length >= 1) {
+        console.log('Se encontraron albumes');
+        // var url_foto_= items_album[0].url_foto.S;
+        res.send({ 'message': 1, 'fotos': items_album });
+        console.log(items_album);
+        
+      } else {
+        console.log('No hay albumes');
+        res.send({ 'message': 0 });
+      }
+>>>>>>> 798846df5a82570efc09925d4814a5d9fd8916f4
     }
   }
 
