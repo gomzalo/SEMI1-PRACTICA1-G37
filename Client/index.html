@@ -131,6 +131,11 @@
       <!-- Custom JavaScript -->
       <script src="js/custom.js"></script>
       <!-- ***************  Script para login ********************** -->
+      <script>
+        $(document).ready(function(){
+            localStorage.setItem("usuario_activo", null);
+        });
+      </script>
       <script language="javascript">
             async function login(form) {
                 var username = form.username_id.value;
@@ -165,16 +170,20 @@
                             var pass = data_user.contrasenia.S;
                             // alert(JSON.stringify(data_user));
                             // alert(data_tags);
-                            localStorage.setItem("usuario_activo", JSON.stringify(data_user));
-                            localStorage.setItem("tags_foto_perfil", JSON.stringify(data_tags));
+                            
                             if (form.username_id.value == user) { 
                                 if (form.contrasenia_id.value == pass) {              
+                                    localStorage.setItem("usuario_activo", JSON.stringify(data_user));
+                                    localStorage.setItem("tags_foto_perfil", JSON.stringify(data_tags));
                                     alert("¡Bienvenido!");
+                                    // $_SESSION['TRUE'] =  true;
                                     location="profile.html";
                                 } else {
+                                    // $_SESSION['TRUE'] = false;
                                     alert("¡Contraseña incorrecta!");
                                 }
-                            } else {  
+                            } else {
+                                // $_SESSION['TRUE'] = false;
                                 alert("¡Usuario invalido!");
                             }
                         } else {
