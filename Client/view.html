@@ -891,11 +891,12 @@
                   for(i = 0; i < tags_foto.length; i++){
                      $("#myTags").tagit("createTag", tags_foto[i]);
                   }
+                  var idioma_tr = "";
                // Obteniendo valor Select
                $('#select_idioma_id').change(function(){ 
                      var value = $('#select_idioma_id option:selected').text();
-                     // console.log("Se eligio: ", value.toString());
-                     var idioma_tr = "";
+                     console.log("Se eligio: ", value.toString());
+                     
                      switch(value){
                         case "Inglés":
                            idioma_tr = "en";
@@ -917,24 +918,26 @@
                      $("#traducir_btn_id").on('click', function(){
                         
                         console.log("Se eligio: ", idioma_tr.toString());
-                        idioma_tr = "";
+                        
                         // alert(idioma_tr);
                         //POST
-                           // $.ajax({
-                           //    url: "http://localhost:3333/traducir",
-                           //    // 	"method": "GET",,
-                           //    // headers: {"Content-Type": "application/json"},
-                           //    data: {  
-                           //       "idioma": value,
-                           //       "descripcion": descripcion
-                           //    },
-                           //    type: 'POST',
-                           //    success: function(res){
-                           //       data_response = res.traduccion;
-                           //       // Mostrando la traduccion
-                           //       $("#descripcion_id").val(data_response);
-                           //    }
-                           // });
+                           $.ajax({
+                              url: "http://localhost:3333/traducirDescripcion",
+                              // 	"method": "GET",,
+                              // headers: {"Content-Type": "application/json"},
+                              data: {  
+                                 "idioma": idioma_tr,
+                                 "descripcion": descripcion
+                              },
+                              type: 'POST',
+                              success: function(res){
+                                 data_response = res.message;
+                                 traduccion = data_response.TranslatedText;
+                                 // Mostrando la traduccion
+                                 $("#descripcion_id").val(traduccion);
+                              }
+                           });
+                           idioma_tr = "";
                      });
                      // var idioma_tr = "";
                });
