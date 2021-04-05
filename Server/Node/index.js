@@ -125,7 +125,7 @@ app.post('/login', (req, res) => {
     console.log("Length: ", items_login.length);
     if (items_login.length >= 1) {
       console.log('Datos correctos');
-      var url_foto_= items_login[0].url_foto.S;
+      var url_foto_ = items_login[0].url_foto.S;
       //res.send({ 'message': url_foto_ });     
       console.log(url_foto_);
       let nombre_imagen = url_foto_.split('/').pop();
@@ -134,7 +134,7 @@ app.post('/login', (req, res) => {
       const params = {
         Image: {
           S3Object: {
-            Bucket: "practica2-g37-imageness", 
+            Bucket: "practica2-g37-imageness",
             Name: "fotos_perfil/" + nombre_imagen
           }
         },
@@ -144,11 +144,11 @@ app.post('/login', (req, res) => {
         MaxLabels: 10
       }
       let tags;
-      rek.detectLabels(params, function(err, data) {
+      rek.detectLabels(params, function (err, data) {
         if (err) {
           // res.send({mensaje: "Error rekognition"})
           console.log(err, err.stack);
-        } else {   
+        } else {
           // res.send({labels: data.Labels});
           tags = data.Labels;
           tags = JSON.stringify(tags);
@@ -157,7 +157,7 @@ app.post('/login', (req, res) => {
         }
       });
 
-      
+
     } else {
       console.log('Datos incorrectos');
       res.send({ 'message': 0 });
@@ -273,17 +273,17 @@ app.post('/registro', (req, res) => {
       Bucket: "mybucket", 
       Name: "mysourceimage"
     }*/
-    Image: { 
+    Image: {
       Bytes: Buffer.from(encodedImage, 'base64')
-    }, 
+    },
     MaxLabels: 10
   }
   let tags;
-  rek.detectLabels(params, function(err, data) {
+  rek.detectLabels(params, function (err, data) {
     if (err) {
       // res.send({mensaje: "Error rekognition"})
       console.log(err, err.stack);
-    } else {   
+    } else {
       // res.send({labels: data.Labels});
       tags = data.Labels;
       tags = JSON.stringify(tags);
@@ -323,8 +323,8 @@ app.post('/registro', (req, res) => {
                     "id_album": { S: id_album },
                     "id_usuario": { S: id_user },
                     "nombre_album": { S: nombre_album },
-                    "descripcion": {S: descripcion},
-                    "tags": {S: tags}
+                    "descripcion": { S: descripcion },
+                    "tags": { S: tags }
                   }
                 }
               },
@@ -408,17 +408,17 @@ app.post('/editar', (req, res) => {
       Bucket: "mybucket", 
       Name: "mysourceimage"
     }*/
-    Image: { 
+    Image: {
       Bytes: Buffer.from(encodedImage, 'base64')
-    }, 
+    },
     MaxLabels: 10
   }
   let tags;
-  rek.detectLabels(params, function(err, data) {
+  rek.detectLabels(params, function (err, data) {
     if (err) {
       // res.send({mensaje: "Error rekognition"})
       console.log(err, err.stack);
-    } else {   
+    } else {
       // res.send({labels: data.Labels});
       tags = data.Labels;
       tags = JSON.stringify(tags);
@@ -458,8 +458,8 @@ app.post('/editar', (req, res) => {
                     "id_album": { S: id_album },
                     "id_usuario": { S: id_user },
                     "nombre_album": { S: nombre_album },
-                    "descripcion": {S: descripcion},
-                    "tags": {S: tags}
+                    "descripcion": { S: descripcion },
+                    "tags": { S: tags }
                   }
                 }
               },
@@ -535,17 +535,17 @@ app.post('/subir', (req, res) => {
       Bucket: "mybucket", 
       Name: "mysourceimage"
     }*/
-    Image: { 
+    Image: {
       Bytes: Buffer.from(encodedImage, 'base64')
-    }, 
+    },
     MaxLabels: 10
   }
   let tags;
-  rek.detectLabels(params, function(err, data) {
+  rek.detectLabels(params, function (err, data) {
     if (err) {
       // res.send({mensaje: "Error rekognition"})
       console.log(err, err.stack);
-    } else {   
+    } else {
       // res.send({labels: data.Labels});
       tags = data.Labels;
       tags = JSON.stringify(tags);
@@ -576,8 +576,8 @@ app.post('/subir', (req, res) => {
               "nombre": { S: name },
               "url": { S: data.Location },
               "nombre_album": { S: nombre_album },
-              "descripcion": {S: descripcion},
-              "tags": {S: tags}
+              "descripcion": { S: descripcion },
+              "tags": { S: tags }
             }
           }, function (err, data) {
             if (err) {
@@ -590,46 +590,46 @@ app.post('/subir', (req, res) => {
           });
         }
       });
-      } // else
-    });
+    } // else
+  });
   // console.log("tags: ", tags);
-  
+
 });
 
 // ................................................
 // ........   Obtener fotos de usuario   ........
 // ................................................
 
-app.post('/getFotos', async (req, res) =>{
+app.post('/getFotos', async (req, res) => {
   let body = req.body;
   // Usuario
   //  let id_user = body.id_user;
-   let username = body.username;
+  let username = body.username;
   // Album
-   let nombre_album = username + "fotos_publicadas";
-   console.log("Album a buscar: ", nombre_album);
+  let nombre_album = username + "fotos_publicadas";
+  console.log("Album a buscar: ", nombre_album);
 
-   const callback = result => {
-      // console.log("Result: ", result);
-      items_album = result.slice();
-      console.log("Items: ", items_album);
-      console.log("Length: ", items_album.length);
-      if (items_album.length >= 1) {
-        console.log('Se encontraron albumes');
-        // var url_foto_= items_album[0].url_foto.S;
-        res.send({ 'message': 1, 'fotos': items_album });
-        console.log(items_album);
-        
-      } else {
-        console.log('No hay albumes');
-        res.send({ 'message': 0 });
-      }
+  const callback = result => {
+    // console.log("Result: ", result);
+    items_album = result.slice();
+    console.log("Items: ", items_album);
+    console.log("Length: ", items_album.length);
+    if (items_album.length >= 1) {
+      console.log('Se encontraron albumes');
+      // var url_foto_= items_album[0].url_foto.S;
+      res.send({ 'message': 1, 'fotos': items_album });
+      console.log(items_album);
+
+    } else {
+      console.log('No hay albumes');
+      res.send({ 'message': 0 });
     }
+  }
 
   scanGetFotos(nombre_album, callback);
 });
 
-async function scanGetFotos(nombre_album, callback){
+async function scanGetFotos(nombre_album, callback) {
   try {      //Consultar un registro
     var params = {
       TableName: 'Foto',
@@ -654,11 +654,11 @@ async function scanGetFotos(nombre_album, callback){
 //....... INICIAR SESION COMPARANDO 2 FOTOS  .........
 //####################################################
 app.post('/loginPorFoto', (req, res) => {
-  
+
   var user = req.body.username;
   //obtener base64 de la imagen 
   let imagenBytes = req.body.imagen.split(',').pop();
-  
+
   const callback = result => {
     // console.log("Result: ", result);
     items_login = result.slice();
@@ -666,45 +666,45 @@ app.post('/loginPorFoto', (req, res) => {
     //console.log("Length: ", items_login.length);
     if (items_login.length >= 1) {
       console.log('Datos correctos');
-      var url_foto_= items_login[0].url_foto.S;
+      var url_foto_ = items_login[0].url_foto.S;
       //res.send({ 'message': url_foto_ });     
       console.log(url_foto_);
-      
+
       let nombre_imagen = url_foto_.split('/').pop();
       console.log("nombre_imagen: ", nombre_imagen);
 
-      var params = {    
+      var params = {
         SourceImage: {
-            //Bytes: Buffer.from(imagen1, 'base64')     
-            /*podria colocarse la imagen de un bucket*/
-            S3Object: {
-            Bucket: "practica2-g37-imageness", 
-            Name: "fotos_perfil/"+nombre_imagen
-            }
-        }, 
+          //Bytes: Buffer.from(imagen1, 'base64')     
+          /*podria colocarse la imagen de un bucket*/
+          S3Object: {
+            Bucket: "practica2-g37-imageness",
+            Name: "fotos_perfil/" + nombre_imagen
+          }
+        },
         TargetImage: {
-            Bytes: Buffer.from(imagenBytes, 'base64')    
-            /*S3Object: {
-              Bucket: "practica2-g37-imageness", 
-              Name: "pruebas/paul1.jpg"
-              }*/
+          Bytes: Buffer.from(imagenBytes, 'base64')
+          /*S3Object: {
+            Bucket: "practica2-g37-imageness", 
+            Name: "pruebas/paul1.jpg"
+            }*/
         },
         SimilarityThreshold: '80'
-      } 
-      
-      rek.compareFaces(params, function(err, data) {
+      }
+
+      rek.compareFaces(params, function (err, data) {
         if (err) {
-          console.log(err,err.stack);
+          console.log(err, err.stack);
           res.send({ 'message': 0 });
-        } 
-        else { 
-          res.send({'message': 1, "User": items_login[0], 'Data_face': data.FaceMatches});                  
+        }
+        else {
+          res.send({ 'message': 1, "User": items_login[0], 'Data_face': data.FaceMatches });
           data.FaceMatches.forEach(data => {
-            let position   = data.Face.BoundingBox
+            let position = data.Face.BoundingBox
             let similarity = data.Similarity
             console.log(`The face at: ${position.Left}, ${position.Top} matches with ${similarity} % confidence`)
           })
-            
+
         }
       });
 
@@ -723,7 +723,7 @@ async function scanLoginFoto(user, callback) {
       TableName: 'Usuario',
       FilterExpression: "username = :usrn ",
       ExpressionAttributeValues: {
-        ":usrn": { "S": user}
+        ":usrn": { "S": user }
       },
       // ProjectionExpression: 'url_foto'  //Este es solo para obtener un dato en especifico
       // Limit: 10
@@ -756,6 +756,27 @@ app.post('/traducirDescripcion', (req, res) => {
     } else {
       console.log(data);
       res.send({ message: data })
+    }
+  });
+});
+
+//###############################################
+//######## OBTENER TEXTO DE IMAGENES  ###########
+//###############################################
+app.post('/obtenerTexto', function (req, res) {  
+  let base64String = req.body.foto.split(',').pop();; //recibe la imagen y le quita la coma
+  let imagen = base64String;
+  let params = {    
+    Image: {
+      Bytes: Buffer.from(imagen, 'base64')
+    }
+  };
+  rek.detectText(params, function (err, data) {
+    if (err) {
+      res.json({ mensaje: "Error" })
+    }
+    else {
+      res.json({ texto: data.TextDetections});
     }
   });
 });
