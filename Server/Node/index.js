@@ -508,7 +508,7 @@ app.post('/editar', (req, res) => {
 });
 
 // ................................................
-//subir foto y guardar en dynamo
+//........subir foto y guardar en dynamo........
 // ................................................
 app.post('/subir', (req, res) => {
   let body = req.body;
@@ -595,7 +595,59 @@ app.post('/subir', (req, res) => {
   
 });
 
+// ................................................
+// ........   Obtener fotos de usuario   ........
+// ................................................
 
+app.post('/getFotos', async (req, res) =>{
+  let body = req.body;
+  // Usuario
+  //  let id_user = body.id_user;
+   let username = body.username;
+  // Album
+   let nombre_album = username + "fotos_publicadas";
+   console.log("Album a buscar: ", nombre_album);
+
+   const callback = result => {
+      // console.log("Result: ", result);
+      items_album = result.slice();
+      console.log("Items: ", items_album);
+      console.log("Length: ", items_album.length);
+      if (items_album.length >= 1) {
+        console.log('Se encontraron albumes');
+        // var url_foto_= items_album[0].url_foto.S;
+        res.send({ 'message': 1, 'fotos': items_album });
+        console.log(items_album);
+        
+      } else {
+        console.log('No hay albumes');
+        res.send({ 'message': 0 });
+      }
+    }
+
+  scanGetFotos(nombre_album, callback);
+});
+
+async function scanGetFotos(nombre_album, callback){
+  try {      //Consultar un registro
+    var params = {
+      TableName: 'Foto',
+      FilterExpression: "nombre_album = :nalbum",
+
+      ExpressionAttributeValues: {
+        ":nalbum": { "S": nombre_album }
+      },
+      // ProjectionExpression: 'username'  //Este es solo para obtener un dato en especifico
+      // Limit: 10
+    };
+    var response = await ddb.scan(params).promise();
+
+    itms = response.Items;
+    callback(response.Items);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 //####################################################
 //....... INICIAR SESION COMPARANDO 2 FOTOS  .........
