@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>[SEMI1]Practica2-Grupo 37</title>
+      <!-- Favicon -->
+      <link rel="shortcut icon" href="images/favicon.ico" />
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <!-- Typography CSS -->
+      <link rel="stylesheet" href="css/typography.css">
+      <!-- Style CSS -->
+      <link rel="stylesheet" href="css/style.css">
+      <!-- Responsive CSS -->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- Scripts -->
+      <!-- <script src="js/practica1/const.js"></script> -->
+      <script src="js/practica1/encode64.js"></script>
+      <style>
+        #container {
+            margin: 0px;
+            width: 0px auto;
+            height: 0px auto;
+            border: 0px auto #333 solid;
+        }
+        #videoElement {
+            width: 0px auto;
+            height: 0px auto;
+            background-color: #666;
+        }
+      </style>
+   </head>
+   <body>
+      <!-- loader Start -->
+      <div id="loading">
+         <div id="loading-center">
+         </div>
+      </div>
+      <!-- loader END -->
+        <!-- Sign in Start -->
+        <section class="sign-in-page">
+            <!-- CAMARA -->
+            <div id="camera">
+                <!-- <video autoplay="true" id="videoElement"> -->
+                <video id="videoElement" width="480" height="360" autoplay>Medios no disponibles.</video>
+                <p></p>
+                <canvas id="canvas" width="480" height="360"></canvas>
+            </div>
+            
+          <div id="container-inside">
+              <div id="circle-small"></div>
+              <div id="circle-medium"></div>
+              <div id="circle-large"></div>
+              <div id="circle-xlarge"></div>
+              <div id="circle-xxlarge"></div>
+              <a class="sign-in-logo mb-5" href="#"><h1>UGRAM</h1></a>
+          </div>
+          
+            <div class="container p-0">
+                <div class="row no-gutters">
+                    <div class="col-md-6 text-center pt-1">
+                        <div class="sign-in-detail text-white">
+                            
+                            <!-- <div class="item"> -->
+                            
+                            <!-- <div class="owl-carousel" data-autoplay="false" data-loop="false" data-nav="false" data-dots="true" data-items="1" data-items-laptop="1" data-items-tab="1" data-items-mobile="1" data-items-mobile-sm="1" data-margin="0"> -->
+                                <!-- <div class="item"> -->
+                                    <!-- <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
+                                    <h4 class="mb-1 text-white">Administra tu perfil de forma facil</h4> -->
+                                    
+                                <!-- </div> -->
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                    <div class="col-md-6 bg-white pt-5">
+                        <div class="sign-in-from">
+                            <h1 class="mb-0">Iniciar sesión</h1>
+                            <p>Activa tu webcam para iniciar sesión mediante reconocimiento facial.</p>
+                            <form class="mt-4">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Usuario</label>
+                                    <input type="email" class="form-control mb-0" id="username_id" placeholder="Ingresa tu usuario">
+                                </div>
+                                <div class="d-inline-block w-100">
+                                    <div class="custom-control custom-checkbox d-inline-block mt-2 pt-1">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                        <!-- <label class="custom-control-label" for="customCheck1">Recuerdame</label> -->
+                                    </div>
+                                    <!-- <button type="submit" class="btn btn-primary float-right" onclick="login(this.form)">Ingresar</button> -->
+                                    <button id="snap" type="button" class="btn btn-info float-left" onclick="capturar(this.form)">Tomar foto</button>
+                                    
+                                    <button type="button" class="btn btn-primary float-right" onclick="login(this.form)" id="btnSave">Ingresar</button>
+                                </div>
+                                <div class="sign-info">
+                                    <span class="dark-color d-inline-block line-height-2">¿Aún no tienes una cuenta? <a href="/sign-up.html">Registrarse</a></span>
+                                    <span class="dark-color d-inline-block line-height-2">También puedes <a href="/index.html">Iniciar sesión</a> de forma clásica.</span>
+                                    <ul class="iq-social-media">
+                                        <li><a href="#"><i class="ri-facebook-box-line"></i></a></li>
+                                        <li><a href="#"><i class="ri-twitter-line"></i></a></li>
+                                        <li><a href="#"><i class="ri-instagram-line"></i></a></li>
+                                    </ul>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Sign in END -->
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <!-- Appear JavaScript -->
+      <script src="js/jquery.appear.js"></script>
+      <!-- Countdown JavaScript -->
+      <script src="js/countdown.min.js"></script>
+      <!-- Counterup JavaScript -->
+      <script src="js/waypoints.min.js"></script>
+      <script src="js/jquery.counterup.min.js"></script>
+      <!-- Wow JavaScript -->
+      <script src="js/wow.min.js"></script>
+      <!-- Apexcharts JavaScript -->
+      <script src="js/apexcharts.js"></script>
+      <!-- lottie JavaScript -->
+      <script src="js/lottie.js"></script>
+      <!-- Slick JavaScript --> 
+      <script src="js/slick.min.js"></script>
+      <!-- Select2 JavaScript -->
+      <script src="js/select2.min.js"></script>
+      <!-- Owl Carousel JavaScript -->
+      <script src="js/owl.carousel.min.js"></script>
+      <!-- Magnific Popup JavaScript -->
+      <script src="js/jquery.magnific-popup.min.js"></script>
+      <!-- Smooth Scrollbar JavaScript -->
+      <script src="js/smooth-scrollbar.js"></script>
+      <!-- Chart Custom JavaScript -->
+      <script src="js/chart-custom.js"></script>
+      <!-- Custom JavaScript -->
+      <script src="js/custom.js"></script>
+      <!-- ***************  Script para login ********************** -->
+      <script language="javascript">
+            async function capturar(form){
+                // *****************    Obteniendo foto     *****************
+                var canvas = document.getElementById('canvas');
+                var context = canvas.getContext('2d');
+                var video = document.querySelector("#videoElement");
+                // Mostrando camara
+                if (navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices.getUserMedia({ video: true })
+                    .then(function (stream) {
+                    video.srcObject = stream;
+                    video.play();
+                    })
+                    .catch(function (err0r) {
+                    console.log("F");
+                    });
+                }
+                // Tomando foto
+                document.getElementById("snap").addEventListener("click", function() {
+                    context.drawImage(video, 0, 0, 640, 480);
+                });
+            }
+
+            async function login(form) {
+                var imagebase64data;
+                // Below new canvas to generate flip/mirron image from existing canvas  
+                // $("#btnSave").click(function () {
+                    var destinationCanvas = document.createElement("canvas");  
+                    var destCtx = destinationCanvas.getContext('2d');  
+                    var video = document.querySelector("#videoElement");
+                    var username = form.username_id.value;
+            
+                    destinationCanvas.height = 500;  
+                    destinationCanvas.width = 500;  
+            
+                    destCtx.translate(video.videoWidth, 0);  
+                    destCtx.scale(-1, 1);  
+                    destCtx.drawImage(document.getElementById("canvas"), 0, 0);  
+            
+                    // Get base64 data to send to server for upload  
+                    imagebase64data = destinationCanvas.toDataURL("image/jpg");  
+                    // imagebase64data = imagebase64data.replace('data:image/png;base64,', '');
+                    // console.log(imagebase64data);
+                // });
+                let data = {
+                    username: username,
+                    imagen: imagebase64data
+                }
+                console.log(data);
+                // $.ajax({  
+                //     type: 'POST',  
+                //     url: 'http://localhost:3333/login_cam',  
+                //     data: '{ "imageData" : "' + imagebase64data + '" }',  
+                //     contentType: 'application/json; charset=utf-8',  
+                //     dataType: 'text',  
+                //     success: function (out) {  
+                //         alert('Image uploaded successfully..');  
+                //     }  
+                // });
+
+
+
+                //////////////////////////////////////////////////////////////////////
+                try{
+                    // data to be sent to the POST request
+                    // let _data = {
+                    //     user: form.username_id.value,
+                    //     pass: form.contrasena_id.value
+                    // }
+                    let data_response = "";
+                    if(validar(username)){
+                        const req = await fetch('http://localhost:3333/loginPorFoto', {
+                            method: "POST",
+                            body: JSON.stringify(data),
+                            headers: {"Content-type": "application/json; charset=UTF-8"}
+                        });
+                        // .then(response => data_response = response.json())
+                        // .then(json => console.log(json))
+                        // .catch(err => console.log(err));
+                        
+                        const res = await req.json();
+                        data_response = res;
+                        // console.log("data_response: ", data_response);
+                        data_msj = data_response.message;
+                        if(data_msj == 0){
+                            alert("Ocurrio un error.");
+                        }else{
+                            data_face = data_response.Data_face;
+                            similaridad = data_face[0].Similarity;
+                            console.log("data_face similarity: ", similaridad);
+                            data_user = data_response.User;
+                            console.log("data_response_user: ", data_user);
+                            if(similaridad > 80.0){
+                                alert("¡Bienvenido!");
+                                location="profile.html";
+                                localStorage.setItem("usuario_activo", JSON.stringify(data_user));
+                            }
+                        }
+                    }
+                } catch(err){
+                    console.log("error:", err);
+                }
+            }
+
+            function validar(username){
+                if(username == ""){
+                    alert("Ingrese un username");
+                    $("#username_id").focus();
+                    return false;
+                }
+                return true;
+            }
+      </script>
+   </body>
+</html>

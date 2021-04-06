@@ -4,7 +4,7 @@
       <!-- Required meta tags -->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>[SEMI1]Practica1-Grupo 37</title>
+      <title>[SEMI1]Practica2-Grupo 37</title>
       <!-- Favicon -->
       <link rel="shortcut icon" href="images/favicon.ico" />
       <!-- Bootstrap CSS -->
@@ -72,15 +72,16 @@
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Contraseña</label>
                                     <a href="#" class="float-right">¿Olvidaste tu contraseña?</a>
-                                    <input type="password" class="form-control mb-0" id="contrasena_id" placeholder="Ingresa tu contraseña">
+                                    <input type="password" class="form-control mb-0" id="contrasenia_id" placeholder="Ingresa tu contraseña">
                                 </div>
                                 <div class="d-inline-block w-100">
                                     <div class="custom-control custom-checkbox d-inline-block mt-2 pt-1">
                                         <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                        <label class="custom-control-label" for="customCheck1">Recuerdame</label>
+                                        <!-- <label class="custom-control-label" for="customCheck1">Recuerdame</label> -->
                                     </div>
                                     <!-- <button type="submit" class="btn btn-primary float-right" onclick="login(this.form)">Ingresar</button> -->
                                     <button type="button" class="btn btn-primary float-right" onclick="login(this.form)">Ingresar</button>
+                                    <button type="button" class="btn btn-light float-left"><a href="/sign-in-cam.html">Ingresar con camara</a></button>
                                 </div>
                                 <div class="sign-info">
                                     <span class="dark-color d-inline-block line-height-2">¿Aún no tienes una cuenta? <a href="/sign-up.html">Registrarse</a></span>
@@ -130,48 +131,84 @@
       <!-- Custom JavaScript -->
       <script src="js/custom.js"></script>
       <!-- ***************  Script para login ********************** -->
+      <script>
+        $(document).ready(function(){
+            localStorage.setItem("usuario_activo", null);
+        });
+      </script>
       <script language="javascript">
             async function login(form) {
+                var username = form.username_id.value;
+                var contrasenia = form.contrasenia_id.value;
                 try{
                     // data to be sent to the POST request
                     let _data = {
-                        user: form.username_id.value,
-                        pass: form.contrasena_id.value
+                        user: username,
+                        pass: contrasenia
                     }
                     let data_response = "";
-                    const req = await fetch('http://localhost:3333/login', {
-                        method: "POST",
-                        body: JSON.stringify(_data),
-                        headers: {"Content-type": "application/json; charset=UTF-8"}
-                    });
-                    // .then(response => data_response = response.json())
-                    // .then(json => console.log(json))
-                    // .catch(err => console.log(err));
-                    
-                    const res = await req.json();
-                    data_response = res;
-                    console.log("data_response: ", data_response);
-                    console.log("data_response_user: ", data_response.User);
-                    data_user = data_response.User;
-                    var user = data_user.username.S;
-                    var pass = data_user.contrasenia.S;
-                    // alert(JSON.stringify(data_user));
-                    localStorage.setItem("usuario_activo", JSON.stringify(data_user));
-                    
-                    if (form.username_id.value == user) { 
-                        if (form.contrasena_id.value == pass) {              
-                            location="profile.html";
+                    if(validar(username, contrasenia)){
+                        const req = await fetch('http://localhost:3333/login', {
+                            method: "POST",
+                            body: JSON.stringify(_data),
+                            headers: {"Content-type": "application/json; charset=UTF-8"}
+                        });
+                        // .then(response => data_response = response.json())
+                        // .then(json => console.log(json))
+                        // .catch(err => console.log(err));
+                        
+                        const res = await req.json();
+                        data_response = res;
+                        console.log("data_response: ", data_response);
+                        console.log("data_response_user: ", data_response.User);
+                        data_msj = data_response.message;
+                        
+                        if(data_msj == 1){
+                            data_user = data_response.User;
+                            data_tags = data_response.Tags;
+                            var user = data_user.username.S;
+                            var pass = data_user.contrasenia.S;
+                            // alert(JSON.stringify(data_user));
+                            // alert(data_tags);
+                            
+                            if (form.username_id.value == user) { 
+                                if (form.contrasenia_id.value == pass) {              
+                                    localStorage.setItem("usuario_activo", JSON.stringify(data_user));
+                                    localStorage.setItem("tags_foto_perfil", JSON.stringify(data_tags));
+                                    alert("¡Bienvenido!");
+                                    // $_SESSION['TRUE'] =  true;
+                                    location="profile.html";
+                                } else {
+                                    // $_SESSION['TRUE'] = false;
+                                    alert("¡Contraseña incorrecta!");
+                                }
+                            } else {
+                                // $_SESSION['TRUE'] = false;
+                                alert("¡Usuario invalido!");
+                            }
                         } else {
-                            alert("¡Contraseña incorrecta!")
+                            alert("Datos incorrectos.");
                         }
-                    } else {  
-                        alert("¡Usuario invalido!")
                     }
                     // console.log(res)
                     // Testing DynamoDB
                 } catch(err){
                     console.log("error:", err);
                 }
+            }
+
+            function validar(username, contrasenia){
+                if(username == ""){
+                    alert("Ingrese un username");
+                    $("#username_id").focus();
+                    return false;
+                }
+                if(contrasenia == ""){
+                    alert("Ingrese una contraseña");
+                    $("#contrasenia_id").focus();
+                    return false;
+                }
+                return true;
             }
       </script>
    </body>

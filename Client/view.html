@@ -36,7 +36,7 @@
                      <!-- <li>
                         <a href="index.html" class="iq-waves-effect"><i class="las la-newspaper"></i><span>Newsfeed</span></a>
                      </li> -->
-                     <li class="active">
+                     <li>
                         <a href="profile.html" class="iq-waves-effect"><i class="las la-user"></i><span>Profile</span></a>
                      </li>
                      <li>
@@ -45,7 +45,7 @@
                      <!-- <li>
                         <a href="group.html" class="iq-waves-effect"><i class="las la-users"></i><span>Group</span></a>
                      </li> -->
-                     <li>
+                     <li class="active">
                         <a href="profile-images.html" class="iq-waves-effect"><i class="las la-image"></i><span>Imagenes</span></a>
                      </li>
                      <!-- <li>
@@ -80,17 +80,17 @@
                      </li>
                      <li>
                         <a href="music.html" class="iq-waves-effect"><i class="ri-play-circle-line"></i><span>Music</span></a>
-                     </li> -->
-                     <!-- <li>
+                     </li>
+                     <li>
                         <a href="#mailbox" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><i class="ri-mail-line"></i><span>Email</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                         <ul id="mailbox" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                            <li><a href="app/index.html"><i class="ri-inbox-line"></i>Inbox</a></li>
                            <li><a href="app/email-compose.html"><i class="ri-edit-line"></i>Email Compose</a></li>
                         </ul>
                      </li>
-                     <li>
-                        <a href="#ui-elements" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><i class="ri-focus-2-line"></i><span>Ui-Elements</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
-                        <ul id="ui-elements" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                     <li class="active">
+                        <a href="#ui-elements" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="true"><i class="ri-focus-2-line"></i><span>Ui-Elements</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                        <ul id="ui-elements" class="iq-submenu collapse show" data-parent="#iq-sidebar-toggle">
                            <li>
                               <a href="#ui-kit" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="ri-pencil-ruler-line"></i><span>UI Kit</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                               <ul id="ui-kit" class="iq-submenu collapse" data-parent="#ui-elements">
@@ -116,11 +116,11 @@
                                  <li><a href="ui-tooltips.html"><i class="ri-record-mail-line"></i>Tooltips</a></li>
                               </ul>
                            </li>
-                           <li>
-                              <a href="#forms" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="ri-profile-line"></i><span>Forms</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
-                              <ul id="forms" class="iq-submenu collapse" data-parent="#ui-elements">
+                           <li class="active">
+                              <a href="#forms" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="true"><i class="ri-profile-line"></i><span>Forms</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                              <ul id="forms" class="iq-submenu collapse show" data-parent="#ui-elements">
                                  <li><a href="form-layout.html"><i class="ri-tablet-line"></i>Form Elements</a></li>
-                                 <li><a href="form-validation.html"><i class="ri-device-line"></i>Form Validation</a></li>
+                                 <li class="active"><a href="form-validation.html"><i class="ri-device-line"></i>Form Validation</a></li>
                                  <li><a href="form-switch.html"><i class="ri-toggle-line"></i>Form Switch</a></li>
                                  <li><a href="form-chechbox.html"><i class="ri-checkbox-line"></i>Form Checkbox</a></li>
                                  <li><a href="form-radio.html"><i class="ri-radio-button-line"></i>Form Radio</a></li>
@@ -543,277 +543,255 @@
          <div id="content-page" class="content-page">
             <div class="container">
                <div class="row">
-                  <div class="col-lg-12">
-                     <div class="iq-card">
-                        <div class="iq-card-body p-0">
-                           <div class="iq-edit-list">
-                              <ul class="iq-edit-profile d-flex nav nav-pills">
-                                 <li class="col-md-3 p-0">
-                                    <a class="nav-link active" data-toggle="pill" href="#personal-information">
-                                    Informacion personal
-                                    </a>
-                                 </li>
-                                 <!-- <li class="col-md-3 p-0">
-                                    <a class="nav-link" data-toggle="pill" href="#chang-pwd">
-                                    Cambiar contraseña
-                                    </a>
-                                 </li> -->
-                                 <li class="col-md-3 p-0">
-                                    <a class="nav-link" data-toggle="pill" href="#emailandsms">
-                                    Email & SMS
-                                    </a>
-                                 </li>
-                                 <li class="col-md-3 p-0">
-                                    <a class="nav-link" data-toggle="pill" href="#manage-contact">
-                                    Contacto
-                                    </a>
-                                 </li>
-                              </ul>
-                           </div>
+                  <div class="col-sm-12">
+                     <div class="iq-card position-relative inner-page-bg bg-primary" style="height: 150px;">
+                        <div class="inner-page-title">
+                           <h3 class="text-white">Visualizar</h3>
+                           <p class="text-white">Elige un idioma para traducir la descripcion.</p>
                         </div>
                      </div>
                   </div>
-                  <div class="col-lg-12">
-                     <div class="iq-edit-list-data">
-                        <div class="tab-content">
-                           <div class="tab-pane fade active show" id="personal-information" role="tabpanel">
-                              <div class="iq-card">
-                                 <div class="iq-card-header d-flex justify-content-between">
-                                    <div class="iq-header-title">
-                                       <h4 class="card-title">Información personal</h4>
-                                    </div>
-                                 </div>
-                                 <div class="iq-card-body">
-                                    <form id="campos">
-                                       <div class="form-group row align-items-center">
-                                          <div class="col-md-12">
-                                             <div class="profile-img-edit">
-                                                <img id="foto_actual_id" class="profile-pic" src="images/user/11.png" alt="profile-pic">
-                                                <div class="p-image">
-                                                   <i class="ri-pencil-line upload-button"></i>
-                                                   <input class="file-upload" type="file" id="foto_id" accept="image/*"/>
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <ul id="myTags">
-                                             <!-- Existing list items will be pre-added to the tags -->
-                                         </ul>
-                                       </div>
-                                       <div class=" row align-items-center">
-                                          <div class="form-group col-sm-6">
-                                             <label for="fname">Nombre:</label>
-                                             <input type="text" class="form-control" id="nombre_id" value="">
-                                          </div>
-                                          <div class="form-group col-sm-6">
-                                             <label for="lname">Apellido:</label>
-                                             <input type="text" class="form-control" id="apellido_id" value="">
-                                          </div>
-                                          <div class="form-group col-sm-6">
-                                             <label for="uname">Username:</label>
-                                             <input type="text" class="form-control" id="username_id" value="">
-                                          </div>
-                                          <div class="form-group col-sm-6">
-                                             <label for="cname">Contraseña:</label>
-                                             <input type="text" class="form-control" id="contrasenia_id" value="">
-                                          </div>
-                                          <div class="form-group">
-                                             <label for="exampleInputPassword1">Contraseña</label>
-                                             <input type="password" class="form-control mb-0" id="contrasenia_id1" placeholder="Confirma tu contraseña">
-                                         </div>
-                                          <div class="form-group col-sm-6">
-                                             <label class="d-block">Genero:</label>
-                                             <div class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" id="customRadio6" name="customRadio1" class="custom-control-input" checked="">
-                                                <label class="custom-control-label" for="customRadio6"> Hombre </label>
-                                             </div>
-                                             <div class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" id="customRadio7" name="customRadio1" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio7"> Mujer </label>
-                                             </div>
-                                             <div class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" id="customRadio8" name="customRadio1" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio8"> Indefinido </label>
-                                             </div>
-                                          </div>
-                                          <!-- <div class="form-group col-sm-6">
-                                             <label for="dob">Date Of Birth:</label>
-                                             <input  class="form-control" id="dob" value="1984-01-24">
-                                          </div>
-                                          <div class="form-group col-sm-6">
-                                             <label>Marital Status:</label>
-                                             <select class="form-control" id="exampleFormControlSelect1">
-                                                <option selected="">Single</option>
-                                                <option>Married</option>
-                                                <option>Widowed</option>
-                                                <option>Divorced</option>
-                                                <option>Separated </option>
-                                             </select>
-                                          </div>
-                                          <div class="form-group col-sm-6">
-                                             <label>Age:</label>
-                                             <select class="form-control" id="exampleFormControlSelect2">
-                                                <option>12-18</option>
-                                                <option>19-32</option>
-                                                <option selected="">33-45</option>
-                                                <option>46-62</option>
-                                                <option>63 > </option>
-                                             </select>
-                                          </div>
-                                          <div class="form-group col-sm-6">
-                                             <label>Country:</label>
-                                             <select class="form-control" id="exampleFormControlSelect3">
-                                                <option>Caneda</option>
-                                                <option>Noida</option>
-                                                <option selected="">USA</option>
-                                                <option>India</option>
-                                                <option>Africa</option>
-                                             </select>
-                                          </div>
-                                          <div class="form-group col-sm-6">
-                                             <label>State:</label>
-                                             <select class="form-control" id="exampleFormControlSelect4">
-                                                <option>California</option>
-                                                <option>Florida</option>
-                                                <option selected="">Georgia</option>
-                                                <option>Connecticut</option>
-                                                <option>Louisiana</option>
-                                             </select>
-                                          </div>
-                                          <div class="form-group col-sm-12">
-                                             <label>Address:</label>
-                                             <textarea class="form-control" name="address" rows="5" style="line-height: 22px;">
-                                             37 Cardinal Lane
-                                             Petersburg, VA 23803
-                                             United States of America
-                                             Zip Code: 85001
-                                             </textarea>
-                                          </div> -->
-                                       </div>
-                                       <button type="button" onclick="editar(this.form)" class="btn btn-primary mr-2">Cambiar</button>
-                                       <button type="reset" id="cancelar_id" class="btn iq-bg-danger"><a href="profile.html">Cancelar</a></button>
-                                    </form>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="tab-pane fade" id="chang-pwd" role="tabpanel">
-                              <div class="iq-card">
-                                 <div class="iq-card-header d-flex justify-content-between">
-                                    <div class="iq-header-title">
-                                       <h4 class="card-title">Change Password</h4>
-                                    </div>
-                                 </div>
-                                 <div class="iq-card-body">
-                                    <form>
-                                       <div class="form-group">
-                                          <label for="cpass">Current Password:</label>
-                                          <a href="javascripe:void();" class="float-right">Forgot Password</a>
-                                          <input type="Password" class="form-control" id="cpass" value="">
-                                       </div>
-                                       <div class="form-group">
-                                          <label for="npass">New Password:</label>
-                                          <input type="Password" class="form-control" id="npass" value="">
-                                       </div>
-                                       <div class="form-group">
-                                          <label for="vpass">Verify Password:</label>
-                                          <input type="Password" class="form-control" id="vpass" value="">
-                                       </div>
-                                       <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                                       <button type="reset" class="btn iq-bg-danger">Cancelar</button>
-                                    </form>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="tab-pane fade" id="emailandsms" role="tabpanel">
-                              <div class="iq-card">
-                                 <div class="iq-card-header d-flex justify-content-between">
-                                    <div class="iq-header-title">
-                                       <h4 class="card-title">Email & SMS</h4>
-                                    </div>
-                                 </div>
-                                 <div class="iq-card-body">
-                                    <form>
-                                       <div class="form-group row align-items-center">
-                                          <label class="col-md-3" for="emailnotification">Notificaciones Email:</label>
-                                          <div class="col-md-9 custom-control custom-switch">
-                                             <input type="checkbox" class="custom-control-input" id="emailnotification" checked="">
-                                             <label class="custom-control-label" for="emailnotification"></label>
-                                          </div>
-                                       </div>
-                                       <div class="form-group row align-items-center">
-                                          <label class="col-md-3" for="smsnotification">Notificaciones SMS:</label>
-                                          <div class="col-md-9 custom-control custom-switch">
-                                             <input type="checkbox" class="custom-control-input" id="smsnotification" checked="">
-                                             <label class="custom-control-label" for="smsnotification"></label>
-                                          </div>
-                                       </div>
-                                       <div class="form-group row align-items-center">
-                                          <label class="col-md-3" for="npass">¿Cuándo recibir emails?</label>
-                                          <div class="col-md-9">
-                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="email01">
-                                                <label class="custom-control-label" for="email01">Nuevas notificaciones.</label>
-                                             </div>
-                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="email02">
-                                                <label class="custom-control-label" for="email02">Nuevo mensaje directo.</label>
-                                             </div>
-                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="email03" checked="">
-                                                <label class="custom-control-label" for="email03">Nueva solicitud de amistad.</label>
-                                             </div>
-                                          </div>
-                                       </div>
-                                       <!-- <div class="form-group row align-items-center">
-                                          <label class="col-md-3" for="npass">¿Cuándo escalar emails?</label>
-                                          <div class="col-md-9">
-                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="email04">
-                                                <label class="custom-control-label" for="email04"> Upon new order.</label>
-                                             </div>
-                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="email05">
-                                                <label class="custom-control-label" for="email05"> New membership approval</label>
-                                             </div>
-                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="email06" checked="">
-                                                <label class="custom-control-label" for="email06"> Member registration</label>
-                                             </div>
-                                          </div>
-                                       </div> -->
-                                       <button type="submit" class="btn btn-primary mr-2">Aceptar</button>
-                                       <button type="reset" class="btn iq-bg-danger">Cancelar</button>
-                                    </form>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="tab-pane fade" id="manage-contact" role="tabpanel">
-                              <div class="iq-card">
-                                 <div class="iq-card-header d-flex justify-content-between">
-                                    <div class="iq-header-title">
-                                       <h4 class="card-title">Administrar contacto</h4>
-                                    </div>
-                                 </div>
-                                 <div class="iq-card-body">
-                                    <form>
-                                       <div class="form-group">
-                                          <label for="cno">Número:</label>
-                                          <input type="text" class="form-control" id="cno" value="502 2255 8896">
-                                       </div>
-                                       <div class="form-group">
-                                          <label for="email">Email:</label>
-                                          <input type="text" class="form-control" id="email" value="aymimadre@elbicho.com">
-                                       </div>
-                                       <div class="form-group">
-                                          <label for="url">Url:</label>
-                                          <input type="text" class="form-control" id="url" value="https://bicho.com">
-                                       </div>
-                                       <button type="submit" class="btn btn-primary mr-2">Aceptar</button>
-                                       <button type="reset" class="btn iq-bg-danger">Cancelar</button>
-                                    </form>
-                                 </div>
-                              </div>
+                  <div class="col-sm-12 col-lg-6">
+                     <div class="iq-card">
+                        <div class="iq-card-header d-flex justify-content-between">
+                           <div class="iq-header-title">
+                              <h4 class="card-title">Imagen</h4>
                            </div>
                         </div>
+                        <div class="iq-card-body">
+                           <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vulputate, ex ac venenatis mollis, diam nibh finibus leo</p> -->
+                           <form>
+                              <div class="form-row">
+                                 <div class="col-md-12">
+                                    <div class="image-absulute">
+                                       <img id="imagen_id" class="profile-pic" src="images/page-img/n3.jpg" alt="profile-pic">
+                                    </div>
+                                    <ul id="myTags">
+                                       <!-- Existing list items will be pre-added to the tags -->
+                                   </ul>
+                                 </div>
+                                 <div class="mb-3">
+                                    <div class="col-md-6 mb-2 mb-3"></div>
+                                    <label for="validationDefault01">Nombre</label>
+                                    <input type="text" class="form-control" id="nombre_id" placeholder="Nombre foto." readonly disabled="">
+                                    <div class="form-group"></div>
+                                    <div class="mb-3">
+      
+                                    <!-- </div> -->
+                                       <!-- <div class="col-md-6 mb-2 mb-3"> -->
+                                          <div class="dropdown">
+                                             <select id="select_idioma_id" class="btn btn-secondary dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <option value="ingles">Inglés</option>
+                                                <option value="portugues">Portugués</option>
+                                                <option value="aleman">Alemán</option>
+                                                <option value="frances">Francés</option>
+                                                <option value="italiano">Italiano</option>
+                                             </select>
+                                             
+                                          </div>
+                                          <div>
+                                             <p>Elige un idioma a traducir.</p>
+                                          </div>
+                                       </div>
+                                 </div>
+                                 <!-- <div class="mb-3"> -->
+                                 <div class="col-md-6 mb-2 mb-3">
+                                    <div class="col-md-6 mb-2 mb-3"></div>
+                                    <label for="validationTextarea">Descripción</label>
+                                    <textarea class="form-control" id="descripcion_id" placeholder="Descripción foto." readonly disabled=""></textarea>
+                                    <div class="form-group">
+                                       <div class="col-md-6 mb-2 mb-3"></div>
+                                          <button id="traducir_btn_id" class="btn btn-primary" type="button" ">Traducir</button>
+                                       <!-- </div> -->
+                                 </div>
+                              </div>
+                              
+                           </form>
+                        </div>
+                     </div>
+                     <div class="iq-card">
+                        <!-- <div class="iq-card-header d-flex justify-content-between">
+                           <div class="iq-header-title">
+                              <h4 class="card-title"> Supported elements</h4>
+                           </div>
+                        </div> -->
+                        <div class="iq-card-body">
+                           <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vulputate, ex ac venenatis mollis, diam nibh finibus leo</p> -->
+                           <!-- <form class="was-validated">
+                              
+                              <div class="custom-control custom-checkbox mb-3">
+                                 <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
+                                 <label class="custom-control-label" for="customControlValidation1">Check this custom checkbox</label>
+                                 <div class="invalid-feedback">Example invalid feedback text</div>
+                              </div>
+                              <div class="custom-control custom-radio">
+                                 <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
+                                 <label class="custom-control-label" for="customControlValidation2">Toggle this custom radio</label>
+                              </div>
+                              <div class="custom-control custom-radio mb-3">
+                                 <input type="radio" class="custom-control-input" id="customControlValidation3" name="radio-stacked" required>
+                                 <label class="custom-control-label" for="customControlValidation3">Or toggle this other custom radio</label>
+                                 <div class="invalid-feedback">More example invalid feedback text</div>
+                              </div>
+                              <div class="form-group">
+                                 <select class="custom-select" required>
+                                    <option value="">Open this select menu</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                 </select>
+                                 <div class="invalid-feedback">Example invalid custom select feedback</div>
+                              </div>
+                              <div class="custom-file">
+                                 <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+                                 <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                 <div class="invalid-feedback">Example invalid custom file feedback</div>
+                              </div>
+                           </form> -->
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-sm-12 col-lg-6">
+                     <!-- <div class="iq-card">
+                        <div class="iq-card-header d-flex justify-content-between">
+                           <div class="iq-header-title">
+                              <h4 class="card-title">Custom Validation</h4>
+                           </div>
+                        </div>
+                        <div class="iq-card-body">
+                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vulputate, ex ac venenatis mollis, diam nibh finibus leo</p>
+                           <form class="needs-validation" novalidate>
+                              <div class="form-row">
+                                 <div class="col-md-6 mb-3">
+                                    <label for="validationCustom01">First name</label>
+                                    <input type="text" class="form-control" id="validationCustom01"  required>
+                                    <div class="valid-feedback">
+                                       Looks good!
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6 mb-3">
+                                    <label for="validationCustom02">Last name</label>
+                                    <input type="text" class="form-control" id="validationCustom02"  required>
+                                    <div class="valid-feedback">
+                                       Looks good!
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6 mb-3">
+                                    <label for="validationCustomUsername">Username</label>
+                                    <div class="input-group">
+                                       <div class="input-group-prepend">
+                                          <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                       </div>
+                                       <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                                       <div class="invalid-feedback">
+                                          Please choose a username.
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6 mb-3">
+                                    <label for="validationCustom03">City</label>
+                                    <input type="text" class="form-control" id="validationCustom03" required>
+                                    <div class="invalid-feedback">
+                                       Please provide a valid city.
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6 mb-3">
+                                    <label for="validationCustom04">State</label>
+                                    <select class="form-control" id="validationCustom04" required>
+                                       <option selected disabled value="">Choose...</option>
+                                       <option>...</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                       Please select a valid state.
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6 mb-3">
+                                    <label for="validationCustom05">Zip</label>
+                                    <input type="text" class="form-control" id="validationCustom05" required>
+                                    <div class="invalid-feedback">
+                                       Please provide a valid zip.
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="form-group">
+                                 <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                    <label class="form-check-label" for="invalidCheck">
+                                    Agree to terms and conditions
+                                    </label>
+                                    <div class="invalid-feedback">
+                                       You must agree before submitting.
+                                    </div>
+                                 </div>
+                              </div>
+                              <button class="btn btn-primary" type="submit">Submit form</button>
+                           </form>
+                        </div>
+                     </div> -->
+                     <div class="iq-card">
+                        <!-- <div class="iq-card-header d-flex justify-content-between">
+                           <div class="iq-header-title">
+                              <h4 class="card-title">Tooltips</h4>
+                           </div>
+                        </div> -->
+                        <!-- <div class="iq-card-body">
+                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vulputate, ex ac venenatis mollis, diam nibh finibus leo</p>
+                           <form class="needs-validation" novalidate>
+                              <div class="form-row">
+                                 <div class="col-md-6 mb-3">
+                                    <label for="validationTooltip01">First name</label>
+                                    <input type="text" class="form-control" id="validationTooltip01" value="Mark" required>
+                                    <div class="valid-tooltip">
+                                       Looks good!
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6 mb-3">
+                                    <label for="validationTooltip02">Last name</label>
+                                    <input type="text" class="form-control" id="validationTooltip02" value="Jhon" required>
+                                    <div class="valid-tooltip">
+                                       Looks good!
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6 mb-3">
+                                    <label for="validationTooltipUsername">Username</label>
+                                    <div class="input-group">
+                                       <div class="input-group-prepend">
+                                          <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                                       </div>
+                                       <input type="text" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
+                                       <div class="invalid-tooltip">
+                                          Please choose a unique and valid username.
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6 mb-3">
+                                    <label for="validationTooltip03">City</label>
+                                    <input type="text" class="form-control" id="validationTooltip03" required>
+                                    <div class="invalid-tooltip">
+                                       Please provide a valid city.
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6 mb-3">
+                                    <label for="validationTooltip04">State</label>
+                                    <select class="form-control" id="validationTooltip04" required>
+                                       <option selected disabled value="">Choose...</option>
+                                       <option>...</option>
+                                    </select>
+                                    <div class="invalid-tooltip">
+                                       Please select a valid state.
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6 mb-3">
+                                    <label for="validationTooltip05">Zip</label>
+                                    <input type="text" class="form-control" id="validationTooltip05" required>
+                                    <div class="invalid-tooltip">
+                                       Please provide a valid zip.
+                                    </div>
+                                 </div>
+                              </div>
+                              <button class="btn btn-primary" type="submit">Submit form</button>
+                           </form>
+                        </div> -->
                      </div>
                   </div>
                </div>
@@ -876,205 +854,101 @@
          rel = "stylesheet">
       <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
       <script src="js/tag-it.js" type="text/javascript" charset="utf-8"></script>
-      <!-- <script type="text/javascript">
-         $(document).ready(function() {
-             $("#myTags").tagit();
-         });
-     </script> -->
-     <!-- TAGIT -->
       <!-- SCRIPTS -->
-         <script>
-            $(document).ready(function(){
+      <script>
+         $(document).ready(function(){
+               // Obteniendo datos usuario
                var usuario_activo = localStorage.getItem("usuario_activo");
                console.log(usuario_activo);
+
                if(usuario_activo != "null"){
-                  $("#myTags").tagit();
-                  // localStorage.setItem("usuario_activo", data_user_ver);
-                  
-                  var tags_foto = localStorage.getItem("tags_foto_perfil");
-                  tags_foto = JSON.parse(tags_foto);
                   usuario_activo = JSON.parse(usuario_activo);
-                  // toast.info(usuario_activo.nombre.S);
-                  // Llenando tags
-                  console.log("tags: ", JSON.parse(tags_foto));
-                  // console.log("tags size: ", tags_foto.length);
-                  
-                  // console.log(JSON.parse(tags_foto)[0].Name);
-                  for(i = 0; i < JSON.parse(tags_foto).length; i++){
-                     $("#myTags").tagit("createTag", JSON.parse(tags_foto)[i].Name);
-                  }
-                  // console.log("usuario activo: ", JSON.parse(usuario_activo));
-                  
-                  // Obteniendo datos
                   var nombre = usuario_activo.nombre.S;
-                  var apellido = usuario_activo.apellido.S;
-                  var username = usuario_activo.username.S;
-                  var contrasenia = usuario_activo.contrasenia.S;
                   var url_foto = usuario_activo.url_foto.S;
-                  // Colocando datos input
-                  $("#nombre_id").val(nombre);
-                  $("#apellido_id").val(apellido);
-                  $("#username_id").val(username);
-                  $("#contrasenia_id").val(contrasenia);
-                  $("#nombre_id").val(nombre);
+               // Imagen
+                  var url_string = window.location.href;
+                  var url = new URL(url_string);
+                  var nombre_imagen = url.searchParams.get('nombre');
+                  var descripcion = url.searchParams.get('descripcion');
+                  var url_imagen = url.searchParams.get('URL');
+                  var tags = url.searchParams.get('tags');
+                  var tags_foto = JSON.parse(tags);
+                  console.log("tags: ", tags_foto);
+                  // // Colocando datos input
+                  $("#nombre_id").val(nombre_imagen);
+                  $("#descripcion_id").val(descripcion);
 
                   // console.log('img_url', url_foto);
-                  // Colocando imagen
-                  $("#foto_actual_id").attr('src', url_foto);
+                  // // Colocando imagen
+                  $("#imagen_id").attr('src', url_imagen);
                   
                   // Colocando header
                   $("#foto_actual_id1").attr('src', url_foto);
                   $("#nombre_id1").text(nombre);
                   $("#nombre_id2").text("Hola " + nombre);
-
-                  // Cancelar
-                  $("#cancelar_id").click(function(){
-                     $("#nombre_id").val(nombre);
-                     $("#apellido_id").val(apellido);
-                     $("#username_id").val(username);
-                     $("#contrasenia_id").val(contrasenia);
-                     $("#nombre_id").val(nombre);
-                  });
-               } else {
-                  // header('Location: /index.html');
-                  alert("Primero inicia sesion");
-                  console.log("Primero inicia sesion");
-                  location="index.html";
-               }
-            });
-         </script>
-         <!-- POST EDITAR -->
-         <script>
-            async function editar(form) {
-               var usuario_activo = localStorage.getItem("usuario_activo");
-               usuario_activo = JSON.parse(usuario_activo);
-               // toast.info(usuario_activo.nombre.S);
-               // console.log("usuario activo: ", JSON.parse(usuario_activo));
-               // Obteniendo datos
-               var id_user = usuario_activo.id_usuario.S;
-               var url_foto = usuario_activo.url_foto.S;
-                  // Obteniendo valores para data
-                  if(form.foto_id.files[0] == null){
-                     alert("Elije una foto.");
-                  }else{
-                  var foto_nombre_ext = form.foto_id.files[0].name.split('.');
-                  var fotoblob = form.foto_id.files[0];
+                  // Colocando tags
+                  $("#myTags").tagit();
+                  for(i = 0; i < tags_foto.length; i++){
+                     $("#myTags").tagit("createTag", tags_foto[i]);
                   }
-                  var dateNow = Date.now();
-                  // Data values
-                  // var id_user = dateNow + form.nombre_id.value;
-                  var contrasenia = form.contrasenia_id.value;
-                  var contrasenia_conf = form.contrasenia_id1.value;
-                  var nombre = form.nombre_id.value;
-                  var apellido = form.apellido_id.value;
-                  var username = form.username_id.value;
-                  var foto_nombre = foto_nombre_ext[0];
-                  var foto_ext = form.foto_id.files[0].name.split('.').pop().toLowerCase();
-                  var foto_b64 = "";            
-                  // ---  Convertir foto a b64    ---
-                  const callback = result =>{
-                        // console.log('res: ', result);
+                  var idioma_tr = "";
+               // Obteniendo valor Select
+               $('#select_idioma_id').change(function(){ 
+                     var value = $('#select_idioma_id option:selected').text();
+                     console.log("Se eligio: ", value.toString());
+                     
+                     switch(value){
+                        case "Inglés":
+                           idioma_tr = "en";
+                           break;
+                        case "Portugués":
+                           idioma_tr = "pt";
+                           break;
+                        case "Alemán":
+                           idioma_tr = "de";
+                           break;
+                        case "Francés":
+                           idioma_tr = "fr";
+                           break;
+                        case "Italiano":
+                           idioma_tr = "it";
+                           break;
                      }
-
-                  // console.log("callback: ", callback.result);
-                  var promise = codificar64(fotoblob, callback);
-                  promise.then(async function (result){
-                     foto_b64 = result;
-                     // ++++++ POST ++++++++++
-                     try{
-                        let data = {
-                              nombre: nombre,
-                              contrasenia: contrasenia,
-                              apellido: apellido,
-                              username: username,
-                              foto_b64: foto_b64,
-                              foto_nombre: foto_nombre,
-                              foto_ext: foto_ext,
-                              id_user: id_user,
-                              url_foto: url_foto
-                        };
-                        // ///////////// ///////////// ///////////
-                        // /////////// Editando datos usuario /////////////
-                        // data to be sent to the POST request
-                        if(validar(nombre, apellido, username, contrasenia, contrasenia_conf)){
-                           let data_response = "";
-                           const req = await fetch('http://localhost:3333/editar', {
-                                 method: "POST",
-                                 body: JSON.stringify(data),
-                                 headers: {"Content-type": "application/json; charset=UTF-8"}
+                     // Traduccion
+                     $("#traducir_btn_id").on('click', function(){
+                        
+                        console.log("Se eligio: ", idioma_tr.toString());
+                        
+                        // alert(idioma_tr);
+                        //POST
+                           $.ajax({
+                              url: "http://localhost:3333/traducirDescripcion",
+                              // 	"method": "GET",,
+                              // headers: {"Content-Type": "application/json"},
+                              data: {  
+                                 "idioma": idioma_tr,
+                                 "descripcion": descripcion
+                              },
+                              type: 'POST',
+                              success: function(res){
+                                 data_response = res.message;
+                                 traduccion = data_response.TranslatedText;
+                                 // Mostrando la traduccion
+                                 $("#descripcion_id").val(traduccion);
+                              }
                            });
-                           // .then(response => response.json())
-                           // .catch(err => console.log(err));
-
-                           const res = await req.json();
-                           data_response = res;
-                           console.log("data_response: ", data_response.message);
-                           data_user = data_response.User;
-                           // alert(data_user);
-                           localStorage.setItem("usuario_activo", JSON.stringify(data_user));
-                           // res.redirect('back');
-                           // alert("Se aplicaron los cambios correctamente.");
-                           alert("Se aplicaron los cambios, necesitas iniciar sesion de nuevo.");
-                           location="index.html";
-                        }
-                        // console.log("data_response_user: ", data_response.User.username.S);
-                        // ///////////// ///////////// ///////////
-                        // ///////////// ///////////// ///////////
-                     } catch(err){
-                        console.log("error: ", err);
-                     }
-                     // ++++++ POST ++++++++++
-                  }); 
-            }
-
-            function validar(nombre, apellido, username, contrasenia, contrasenia_conf){
-               if(nombre == ""){
-                  alert("Ingrese un nombre");
-                  $("#nombre_id").focus();
-                  return false;
-               }
-               if(apellido == ""){
-                  alert("Ingrese un apellido");
-                  $("#apellido_id").focus();
-                  return false;
-               }
-               if(username == ""){
-                  alert("Ingrese un username");
-                  $("#username_id").focus();
-                  return false;
-               }
-               if(contrasenia == ""){
-                  alert("Ingrese una contraseña");
-                  $("#contrasenia_id").focus();
-                  return false;
-               }
-               if(contrasenia_conf == ""){
-                  alert("Confirma la contraseña");
-                  $("#contrasenia_id1").focus();
-                  return false;
-               }
-               if(contrasenia_conf != contrasenia){
-                  alert("Las contraseñas no coinciden");
-                  $("#contrasenia_id").focus();
-                  $("#contrasenia_id1").focus();
-                  return false;
-               }
-               return true;
-         }
-
-            function codificar64(fotoblob, callback){
-                     return new Promise (function (resolve, reject) {
-                        var reader = new FileReader();
-                        reader.onloadend = function(){
-                              callback(reader.result);
-                              resolve(reader.result);
-                              // console.log('RESULT', reader.result);
-                        }
-                        reader.onerror = reject;
-                        reader.readAsDataURL(fotoblob);
+                           idioma_tr = "";
                      });
+                     // var idioma_tr = "";
+               });
+            } else {
+               // header('Location: /index.html');
+               alert("Primero inicia sesion");
+               console.log("Primero inicia sesion");
+               location="index.html";
             }
-         </script>
+         });
+      </script>
       <!-- SCRIPTS -->
    </body>
 </html>
