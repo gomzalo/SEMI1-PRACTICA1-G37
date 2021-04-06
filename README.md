@@ -24,7 +24,7 @@ Los usuario pueden subir sus propias imagenes las cuales son analizadas y con ba
 
 ## Extraer Texto
 Los usuario pueden subir imagenes que contengan texto como diapositivas o fotos de un pizarron y despues de un analisis les sera devuelto el texto que contiene la imagen.
-![Usuario IAM - EC2](Img/extraer_Texto.jpg "Extraer Texto")
+![Usuario IAM - EC2](Img/extraer_texto.jpg "Extraer Texto")
 
 ## INSTANCIAS EC2
 Primero que nada se creara un usuario IAM, para uso especifico del servicio EC2 de Amazon Web Services.
