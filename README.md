@@ -9,11 +9,22 @@ Gonzalo Antonio Garcia Solares - 201318652
 FrontEnd: Plantilla utilizando javascript y bootstrap
 ![Usuario IAM - EC2](Img/frontend.jpeg "Usuario IAM - EC2")
 
-BackEnd: Dos Servidores que se comunican con AWS, un servidor codificado en python y otro en Nodejs, ambos montados en instancias EC2
-![Usuario IAM - EC2](Img/nodejs.png "Usuario IAM - EC2")
+BackEnd: Un Servidor que se comunican con AWS programado en Nodejs, montado en una instancia EC2, el servidor se comunica con un bucket de imagenes S3, una base de datos en Dynamo ademas utliza servicios de Rekognition para detectar la cara de un usuario o identificar etiquetas.
+![Usuario IAM - EC2](Img/arquitectura.png "Usuario IAM - EC2")
 
-![Usuario IAM - EC2](Img/python.png "Usuario IAM - EC2")
+## Perfil del Usuario
+Los usuario luego de iniciar sesion les mostrará su perfil con el analisis de su foto de perfil con unas etiquetas al pie de la foto.
+![Usuario IAM - EC2](Img/etiquetas.jpg "Perfil de Usuario")
 
+
+## Subir Imagen
+Los usuario pueden subir sus propias imagenes las cuales son analizadas y con base en el analisis, cada foto subida es asignada a un album de acuerdo a las etiquetas que hacen match con la fotografia.
+![Usuario IAM - EC2](Img/subir_imagen.jpg "Subir Imagen")
+
+
+## Extraer Texto
+Los usuario pueden subir imagenes que contengan texto como diapositivas o fotos de un pizarron y despues de un analisis les sera devuelto el texto que contiene la imagen.
+![Usuario IAM - EC2](Img/extraer_Texto.jpg "Extraer Texto")
 
 ## INSTANCIAS EC2
 Primero que nada se creara un usuario IAM, para uso especifico del servicio EC2 de Amazon Web Services.
@@ -45,11 +56,12 @@ Agregamos una regla *TCP personalizado* con el puerto que usaremos y con origen 
 Con esto ya se permite el acceso en el puerto que usara nuestro servidor.
 
 ## IAM
-![Seguridad 3333 - EC2](Img/politicas.png "Seguridad 3333 - EC2")
+![Seguridad 3333 - EC2](Img/politicas2.png "Seguridad 3333 - EC2")
 
 ## S3
 ![Seguridad 3333 - EC2](Img/s3.png "Seguridad 3333 - EC2")
 
 ## DYNAMO
 ![Seguridad 3333 - EC2](Img/dynamo.png "Seguridad 3333 - EC2")
+
 
