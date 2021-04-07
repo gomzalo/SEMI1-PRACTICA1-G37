@@ -207,7 +207,7 @@
                         pass: contrasenia
                     };
                     let data_response = "";
-                    const req = await fetch('http://localhost:3333/verificar', {
+                    const req = await fetch('http://52.15.73.1:3333/verificar', {
                         method: "POST",
                         body: JSON.stringify(_data),
                         headers: {"Content-type": "application/json; charset=UTF-8"}
@@ -234,7 +234,7 @@
 
                             let data_response_reg = "";
                             if(validar(nombre, apellido, username, contrasenia, contrasenia_conf)){
-                                const req = await fetch('http://localhost:3333/registro', {
+                                const req = await fetch('http://52.15.73.1:3333/registro', {
                                     method: "POST",
                                     body: JSON.stringify(data),
                                     headers: {"Content-type": "application/json; charset=UTF-8"}
@@ -249,7 +249,7 @@
                                     pass: contrasenia
                                 };
                                 let data_response_ver = "";
-                                const req_ver = await fetch('http://localhost:3333/verificar', {
+                                const req_ver = await fetch('http://52.15.73.1:3333/verificar', {
                                     method: "POST",
                                     body: JSON.stringify(_data_),
                                     headers: {"Content-type": "application/json; charset=UTF-8"}

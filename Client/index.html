@@ -148,7 +148,7 @@
                     }
                     let data_response = "";
                     if(validar(username, contrasenia)){
-                        const req = await fetch('http://localhost:3333/login', {
+                        const req = await fetch('http://52.15.73.1:3333/login', {
                             method: "POST",
                             body: JSON.stringify(_data),
                             headers: {"Content-type": "application/json; charset=UTF-8"}

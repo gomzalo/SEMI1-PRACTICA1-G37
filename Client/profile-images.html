@@ -703,7 +703,7 @@
                   $.ajax({
                      
                      //url: 'https://reqres.in/api/users?page='+ 0,
-                     url: "http://localhost:3333/getFotos",
+                     url: "http://52.15.73.1:3333/getFotos",
                      // 	"method": "GET",,
                      // headers: {"Content-Type": "application/json"},
                      data: {
@@ -757,7 +757,7 @@
                               if(value == "Perfil"){
                                  
                                  $.ajax({
-                                 url: "http://localhost:3333/getFotos",
+                                 url: "http://52.15.73.1:3333/getFotos",
                                  data: {
                                     "username": username,
                                     "album": "fotos_perfil"
@@ -839,6 +839,17 @@
                   location="index.html";
                }
             });
+      </script>
+      <!-- CHAT AWS -->
+      <script type="text/javascript">
+         (function(d, m){
+             var kommunicateSettings = 
+                 {"appId":"2bede7c49357ba1b01c6fda2c7ac675fb","popupWidget":true,"automaticChatOpenOnNavigation":true};
+             var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+             s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+             var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+             window.kommunicate = m; m._globals = kommunicateSettings;
+         })(document, window.kommunicate || {});
       </script>
       <!-- SCRIPTS -->
    </body>
