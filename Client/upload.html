@@ -730,7 +730,7 @@
                   // /////////// Editando datos usuario /////////////
                   // data to be sent to the POST request
                      let data_response = "";
-                     const req = await fetch('http://localhost:3333/obtenerTexto', {
+                     const req = await fetch('http://52.15.73.1:3333/obtenerTexto', {
                            method: "POST",
                            body: JSON.stringify(data),
                            headers: {"Content-type": "application/json; charset=UTF-8"}
@@ -813,7 +813,7 @@
          //          // /////////// Editando datos usuario /////////////
          //          // data to be sent to the POST request
          //             let data_response = "";
-         //             const req = await fetch('http://localhost:3333/obtenerTexto', {
+         //             const req = await fetch('http://52.15.73.1:3333/obtenerTexto', {
          //                   method: "POST",
          //                   body: JSON.stringify(data),
          //                   headers: {"Content-type": "application/json; charset=UTF-8"}
@@ -892,7 +892,7 @@
                      // data to be sent to the POST request
                      if(validar(nombre, descripcion)){
                         let data_response = "";
-                        const req = await fetch('http://localhost:3333/subir', {
+                        const req = await fetch('http://52.15.73.1:3333/subir', {
                               method: "POST",
                               body: JSON.stringify(data),
                               headers: {"Content-type": "application/json; charset=UTF-8"}
