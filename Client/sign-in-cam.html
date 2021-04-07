@@ -193,7 +193,7 @@
                 console.log(data);
                 // $.ajax({  
                 //     type: 'POST',  
-                //     url: 'http://52.15.73.1:3333/login_cam',  
+                //     url: 'http://localhost:3333/login_cam',  
                 //     data: '{ "imageData" : "' + imagebase64data + '" }',  
                 //     contentType: 'application/json; charset=utf-8',  
                 //     dataType: 'text',  
@@ -213,7 +213,7 @@
                     // }
                     let data_response = "";
                     if(validar(username)){
-                        const req = await fetch('http://52.15.73.1:3333/loginPorFoto', {
+                        const req = await fetch('http://localhost:3333/loginPorFoto', {
                             method: "POST",
                             body: JSON.stringify(data),
                             headers: {"Content-type": "application/json; charset=UTF-8"}
