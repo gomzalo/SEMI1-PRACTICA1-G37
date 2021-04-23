@@ -517,7 +517,7 @@ app.post('/subir', (req, res) => {
   //Imagen
   let name = body.nombre;
   let descripcion = body.descripcion;
-  let base64String = body.foto_b64.split(',').pop();;
+  let base64String = body.foto_b64.split(',').pop();
   let extension = body.foto_ext;
   // Usuario
   let id_user = body.id_user;
